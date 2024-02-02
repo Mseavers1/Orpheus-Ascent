@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt0u5yb0dh4or"]
+
+[ext_resource type="Script" path="res://game_hud.gd" id="1_21fxh"]
+[ext_resource type="FontFile" uid="uid://dupujuykloqho" path="res://Assets/Fonts/TitanOne-Regular.ttf" id="1_stvuw"]
+
+[node name="Game_HUD" type="CanvasLayer"]
+script = ExtResource("1_21fxh")
+
+[node name="Top_Name" type="Label" parent="."]
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 184.0
+offset_bottom = 51.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("1_stvuw")
+theme_override_font_sizes/font_size = 40
+text = "Player 1
+"
+
+[node name="Top_Score" type="Label" parent="Top_Name"]
+offset_top = 44.0
+offset_right = 178.0
+offset_bottom = 90.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("1_stvuw")
+theme_override_font_sizes/font_size = 35
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttom_Name" type="Label" parent="."]
+offset_left = 532.0
+offset_top = 426.0
+offset_right = 710.0
+offset_bottom = 472.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("1_stvuw")
+theme_override_font_sizes/font_size = 40
+text = "Player 2"
+
+[node name="Bottom_Score" type="Label" parent="Buttom_Name"]
+offset_top = -32.0
+offset_right = 178.0
+offset_bottom = 14.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("1_stvuw")
+theme_override_font_sizes/font_size = 35
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Turn_Display" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -55.0
+offset_right = 67.605
+offset_bottom = -4.0
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("1_stvuw")
+theme_override_font_sizes/font_size = 20
+text = "P1
+Turn"
+horizontal_alignment = 1
+vertical_alignment = 1

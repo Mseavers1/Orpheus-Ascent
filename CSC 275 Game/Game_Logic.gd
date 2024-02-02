@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node
 
 var currentTurn = 0 # 0 - Top | 1 - Bottom
 var scores = [0, 0]
@@ -12,20 +12,40 @@ func _startMatch():
 func _nextTurn():
 	currentTurn = (currentTurn + 1) % 2
 	
+	# Animation to display the next turn?
+	# Update turn counter display
+	$Game_HUD._updateTurnDisplay(_getCurrentTurnName())
+	
 	# Await User Input or AI Input
 	
+# Returns the name of the user of whoever turn it is
+func _getCurrentTurnName():
+	# TODO - Determine if it players or bots
+	
+	# Top
+	if currentTurn == 0:
+		return "P1"
+	
+	# Bottom
+	return "P2"
+
 # Called when the user gets to play again
 func _repeatTurn():
+	
+	# Animation to tell it the player turn again?
+	# Small text that tells its the player turn?
+	
 	pass
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func _init():
 	_startMatch()
 	
 	# Temp
 	#_movePieceBottom(4)
 	#_print()
 
+func _ready():
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
