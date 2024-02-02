@@ -1,20 +1,35 @@
 extends Sprite2D
 
+var currentTurn = 0 # 0 - Top | 1 - Bottom
 var scores = [0, 0]
 
-var board = [[0, 14], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+var board
+
+func _startMatch():
+	board = [[4, 4], [4, 4], [4, 4], [4, 4], [4, 4], [4, 4]]
+
+# Called when its the next user's turn (No repeats)
+func _nextTurn():
+	currentTurn = (currentTurn + 1) % 2
+	
+	# Await User Input or AI Input
+	
+# Called when the user gets to play again
+func _repeatTurn():
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Temp - testing only
-	_movePieceBottom(0)
+	_startMatch()
+	_movePieceBottom(4)
 	_print()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	
+
+# Temp	
 func _print():
 	print(board)
 	print(scores)
@@ -42,6 +57,11 @@ func _movePieceTop(selectedIndex):
 		if nextIndex == -1:
 			scores[0] += 1
 			
+			# Check if the user plays again
+			if i + 1 == count:
+				_repeatTurn()
+				return
+			
 		# Logic for when the marble lands past the home spot
 		elif nextIndex < -1:
 			# Indices -2 to -7 refer to the bottom cells
@@ -53,6 +73,7 @@ func _movePieceTop(selectedIndex):
 			# Move to next cell and add a marble
 			board[nextIndex][0] += 1
 			
+	_nextTurn()
 			
 # Called when the bottom user selects a cell
 func _movePieceBottom(selectedIndex):
@@ -77,6 +98,11 @@ func _movePieceBottom(selectedIndex):
 		if nextIndex == 6:
 			scores[1] += 1
 			
+			# Check if the user plays again
+			if i + 1 == count:
+				_repeatTurn()
+				return
+			
 		# Logic for when the marble lands past the home spot
 		elif nextIndex > 6:
 			# Indices 7 to 12 refer to the top cells
@@ -89,5 +115,5 @@ func _movePieceBottom(selectedIndex):
 		else:
 			# Move to next cell and add a marble
 			board[nextIndex][1] += 1
-	
+	_nextTurn()
 	
