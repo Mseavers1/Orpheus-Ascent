@@ -21,8 +21,10 @@ func _repeatTurn():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_startMatch()
-	_movePieceBottom(4)
-	_print()
+	
+	# Temp
+	#_movePieceBottom(4)
+	#_print()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
