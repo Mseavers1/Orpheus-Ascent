@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="CSC_275_Game"
+run/main_scene="res://board.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=480
 
 [dotnet]
 

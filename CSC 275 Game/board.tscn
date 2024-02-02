@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cplu72250jfm0"]
+
+[ext_resource type="Script" path="res://Game_Logic.gd" id="1_qxgxf"]
+
+[node name="Board" type="Sprite2D"]
+script = ExtResource("1_qxgxf")
