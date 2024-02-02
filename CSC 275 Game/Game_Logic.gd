@@ -7,6 +7,7 @@ var board
 
 func _startMatch():
 	board = [[4, 4], [4, 4], [4, 4], [4, 4], [4, 4], [4, 4]]
+	$Board._setupBoard()
 
 # Called when its the next user's turn (No repeats)
 func _nextTurn():
@@ -37,15 +38,8 @@ func _repeatTurn():
 	
 	pass
 
-func _init():
-	_startMatch()
-	
-	# Temp
-	#_movePieceBottom(4)
-	#_print()
-
 func _ready():
-	pass
+	_startMatch()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

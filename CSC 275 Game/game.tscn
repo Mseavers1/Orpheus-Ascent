@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://db8xt2hlxfl8v"]
+[gd_scene load_steps=4 format=3 uid="uid://db8xt2hlxfl8v"]
 
 [ext_resource type="Script" path="res://Game_Logic.gd" id="1_3gq04"]
 [ext_resource type="PackedScene" uid="uid://dt0u5yb0dh4or" path="res://game_hud.tscn" id="1_cmsds"]
+[ext_resource type="PackedScene" uid="uid://cop4ke0na0tox" path="res://board.tscn" id="2_680n0"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_3gq04")
@@ -15,3 +16,6 @@ grow_vertical = 2
 color = Color(0.678431, 0.835294, 1, 1)
 
 [node name="Game_HUD" parent="." instance=ExtResource("1_cmsds")]
+
+[node name="Board" parent="." instance=ExtResource("2_680n0")]
+position = Vector2(113, 135)

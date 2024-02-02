@@ -20,6 +20,7 @@ text = "Player 1
 "
 
 [node name="Top_Score" type="Label" parent="Top_Name"]
+layout_mode = 0
 offset_top = 44.0
 offset_right = 178.0
 offset_bottom = 90.0
@@ -45,6 +46,7 @@ theme_override_font_sizes/font_size = 40
 text = "Player 2"
 
 [node name="Bottom_Score" type="Label" parent="Buttom_Name"]
+layout_mode = 0
 offset_top = -32.0
 offset_right = 178.0
 offset_bottom = 14.0
