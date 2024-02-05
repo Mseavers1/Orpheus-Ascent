@@ -8,6 +8,9 @@ var board
 func _startMatch():
 	board = [[4, 4], [4, 4], [4, 4], [4, 4], [4, 4], [4, 4]]
 	$Board._setupBoard()
+	$Game_HUD._starting_score()
+	print(board)
+			
 
 # Called when its the next user's turn (No repeats)
 func _nextTurn():
@@ -72,6 +75,7 @@ func _movePieceTop(selectedIndex):
 		# Logic for when the marble lands in home spot (-1)
 		if nextIndex == -1:
 			scores[0] += 1
+			$Game_HUD._set_top_score(scores[0])
 			
 			# Check if the user plays again
 			if i + 1 == count:
@@ -113,6 +117,7 @@ func _movePieceBottom(selectedIndex):
 		# Logic for when the marble lands in home spot (6)
 		if nextIndex == 6:
 			scores[1] += 1
+			$Game_HUD._set_bottom_score(scores[1])
 			
 			# Check if the user plays again
 			if i + 1 == count:

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://evxth38dpu4a"]
+
+[ext_resource type="Script" path="res://mouse_click_checker.gd" id="1_jwn5t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j2jlg"]
+radius = 3.16228
+
+[node name="Mouse Click Checker" type="Area2D"]
+script = ExtResource("1_jwn5t")
+
+[node name="Col" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j2jlg")
+
+[node name="Visability" type="ColorRect" parent="."]
+visible = false
+offset_left = -21.0
+offset_top = -20.0
+offset_right = 19.0
+offset_bottom = 20.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

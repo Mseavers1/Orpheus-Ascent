@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://db8xt2hlxfl8v"]
+[gd_scene load_steps=5 format=3 uid="uid://db8xt2hlxfl8v"]
 
 [ext_resource type="Script" path="res://Game_Logic.gd" id="1_3gq04"]
 [ext_resource type="PackedScene" uid="uid://dt0u5yb0dh4or" path="res://game_hud.tscn" id="1_cmsds"]
 [ext_resource type="PackedScene" uid="uid://cop4ke0na0tox" path="res://board.tscn" id="2_680n0"]
+[ext_resource type="PackedScene" uid="uid://evxth38dpu4a" path="res://mouse_click_checker.tscn" id="4_pad23"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_3gq04")
@@ -19,3 +20,5 @@ color = Color(0.678431, 0.835294, 1, 1)
 
 [node name="Board" parent="." instance=ExtResource("2_680n0")]
 position = Vector2(113, 135)
+
+[node name="Mouse Click Checker" parent="." instance=ExtResource("4_pad23")]

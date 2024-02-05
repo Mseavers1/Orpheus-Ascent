@@ -33,7 +33,7 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buttom_Name" type="Label" parent="."]
+[node name="Bottom_Name" type="Label" parent="."]
 offset_left = 532.0
 offset_top = 426.0
 offset_right = 710.0
@@ -45,7 +45,7 @@ theme_override_fonts/font = ExtResource("1_stvuw")
 theme_override_font_sizes/font_size = 40
 text = "Player 2"
 
-[node name="Bottom_Score" type="Label" parent="Buttom_Name"]
+[node name="Bottom_Score" type="Label" parent="Bottom_Name"]
 layout_mode = 0
 offset_top = -32.0
 offset_right = 178.0

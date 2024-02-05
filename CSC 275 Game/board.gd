@@ -6,7 +6,7 @@ const StartingMarblesInCells = 4
 var cells
 
 func _setupBoard():
-	cells = [[$Area/Cell_0_0, $Area/Cell_0_1], [$Area/Cell_1_0, $Area/Cell_1_1], [$Area/Cell_2_0, $Area/Cell_2_1], [$Area/Cell_3_0, $Area/Cell_3_1], [$Area/Cell_4_0, $Area/Cell_4_1], [$Area/Cell_5_0, $Area/Cell_5_1]]
+	cells = [[$Spawning_Area/Cell_0_0, $Spawning_Area/Cell_0_1], [$Spawning_Area/Cell_1_0, $Spawning_Area/Cell_1_1], [$Spawning_Area/Cell_2_0, $Spawning_Area/Cell_2_1], [$Spawning_Area/Cell_3_0, $Spawning_Area/Cell_3_1], [$Spawning_Area/Cell_4_0, $Spawning_Area/Cell_4_1], [$Spawning_Area/Cell_5_0, $Spawning_Area/Cell_5_1]]
 	
 	# Generate the starting marble count into each cell
 	for x in range(6):
@@ -34,3 +34,4 @@ func gen_random_pos(area):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
