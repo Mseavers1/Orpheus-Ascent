@@ -62,6 +62,9 @@ func _movePieceTop(selectedIndex):
 	# Empty current cell
 	board[selectedIndex][0] = 0
 	
+	# Animate Marbles
+	$Board._move_marbles(selectedIndex, 0)
+	
 	# Continue through cells until all marbles from the selected cell are dispersed
 	for i in range(count):
 		
