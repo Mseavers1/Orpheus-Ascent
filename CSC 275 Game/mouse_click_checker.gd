@@ -18,6 +18,10 @@ func _process(delta):
 		if (coords == Vector2(-1, -1)):
 			return
 			
+		# Checks if selected cell is empty
+		if (get_parent().board[coords.x][coords.y] == 0):
+			return
+			
 		# Move Piece based on selection
 		# TODO = If ai turn, move automatically
 		if coords.y == 0:
