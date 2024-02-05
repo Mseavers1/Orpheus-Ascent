@@ -3,8 +3,14 @@ extends Sprite2D
 @export var marblePrefab: PackedScene
 const StartingMarblesInCells = 4
 
+var top_home
+var bottom_home
 var visual_cells = [[[], []], [[], []], [[], []], [[], []], [[], []], [[], []]]
 var cells
+
+func _ready():
+	top_home = $Top_Home
+	bottom_home = $Bottom_Home
 
 # Called at the start of the game to set up the starting board
 func _setupBoard():
@@ -51,21 +57,21 @@ func _move_marbles(x, y):
 		await tween.finished
 		tween.stop()
 		
-		# Move nth marble to the next cell
+		# Move the marble to the next cell
 		tween = create_tween()
 		tween.tween_property(marble, "position", Vector2(cells[next_cell][cur_row].position.x, marble.position.y), 0.1).from(marble.position)
 		
 		await tween.finished
 		tween.stop()
 		
-		# Move nth marble to the down
+		# Move the marble to the down
 		tween = create_tween()
 		tween.tween_property(marble, "position", Vector2(marble.position.x, marble.position.y + 50), 0.1).from(marble.position)
 		
 		await tween.finished
 		tween.stop()
 		
-		# Update nth cell with new marble
+		# Adds the marble to the next cell array
 		visual_cells[next_cell][cur_row].push_back(marble)
 		
 		next_cell -= 1

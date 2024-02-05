@@ -62,11 +62,21 @@ func _movePieceTop(selectedIndex):
 	# Empty current cell
 	board[selectedIndex][0] = 0
 	
-	# Animate Marbles
-	$Board._move_marbles(selectedIndex, 0)
+	# Prepare to animate marble
+	var marbles = $Board.visual_cells[selectedIndex][0]
 	
 	# Continue through cells until all marbles from the selected cell are dispersed
 	for i in range(count):
+		
+		# Get a marble in the cell
+		var marble = marbles[i]
+		
+		# Move marble up
+		var tween = create_tween()
+		tween.tween_property(marble, "position", Vector2(marble.position.x, marble.position.y - 50), 0.1).from(marble.position)
+		
+		await tween.finished
+		tween.stop()
 		
 		# Find the index for the next cell
 		var nextIndex = selectedIndex - 1 - (i % 13)
@@ -80,6 +90,21 @@ func _movePieceTop(selectedIndex):
 			scores[0] += 1
 			$Game_HUD._set_top_score(scores[0])
 			
+			# Move the marble visibly
+			tween = create_tween()
+			tween.tween_property(marble, "position", Vector2($Board.top_home.position.x, marble.position.y), 0.1).from(marble.position)
+			
+			await tween.finished
+			tween.stop()
+			
+			# Move the marble down
+			# TODO - Move in random positions along the y-axis
+			tween = create_tween()
+			tween.tween_property(marble, "position", Vector2(marble.position.x, marble.position.y + 50), 0.1).from(marble.position)
+			
+			await tween.finished
+			tween.stop()
+			
 			# Check if the user plays again
 			if i + 1 == count:
 				_repeatTurn()
@@ -91,10 +116,47 @@ func _movePieceTop(selectedIndex):
 			# -- +2 due to the score index and since index 0 is the start of the bottom) -- 
 			board[abs(nextIndex + 2)][1] += 1
 			
+			# Move the marble visibly
+			tween = create_tween()
+			tween.tween_property(marble, "position", Vector2($Board.cells[abs(nextIndex + 2)][1].position.x, marble.position.y), 0.1).from(marble.position)
+			
+			await tween.finished
+			tween.stop()
+			
+			# Move the marble down
+			tween = create_tween()
+			tween.tween_property(marble, "position", Vector2(marble.position.x, $Board.cells[abs(nextIndex + 2)][1].position.y), 0.1).from(marble.position)
+			
+			await tween.finished
+			tween.stop()
+			
+			# Adds the marble to the next cell in the array
+			$Board.visual_cells[abs(nextIndex + 2)][1].push_back(marble)
+			
 		# Logic for when the marble is before the home spot (5 to 0)
 		else:
 			# Move to next cell and add a marble
 			board[nextIndex][0] += 1
+			
+			# Move the marble visibly
+			tween = create_tween()
+			tween.tween_property(marble, "position", Vector2($Board.cells[nextIndex][0].position.x, marble.position.y), 0.1).from(marble.position)
+			
+			await tween.finished
+			tween.stop()
+			
+			# Move the marble down
+			tween = create_tween()
+			tween.tween_property(marble, "position", Vector2(marble.position.x, marble.position.y + 50), 0.1).from(marble.position)
+			
+			await tween.finished
+			tween.stop()
+		
+			# Adds the marble to the next cell in the array
+			$Board.visual_cells[nextIndex][0].push_back(marble)
+		
+	
+	$Board.visual_cells[selectedIndex][0] = []
 			
 	_nextTurn()
 			
@@ -107,8 +169,21 @@ func _movePieceBottom(selectedIndex):
 	# Empty current cell
 	board[selectedIndex][1] = 0
 	
+	# Prepare to animate marble
+	var marbles = $Board.visual_cells[selectedIndex][1]
+	
 	# Continue through cells until all marbles from the selected cell are dispersed
 	for i in range(count):
+		
+		# Get a marble in the cell
+		var marble = marbles[i]
+		
+		# Move marble down
+		var tween = create_tween()
+		tween.tween_property(marble, "position", Vector2(marble.position.x, marble.position.y + 50), 0.1).from(marble.position)
+		
+		await tween.finished
+		tween.stop()
 		
 		# Find the index for the next cell
 		var nextIndex = selectedIndex + 1 + (i % 13)
@@ -121,6 +196,21 @@ func _movePieceBottom(selectedIndex):
 		if nextIndex == 6:
 			scores[1] += 1
 			$Game_HUD._set_bottom_score(scores[1])
+			
+			# Move the marble visibly
+			tween = create_tween()
+			tween.tween_property(marble, "position", Vector2($Board.bottom_home.position.x, marble.position.y), 0.1).from(marble.position)
+			
+			await tween.finished
+			tween.stop()
+			
+			# Move the marble up
+			# TODO - Move in random positions along the y-axis
+			tween = create_tween()
+			tween.tween_property(marble, "position", Vector2(marble.position.x, marble.position.y - 50), 0.1).from(marble.position)
+			
+			await tween.finished
+			tween.stop()
 			
 			# Check if the user plays again
 			if i + 1 == count:
@@ -135,9 +225,43 @@ func _movePieceBottom(selectedIndex):
 			
 			board[findBottomIndex][0] += 1
 			
+			# Move the marble visibly
+			tween = create_tween()
+			tween.tween_property(marble, "position", Vector2($Board.cells[findBottomIndex][0].position.x, marble.position.y), 0.1).from(marble.position)
+			
+			await tween.finished
+			tween.stop()
+			
+			# Move the marble up
+			tween = create_tween()
+			tween.tween_property(marble, "position", Vector2(marble.position.x, $Board.cells[findBottomIndex][0].position.y), 0.1).from(marble.position)
+			
+			# Adds the marble to the next cell in the array
+			$Board.visual_cells[findBottomIndex][0].push_back(marble)
+			
 		# Logic for when the marble is before the home spot (0 to 5)
 		else:
 			# Move to next cell and add a marble
 			board[nextIndex][1] += 1
+			
+			# Move the marble visibly
+			tween = create_tween()
+			tween.tween_property(marble, "position", Vector2($Board.cells[nextIndex][1].position.x, marble.position.y), 0.1).from(marble.position)
+			
+			await tween.finished
+			tween.stop()
+			
+			# Move the marble up
+			tween = create_tween()
+			tween.tween_property(marble, "position", Vector2(marble.position.x, marble.position.y - 50), 0.1).from(marble.position)
+			
+			await tween.finished
+			tween.stop()
+		
+			# Adds the marble to the next cell in the array
+			$Board.visual_cells[nextIndex][1].push_back(marble)
+		
+	
+	$Board.visual_cells[selectedIndex][1] = []
 	_nextTurn()
 	
