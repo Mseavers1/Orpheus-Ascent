@@ -22,7 +22,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 150
-text = "(Game Title)"
+text = "Orpheus’s
+Ascent
+"
+horizontal_alignment = 1
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 metadata/_edit_lock_ = true
