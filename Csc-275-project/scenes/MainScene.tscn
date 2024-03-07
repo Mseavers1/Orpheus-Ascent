@@ -1,3 +1,33 @@
-[gd_scene format=3 uid="uid://dprabtfd8kumd"]
+[gd_scene load_steps=5 format=3 uid="uid://dprabtfd8kumd"]
+
+[ext_resource type="Script" path="res://scripts/MainScene.gd" id="1_gntte"]
+[ext_resource type="PackedScene" uid="uid://yeugcqmy5fki" path="res://scenes/MainMenu.tscn" id="2_wpr7x"]
+[ext_resource type="PackedScene" uid="uid://bgn04w7ih44h" path="res://scenes/PlayerCharacter.tscn" id="3_jn8ay"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7qd1"]
+size = Vector2(2024, 229)
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_gntte")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_wpr7x")]
+
+[node name="DemoFloor" type="StaticBody2D" parent="."]
+
+[node name="Test floor" type="ColorRect" parent="DemoFloor"]
+offset_left = -6.0
+offset_top = 960.0
+offset_right = 2013.0
+offset_bottom = 1187.0
+color = Color(0.592157, 0.313726, 0.121569, 1)
+
+[node name="GroundCollision" type="CollisionShape2D" parent="DemoFloor"]
+position = Vector2(1003, 1076.5)
+shape = SubResource("RectangleShape2D_l7qd1")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("3_jn8ay")]
+position = Vector2(853, 287)
+
+[connection signal="credits_button_pressed" from="MainMenu" to="." method="_on_main_menu_credits_button_pressed"]
+[connection signal="exit_button_pressed" from="MainMenu" to="." method="_on_main_menu_exit_button_pressed"]
+[connection signal="game_start_button_pressed" from="MainMenu" to="." method="_on_main_menu_game_start_button_pressed"]
