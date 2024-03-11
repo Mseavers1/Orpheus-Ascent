@@ -16,6 +16,9 @@ func _process(delta):
 	if Input.is_action_pressed("move-right") :
 		velocity.x += 1;
 		
+	if Input.is_action_pressed("move-down") :
+		velocity.y += 1;
+		
 	if Input.is_action_pressed("jump") :
 		velocity.y -= 1;
 		
@@ -23,7 +26,7 @@ func _process(delta):
 		velocity = velocity.normalized() * speed;
 		
 	position += velocity*delta;
-	position = position.clamp(Vector2.ZERO, screen_size)
+	# position = position.clamp(Vector2.ZERO, screen_size)
 		
-	if velocity.y >= 1:
-		velocity -= 1;
+	#if velocity.y >= 1:
+	#	velocity -= 1;

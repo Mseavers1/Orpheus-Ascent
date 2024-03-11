@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/PlayerCharacter.gd" id="1_vwyqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxqxw"]
-size = Vector2(158, 286)
+size = Vector2(158, 287)
 
 [node name="PlayerCharacter" type="RigidBody2D"]
 script = ExtResource("1_vwyqc")
@@ -15,5 +15,5 @@ offset_right = 314.0
 offset_bottom = 398.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(234, 257)
+position = Vector2(234, 256.5)
 shape = SubResource("RectangleShape2D_nxqxw")

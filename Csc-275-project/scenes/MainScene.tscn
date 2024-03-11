@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/MainScene.gd" id="1_gntte"]
 [ext_resource type="PackedScene" uid="uid://yeugcqmy5fki" path="res://scenes/MainMenu.tscn" id="2_wpr7x"]
-[ext_resource type="PackedScene" path="res://scenes/PlayerCharacter.tscn" id="3_jn8ay"]
+[ext_resource type="PackedScene" uid="uid://bgn04w7ih44h" path="res://scenes/PlayerCharacter.tscn" id="3_jn8ay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7qd1"]
 size = Vector2(2024, 229)
