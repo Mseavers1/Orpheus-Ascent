@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cykm5wcd57mry"]
+[gd_scene load_steps=5 format=3 uid="uid://cykm5wcd57mry"]
 
 [ext_resource type="Script" path="res://scripts/PlatformGeneration.gd" id="1_bx10i"]
 [ext_resource type="PackedScene" uid="uid://cohf1yqeswom8" path="res://scenes/Floor.tscn" id="2_5ofet"]
 [ext_resource type="PackedScene" uid="uid://bgn04w7ih44h" path="res://scenes/PlayerCharacter.tscn" id="3_xbidr"]
+[ext_resource type="PackedScene" uid="uid://dim5l11cdha5l" path="res://scenes/Lava.tscn" id="4_w5ylt"]
 
 [node name="TempScene" type="Node2D" node_paths=PackedStringArray("camera", "player")]
 script = ExtResource("1_bx10i")
@@ -18,3 +19,7 @@ position = Vector2(0, 977)
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_xbidr")]
 position = Vector2(919, 820)
 gravity_scale = 0.0
+
+[node name="Lava" parent="." instance=ExtResource("4_w5ylt")]
+z_index = 1
+position = Vector2(960, 1059)

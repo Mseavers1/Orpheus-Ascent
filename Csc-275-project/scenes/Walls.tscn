@@ -5,9 +5,11 @@
 [node name="Platform6" type="Node2D"]
 
 [node name="Wall" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(-928, 540)
 texture = ExtResource("1_orr4f")
 
 [node name="Wall2" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(928, 540)
 texture = ExtResource("1_orr4f")
