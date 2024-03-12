@@ -3,17 +3,16 @@
 [ext_resource type="Script" path="res://scripts/PlayerCharacter.gd" id="1_vwyqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxqxw"]
-size = Vector2(158, 287)
+size = Vector2(160, 284)
 
 [node name="PlayerCharacter" type="RigidBody2D"]
 script = ExtResource("1_vwyqc")
 
 [node name="MockColor" type="ColorRect" parent="."]
-offset_left = 154.0
-offset_top = 114.0
-offset_right = 314.0
-offset_bottom = 398.0
+offset_left = -80.0
+offset_top = -142.0
+offset_right = 80.0
+offset_bottom = 142.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(234, 256.5)
 shape = SubResource("RectangleShape2D_nxqxw")
