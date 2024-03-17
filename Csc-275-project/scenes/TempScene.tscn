@@ -22,4 +22,4 @@ gravity_scale = 0.0
 
 [node name="Lava" parent="." instance=ExtResource("4_w5ylt")]
 z_index = 1
-position = Vector2(960, 1059)
+position = Vector2(0, 1033)

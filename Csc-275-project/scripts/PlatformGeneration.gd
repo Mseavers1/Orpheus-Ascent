@@ -45,9 +45,9 @@ var quadLast = -2 # loaded behind
 var quadCurrent = 0
 var quadFirst = 2 # loaded ahead
 
-# Divisions within Quads
-var divisorX = 3
-var divisorY = 3 # Can't be less than the minPlatformsPerY
+# Divisions within Quads (grid)
+var divisorX = 6
+var divisorY = 4 # Can't be less than the minPlatformsPerY
 
 # Find top and center of the divisors
 var topX = 1920 / divisorX
@@ -152,7 +152,13 @@ func _generate_platforms_in_quad(quad):
 			var isLastCol = false
 			
 			if i == divisorX - 1:
-				isLastCol = true	
+				isLastCol = true
+			
+			# temp
+			var plat = platforms[0].instantiate()
+			plat.set_name("Platform")
+			add_child(plat)
+			plat.position = Vector2(centerX + (topX * i), (topY * j) - (1080 * quad))
 			
 			# Checks if platform can spawn in section
 			if _can_spawn_platforms_in_quad(rowPlatforms, totalPlatforms, y, isLastCol):
@@ -167,7 +173,7 @@ func _generate_platforms_in_quad(quad):
 				totalPlatforms += 1
 				
 				# Spawn Platform
-				_generate_platform_in_divisor(i, j, platformArray, quad)
+				#_generate_platform_in_divisor(i, j, platformArray, quad)
 				
 
 # Returns if platforms can spawn based on current number of platforms

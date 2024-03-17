@@ -8,8 +8,9 @@ var maxLavaSpeed = 110
 var time = 0
 var lavaSpeed = 0
 
-func _start():
+func _ready():
 	lavaSpeed = minLavaSpeed
+	$AnimatedSprite2D.play()
 
 # Functions that controls how fast the lava goes
 func _speed_function_linear(slope):
