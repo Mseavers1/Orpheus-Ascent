@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://igqdaclt025t"]
+[gd_scene load_steps=2 format=3 uid="uid://dckv0men4gq6j"]
 
-[ext_resource type="Texture2D" uid="uid://ciqyuhkdpjcgb" path="res://Images/Sprite640x64.png" id="1_fu410"]
+[ext_resource type="Texture2D" uid="uid://di0weon8moak1" path="res://Images/Platform64x640.png" id="1_7cwf2"]
 
-[node name="Platform_640x64" type="Node2D"]
+[node name="Platform_64x640" type="Node2D"]
 
-[node name="Sprite640x64" type="Sprite2D" parent="."]
-texture = ExtResource("1_fu410")
+[node name="Platform64x640" type="Sprite2D" parent="."]
+position = Vector2(0, 288)
+texture = ExtResource("1_7cwf2")

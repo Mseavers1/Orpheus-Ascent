@@ -23,8 +23,9 @@ func _speed_function_pow(slope, exp):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.y -= delta * lavaSpeed
-	time += delta
+	pass
+	# position.y -= delta * lavaSpeed
+	# time += delta
 	
-	if lavaSpeed < maxLavaSpeed:
-		_speed_function_linear(0.5)
+	# if lavaSpeed < maxLavaSpeed:
+		# _speed_function_linear(0.5)

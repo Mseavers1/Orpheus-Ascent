@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuykclf8t6cgp"]
+
+[ext_resource type="Texture2D" uid="uid://m7wrpxfbgs4b" path="res://Images/PlatformT320x320.png" id="1_5s3dw"]
+
+[node name="PlatformT_320x320" type="Node2D"]
+
+[node name="PlatformT320x320" type="Sprite2D" parent="."]
+position = Vector2(1, -132)
+texture = ExtResource("1_5s3dw")

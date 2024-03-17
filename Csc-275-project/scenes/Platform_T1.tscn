@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbi5tvmxdmpva"]
-
-[ext_resource type="Texture2D" uid="uid://0fco4qlygotv" path="res://Images/Platform_T1.png" id="1_bbjge"]
-
-[node name="Platform_T1" type="Node2D"]
-
-[node name="PlatformT1" type="Sprite2D" parent="."]
-position = Vector2(0, 128)
-texture = ExtResource("1_bbjge")

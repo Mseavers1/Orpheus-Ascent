@@ -5,34 +5,40 @@ extends Node2D
 
 # Platforms
 var platform64x64 = load("res://scenes/Platform_64x64.tscn")
-var platform64x192 = load("res://scenes/Platform_64x192.tscn")
-var platform64x320 = load("res://scenes/Platform_64x320.tscn")
-var platform64x640 = load("res://scenes/Platform_64x640.tscn")
 var platform192x64 = load("res://scenes/Platform_192x64.tscn")
-var platform320x64 = load("res://scenes/Platform_320x64.tscn") 
+var platform256x64 = load("res://scenes/Platform_256x64.tscn")
+var platform320x64 = load("res://scenes/Platform_320x64.tscn")
 var platform640x64 = load("res://scenes/Platform_640x64.tscn")
-var platformT1 = load("res://scenes/Platform_T1.tscn")
-var platformT2 = load("res://scenes/Platform_T2.tscn")
-var platformDT1 = load("res://scenes/Platform_DT1.tscn")
-var platformDT2 = load("res://scenes/Platform_DT2.tscn")
 
-var platforms = [platform64x64, platform64x192, platform64x320, platform64x640, platform192x64, platform320x64, platform640x64, platformT1, platformT2, platformDT1, platformDT2]
+var platformH_192x192 = load("res://scenes/PlatformH_192x192.tscn")
+var platformH_320x320 = load("res://scenes/PlatformH_320x320.tscn")
+
+var platformL_192x192 = load("res://scenes/PlatformL_192x192.tscn")
+var platformL_320x320 = load("res://scenes/PlatformL_320x320.tscn")
+
+var platformT_192x192 = load("res://scenes/PlatformT_192x192.tscn")
+var platformT_320x320 = load("res://scenes/PlatformT_320x320.tscn")
+
+var platformS_320x320 = load("res://scenes/PlatformS_320x320.tscn")
+
+var platforms = [platform64x64, platform192x64, platform256x64, platform320x64, platform640x64, platformH_192x192, platformH_320x320, platformL_192x192, platformL_320x320, platformT_192x192, platformT_320x320, platformS_320x320]
 
 # Walls
 var walls = load("res://scenes/Walls.tscn")
 
 # Platform Chances -- ADD UP TO 100
 var platform64x64_chance = 9.09
-var platform64x192_chance = 9.09
-var platform64x320_chance = 9.09
-var platform64x640_chance = 9.09
 var platform192x64_chance = 9.09
+var platform256x64_chance = 9.09
 var platform320x64_chance = 9.09
 var platform640x64_chance = 9.09
-var platformT1_chance = 9.09
-var platformT2_chance = 9.09
-var platformDT1_chance = 9.09
-var platformDT2_chance = 9.1
+var platformH_192x192_chance = 9.09
+var platformH_320x320_chance = 9.09
+var platformL_192x192_chance = 9.09
+var platformL_320x320_chance = 9.09
+var platformT_192x192_chance = 9.09
+var platformT_320x320_chance = 8.1
+var platformS_320x320_chance = 1
 
 # Player Tracking
 var quadLast = -2 # loaded behind
@@ -57,16 +63,17 @@ var chanceForPlatformToSpawn = 0.5
 
 # Constants
 var indexOf64x64 = 0
-var indexOf64x192 = 1
-var indexOf64x320 = 2
-var indexOf64x640 = 3
-var indexOf192x64 = 4
-var indexOf320x64 = 5
-var indexOf640x64 = 6
-var indexOfT1 = 7
-var indexOfT2 = 8
-var indexOfDT1 = 9
-var indexOfDT2 = 10
+var indexOf192x64 = 1
+var indexOf256x64 = 2
+var indexOf320x64 = 3
+var indexOf640x64 = 4
+var indexOfH_192x192 = 5
+var indexOfH_320x320 = 6
+var indexOfL_192x192 = 7
+var indexOfL_320x320 = 8
+var indexOfT_192x192 = 9
+var indexOfT_320x320 = 10
+var indexOfS_320x320 = 11
 
 
 func _init():
@@ -74,7 +81,7 @@ func _init():
 
 # Check if chances add up to 100%
 func _error_check():
-	var total = platform64x64_chance + platform64x192_chance + platform64x320_chance + platform64x640_chance + platform192x64_chance + platform320x64_chance + platform640x64_chance + platformT1_chance + platformT2_chance + platformDT1_chance + platformDT2_chance
+	var total = platform64x64_chance + platform192x64_chance + platform256x64_chance + platform320x64_chance + platform640x64_chance + platformH_192x192_chance + platformH_320x320_chance + platformL_192x192_chance + platformL_320x320_chance + platformT_192x192_chance + platformT_320x320_chance + platformS_320x320_chance
 	
 	if str(total) != "100":
 		assert(false, "Platform chances do not add up to 100 --> They add up to " + str(total))
@@ -88,7 +95,7 @@ func _error_check():
 # Returns a random platform index
 func _get_platform():
 	var rand = randf_range(0, 100)
-	var chances = [platform64x64_chance, platform64x192_chance, platform64x320_chance, platform64x640_chance, platform192x64_chance, platform320x64_chance, platform640x64_chance, platformT1_chance, platformT2_chance, platformDT1_chance, platformDT2_chance]
+	var chances = [platform64x64_chance, platform192x64_chance, platform256x64_chance, platform320x64_chance, platform640x64_chance, platformH_192x192_chance, platformH_320x320_chance, platformL_192x192_chance, platformL_320x320_chance, platformT_192x192_chance, platformT_320x320_chance, platformS_320x320_chance]
 	var total = 0
 	
 	for i in len(chances):
@@ -197,7 +204,7 @@ func _generate_platform_in_divisor(i, j, locations, quad):
 		platIndex = _get_platform()
 		
 		# If platform is T2 or 64x640 or 64x320-- Can't spawn unless there is no platforms underneath or if on last row of the 0th quad
-		if platIndex == indexOfT2 or platIndex == indexOf64x640 or platIndex == indexOf64x320:
+		if platIndex == indexOfT_320x320 or platIndex == indexOf640x64 or platIndex == indexOf320x64:
 			
 			print(locations)
 			print(str(y-1) + ", " + str(i))
