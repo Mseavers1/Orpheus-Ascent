@@ -14,10 +14,10 @@ player = NodePath("PlayerCharacter")
 position = Vector2(960, 541)
 
 [node name="Floor" parent="." instance=ExtResource("2_5ofet")]
-position = Vector2(960, 967)
+position = Vector2(0, 977)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_xbidr")]
-position = Vector2(967, 840)
+position = Vector2(943, 876)
 gravity_scale = 0.0
 
 [node name="Lava" parent="." instance=ExtResource("4_w5ylt")]

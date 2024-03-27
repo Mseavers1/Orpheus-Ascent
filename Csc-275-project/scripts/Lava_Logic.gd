@@ -1,4 +1,5 @@
 extends Node2D
+var tempspeed = 200
 
 # Constraints
 var minLavaSpeed = 2
@@ -24,6 +25,20 @@ func _speed_function_pow(slope, exp):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	var velocity = Vector2.ZERO;
+		
+	if Input.is_action_pressed("move-lava-down") :
+		velocity.y += 1;
+		
+	if Input.is_action_pressed("move-lava-up") :
+		velocity.y -= 1;
+		
+	if velocity.length() > 0 :
+		velocity = velocity.normalized() * tempspeed;
+		
+	position += velocity*delta;
+	
 	pass
 	# position.y -= delta * lavaSpeed
 	# time += delta

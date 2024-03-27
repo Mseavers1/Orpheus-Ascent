@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cliivr6nygwhp"
-path="res://.godot/imported/PlayerTemp.png-d9d62aa5e7f5d3dce4bb732c7b412cd4.ctex"
+uid="uid://b0lav8rsadu0w"
+path="res://.godot/imported/Platform128x320.png-d5b2d8a9860361e75741703f33a074c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/PlayerTemp.png"
-dest_files=["res://.godot/imported/PlayerTemp.png-d9d62aa5e7f5d3dce4bb732c7b412cd4.ctex"]
+source_file="res://images/platforms/Platform128x320.png"
+dest_files=["res://.godot/imported/Platform128x320.png-d5b2d8a9860361e75741703f33a074c8.ctex"]
 
 [params]
 
