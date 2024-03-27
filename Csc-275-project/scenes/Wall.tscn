@@ -10,7 +10,6 @@ size = Vector2(64, 1080)
 [node name="Wall" type="Sprite2D" parent="."]
 z_index = 2
 position = Vector2(0, 540)
-scale = Vector2(1, 1)
 texture = ExtResource("1_f4w6u")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Wall"]]

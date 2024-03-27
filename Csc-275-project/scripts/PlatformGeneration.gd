@@ -5,7 +5,7 @@ extends Node2D
 
 # Platform Json
 var platform_file = "res://jsons/platforms.json"
-var platform_marigins = Vector2(64, 64)
+var platform_marigins = Vector2(80, 80)
 
 # Temp Platform Placeholder
 var platform = load("res://scenes/PlaceholderPlatform.tscn")
