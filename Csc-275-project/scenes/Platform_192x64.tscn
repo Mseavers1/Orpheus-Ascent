@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4sk77vll5ol5"]
-
-[ext_resource type="Texture2D" uid="uid://dvi6thj8y6y4t" path="res://Images/Platform192x64.png" id="1_kft35"]
-
-[node name="Platform_64x192" type="Node2D"]
-
-[node name="Platform64x192" type="Sprite2D" parent="."]
-texture = ExtResource("1_kft35")

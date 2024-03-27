@@ -17,7 +17,7 @@ position = Vector2(960, 541)
 position = Vector2(960, 967)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_xbidr")]
-position = Vector2(967, 840)
+position = Vector2(943, 876)
 gravity_scale = 0.0
 
 [node name="Lava" parent="." instance=ExtResource("4_w5ylt")]
