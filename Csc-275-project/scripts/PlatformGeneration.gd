@@ -3,6 +3,14 @@ extends Node2D
 @export var camera: Camera2D
 @export var player: RigidBody2D
 
+# Math script
+var math = preload("res://scripts/Math.gd").new()
+
+# Pickups
+var pickup_file = "res://jsons/pickups.json"
+var coin = load("res://scenes/Coin.tscn")
+var saved_coins := {}
+
 # Platform Json
 var platform_file = "res://jsons/platforms.json"
 var platform_marigins = Vector2(80, 80)
@@ -170,7 +178,7 @@ func _generate_platforms_in_quad(quad):
 				var spawn_platform = true
 				
 				# Wall / Floor Checking 
-				while (do_overlap(topLeft, bottomRight, leftWall_topLeft, leftWall_bottomRight) or do_overlap(topLeft, bottomRight, rightWall_topLeft, rightWall_bottomRight) or do_overlap(topLeft, bottomRight, floor_topLeft, floor_bottomRight)):
+				while (math.do_overlap(topLeft, bottomRight, leftWall_topLeft, leftWall_bottomRight) or math.do_overlap(topLeft, bottomRight, rightWall_topLeft, rightWall_bottomRight) or math.do_overlap(topLeft, bottomRight, floor_topLeft, floor_bottomRight)):
 					
 					# Removes the current
 					available_platforms.erase(str(id))
@@ -236,7 +244,7 @@ func _generate_platforms_in_quad(quad):
 					# print("Comparing rect " + str(topLeft) + " " + str(bottomRight) + " with " + str(curr_topLeft) + " " + str(curr_bottomRight))
 					
 					# Calculate if they collide -- repeat generation until it doesnt collide
-					while (do_overlap(topLeft, bottomRight, curr_topLeft, curr_bottomRight) and spawn_platform):
+					while (math.do_overlap(topLeft, bottomRight, curr_topLeft, curr_bottomRight) and spawn_platform):
 						# print ("Collision Detected")
 						available_platforms.erase(str(id))
 						chances[id] = 0
@@ -294,6 +302,9 @@ func _generate_platforms_in_quad(quad):
 				add_child(plat)
 				plat.position = platformPos
 				
+				# Spawn Pickups?
+				var pickup_spawned = pickups_logic(Vector2(platformPos.x, platformPos.y - (size.y - platform_marigins.y) * 0.5), quad, plat, Vector2(size.x - platform_marigins.x, size.y - platform_marigins.y))
+				
 				if !saved_platforms.has(quad):
 					saved_platforms[quad] = []
 				
@@ -301,7 +312,181 @@ func _generate_platforms_in_quad(quad):
 				stored_arr.append(plat)
 				saved_platforms[quad] = stored_arr
 				# print(str(j) + " " + str(i) + " --> " + str(platformPos) + " QUAD: " + str(quad))
-				plat.generate_platform(name + str(size.x - platform_marigins.x) + "x" + str(size.y - platform_marigins.y), Vector2(size.x - platform_marigins.x, size.y - platform_marigins.y), platformPos)
+				
+				# Spawn Platform
+				plat.generate_platform(name + str(size.x - platform_marigins.x) + "x" + str(size.y - platform_marigins.y), Vector2(size.x, size.y), platformPos, platform_marigins, pickup_spawned)
+
+# Handles spawning pickups and when they should spawn
+func pickups_logic(platform_top, quad, current, currentSize):
+	
+	const checking_range = 500
+	var data = loadData(pickup_file)
+	
+	## Should coin spawn? ##
+	var rand = randf_range(0, 1)
+	
+	# Can a coin spawn?
+	if rand <= data["Coin"]["Spawning_Chance"] and (!saved_coins.has(quad) or len(saved_coins[quad]) < data["Coin"]["Max_Coins_Spawned_Per_Quad"]):
+		
+		# Finds out what type of coin will be spawned (land or air)
+		rand = randf_range(0, 1)
+
+		if rand <= data["Coin"]["Chance_to_Spawn_in_Air"]:
+			
+			# Get platform to connect to
+			var available_platforms = []
+			
+			if saved_platforms.has(quad):
+				for plat in saved_platforms[quad]:
+					available_platforms.append(plat)
+				
+			if quad != 0:
+				for plat in saved_platforms[quad - 1]:
+					available_platforms.append(plat)
+					
+			var selected_platform = available_platforms.pick_random()
+			var spawn_platform = true
+			
+			# Check if that selected platform is too far away
+			while selected_platform != null and math._distance(platform_top, selected_platform.position) > checking_range and !selected_platform.has_pickup:
+				#print(_distance(platform_center, selected_platform.position))
+				available_platforms.erase(selected_platform)
+				selected_platform = available_platforms.pick_random()
+				
+				if len(available_platforms) == 0:
+					spawn_platform = false
+					break
+			
+			# If can not find another platform, spawn a reg coin
+			if !spawn_platform or selected_platform == null or selected_platform.has_pickup:
+				spawn_coin_1(platform_top, quad)
+				return true
+			
+			spawn_coin_2(platform_top, quad, selected_platform, current, currentSize)
+		else:
+			spawn_coin_1(platform_top, quad)
+		
+		return true
+	
+	return false
+
+# Spawn a coin in the air
+func spawn_coin_2(platform_top, quad, other, current, currentSize):
+	
+	print("spawned")
+	var use_linear = true
+	
+	# Get points above each platform
+	var p1 = Vector2(platform_top.x, platform_top.y - 32)
+	var p2 = Vector2(other.position.x, other.position.y - ((other.platform_size.y - platform_marigins.y) * 0.5) - 32)
+	
+	# Find Linear Slope
+	var slope = (p2.y - p1.y) / (p2.x - p1.x)
+	var b = -slope * p1.x + p1.y
+	
+	# Get Rectangle for the platform being currently spawned
+	var tl = current.position - currentSize
+	var br = current.position + currentSize
+	
+	# Check if the line segment will intersept with the platform
+	if math.lineRect(p1.x, p1.y, p2.x, p2.y, tl.x, tl.y, br.x, br.y):
+		print("collide_current")
+		use_linear = false
+		
+	# Get Rectangle for the platform previously spawned
+	tl = other.position - other.platform_size
+	br = other.position + other.platform_size
+	
+	# Check if the line segment will intersept with the platform
+	if math.lineRect(p1.x, p1.y, p2.x, p2.y, tl.x, tl.y, br.x, br.y):
+		print("collide_other")
+		use_linear = false
+		
+	# If a the line segment intersects, use a quadratic instead
+	if !use_linear:
+		var p3
+		
+		if p2.y < p1.y:
+			p3 = Vector2((p1.x + p2.x) / 2, p2.y - 20)
+		else:
+			p3 = Vector2((p1.x + p2.x) / 2, p1.y - 20)
+		
+		var sol = math.findSolution([[pow(p1.x, 2), p1.x, 1, p1.y], [pow(p3.x, 2), p3.x, 1, p3.y], [pow(p2.x, 2), p2.x, 1, p2.y]])
+		
+		if sol == null:
+			spawn_coin_1(platform_top, quad)
+			return
+			
+		print("Test!")
+		
+		var p5 = Vector2((p1.x + p3.x) / 2, math.solve_quad(sol, (p1.x + p3.x) / 2))
+		var p6 = Vector2((p2.x + p3.x) / 2, math.solve_quad(sol, (p2.x + p3.x) / 2))
+		
+		var coinObj = coin.instantiate()
+		add_child(coinObj)
+		coinObj.position = p5
+		
+		coinObj = coin.instantiate()
+		add_child(coinObj)
+		coinObj.position = p6
+		
+		coinObj = coin.instantiate()
+		add_child(coinObj)
+		coinObj.position = p3
+		
+		coinObj = coin.instantiate()
+		add_child(coinObj)
+		coinObj.position = p1
+		
+		coinObj = coin.instantiate()
+		add_child(coinObj)
+		coinObj.position = p2
+		
+		if !saved_coins.has(quad):
+			var arr = []
+			saved_coins[quad] = arr
+
+		var arr = saved_coins[quad]
+		arr.append(coinObj)
+		saved_coins[quad] = arr
+	else: 
+	
+		var halfwayX = (p1.x + p2.x) / 2
+		var halfwayY = (slope * halfwayX) + b
+		
+		var coinObj = coin.instantiate()
+		add_child(coinObj)
+		coinObj.position = Vector2(halfwayX, halfwayY)
+		
+		coinObj = coin.instantiate()
+		add_child(coinObj)
+		coinObj.position = p1
+		
+		coinObj = coin.instantiate()
+		add_child(coinObj)
+		coinObj.position = p2
+	
+		if !saved_coins.has(quad):
+			var arr = []
+			saved_coins[quad] = arr
+
+		var arr = saved_coins[quad]
+		arr.append(coinObj)
+		saved_coins[quad] = arr
+
+# Spawns a coin above a platform
+func spawn_coin_1(platform_top, quad):
+	var coinObj = coin.instantiate()
+	add_child(coinObj)
+	coinObj.position = Vector2(platform_top.x, platform_top.y - 32)
+	
+	if !saved_coins.has(quad):
+		var arr = []
+		saved_coins[quad] = arr
+	
+	var arr = saved_coins[quad]
+	arr.append(coinObj)
+	saved_coins[quad] = arr
 
 func validate_data(data):
 	
@@ -365,7 +550,7 @@ func get_potential_platform(data):
 		pot.append(str(line))
 	
 	return pot
-	
+
 
 # Gets a random id based on the chances of each platform
 func get_random_id(available_chances):
@@ -383,24 +568,6 @@ func get_random_id(available_chances):
 		id += 1
 		
 	return 0
-
-## From https://www.geeksforgeeks.org/find-two-rectangles-overlap/
-# Returns true if two rectangles(l1, r1) and (l2, r2) overlap
-func do_overlap(l1, r1, l2, r2):
-	
-	# if rectangle has area 0, no overlap
-	if l1.x == r1.x or l1.y == r1.y or r2.x == l2.x or l2.y == r2.y:
-		return false
-	 
-	# If one rectangle is on left side of other
-	if l1.x > r2.x or l2.x > r1.x:
-		return false
-
-	# If one rectangle is above other (fixed for godot plane as y is increasing downwards)
-	if r1.y < l2.y or r2.y < l1.y:
-		return false
-
-	return true
 
 # Returns if platforms can spawn based on current number of platforms
 func _can_spawn_platforms_in_quad(rows, total, currentRow, isLastCol):
@@ -426,8 +593,9 @@ func _ready():
 	_generate_platforms_in_quad(1)
 	_generate_platforms_in_quad(2)
 
+
 func _process(delta):
-	
+
 	# Have Camera follow the player (TEMPORARY)
 	camera.position = Vector2(camera.position.x, player.position.y)
 	
@@ -442,7 +610,7 @@ func _process(delta):
 		quadFirst += 1
 		quadLast += 1
 		
-		_generate_platforms_in_quad(quadFirst)
+		#_generate_platforms_in_quad(quadFirst)
 		
 	
 	# Lava Checking
