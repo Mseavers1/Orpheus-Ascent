@@ -35,14 +35,13 @@ var centerX = topX / 2
 var topY = (1080 / divisorY)
 
 # Level Generation Numbers
-var minPlatformsPerY = 4
-var maxPlatformsPerQuad = 20
+var minPlatformsPerY = 4 # How many platforms should generate on the Y division (cap at divisorY)
+var maxPlatformsPerQuad = 10
 var chanceForPlatformToNotSpawn = 0.3
 
 func _init():
 	_error_check()
 
-# Check if chances add up to 100%
 func _error_check():
 		
 	if divisorY < minPlatformsPerY:
@@ -164,7 +163,7 @@ func _generate_platforms_in_quad(quad):
 				var rightWall_topLeft = Vector2(rightWall_center.x - (wallSize.x / 2), rightWall_center.y - (wallSize.y / 2))
 				var rightWall_bottomRight = Vector2(rightWall_center.x + (wallSize.x / 2), rightWall_center.y + (wallSize.y / 2))
 				
-				var floorSize = Vector2(832, 64) + platform_marigins
+				var floorSize = Vector2(632, 576) + platform_marigins
 				var floor_topLeft = Vector2($Floor.position.x - (floorSize.x / 2), $Floor.position.y - (floorSize.y / 2))
 				var floor_bottomRight = Vector2($Floor.position.x + (floorSize.x / 2), $Floor.position.y + (floorSize.y / 2))
 				
@@ -302,7 +301,7 @@ func _generate_platforms_in_quad(quad):
 				stored_arr.append(plat)
 				saved_platforms[quad] = stored_arr
 				# print(str(j) + " " + str(i) + " --> " + str(platformPos) + " QUAD: " + str(quad))
-				plat.generate_platform(name + str(size.x - platform_marigins.x) + "x" + str(size.y - platform_marigins.y), size, platformPos)
+				plat.generate_platform(name + str(size.x - platform_marigins.x) + "x" + str(size.y - platform_marigins.y), Vector2(size.x - platform_marigins.x, size.y - platform_marigins.y), platformPos)
 
 func validate_data(data):
 	
