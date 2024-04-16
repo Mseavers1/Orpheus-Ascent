@@ -2,6 +2,6 @@
 	"Coin": {
 		"Spawning_Chance": 0.5,
 		"Chance_to_Spawn_in_Air": 0.9,
-		"Max_Coins_Spawned_Per_Quad": 1
+		"Max_Coins_Spawned_Per_Quad": 10
  	}
 }

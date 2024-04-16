@@ -121,9 +121,9 @@ func findSolution(coeff):
 	else:
 		if (D1 == 0 and D2 == 0 and
 			D3 == 0):
-			print("Infinite solutions")
+			# print("Infinite solutions")
 			return null
 		elif (D1 != 0 or D2 != 0 or
 			D3 != 0):
-			print("No solutions")
+			# print("No solutions")
 			return null

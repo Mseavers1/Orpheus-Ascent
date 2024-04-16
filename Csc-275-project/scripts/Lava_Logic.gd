@@ -20,8 +20,8 @@ func _speed_function_linear(slope):
 func _speed_function_log(slope, inside):
 	lavaSpeed = minLavaSpeed + (slope * log(inside * (time + 1)))
 	
-func _speed_function_pow(slope, exp):
-	lavaSpeed = minLavaSpeed + (slope * (pow(time, exp)))
+func _speed_function_pow(slope, exponent):
+	lavaSpeed = minLavaSpeed + (slope * (pow(time, exponent)))
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

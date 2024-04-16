@@ -1,5 +1,7 @@
 extends Node2D
 
+## NOTICE: Integer Division warning has been removed for readability in console - Can be enabled if desired ##
+
 @export var camera: Camera2D
 @export var player: RigidBody2D
 
@@ -154,7 +156,7 @@ func _generate_platforms_in_quad(quad):
 				var id = get_random_id(chances)
 				var sizeData = data[str(id)]["Size"]
 				var size = Vector2(sizeData[0] + platform_marigins.x, sizeData[1] + platform_marigins.y)
-				var name = data[str(id)]["Name"]
+				var p_name = data[str(id)]["Name"]
 				
 				## Check if platform fits ##
 				var topLeft = Vector2(platformPos.x - (size.x / 2), platformPos.y - (size.y / 2))
@@ -195,7 +197,7 @@ func _generate_platforms_in_quad(quad):
 					id = get_random_id(chances)
 					sizeData = data[str(id)]["Size"]
 					size = Vector2(sizeData[0] + platform_marigins.x, sizeData[1] + platform_marigins.y)
-					name = data[str(id)]["Name"]
+					p_name = data[str(id)]["Name"]
 					
 					# If size is larger than old size, generate a new one
 					var attempts = 0
@@ -210,7 +212,7 @@ func _generate_platforms_in_quad(quad):
 						id = get_random_id(chances)
 						sizeData = data[str(id)]["Size"]
 						size = Vector2(sizeData[0] + platform_marigins.x, sizeData[1] + platform_marigins.y)
-						name = data[str(id)]["Name"]
+						p_name = data[str(id)]["Name"]
 					
 					topLeft = Vector2(platformPos.x - (size.x / 2), platformPos.y - (size.y / 2))
 					bottomRight = Vector2(platformPos.x + (size.x / 2), platformPos.y + (size.y / 2))
@@ -258,7 +260,7 @@ func _generate_platforms_in_quad(quad):
 						id = get_random_id(chances)
 						sizeData = data[str(id)]["Size"]
 						size = Vector2(sizeData[0] + platform_marigins.x, sizeData[1] + platform_marigins.y)
-						name = data[str(id)]["Name"]
+						p_name = data[str(id)]["Name"]
 						
 						# If size is larger than old size, generate a new one
 						var attempts = 0
@@ -273,7 +275,7 @@ func _generate_platforms_in_quad(quad):
 							id = get_random_id(chances)
 							sizeData = data[str(id)]["Size"]
 							size = Vector2(sizeData[0] + platform_marigins.x, sizeData[1] + platform_marigins.y)
-							name = data[str(id)]["Name"]
+							p_name = data[str(id)]["Name"]
 						
 						topLeft = Vector2(platformPos.x - (size.x / 2), platformPos.y - (size.y / 2))
 						bottomRight = Vector2(platformPos.x + (size.x / 2), platformPos.y + (size.y / 2))
@@ -314,7 +316,7 @@ func _generate_platforms_in_quad(quad):
 				# print(str(j) + " " + str(i) + " --> " + str(platformPos) + " QUAD: " + str(quad))
 				
 				# Spawn Platform
-				plat.generate_platform(name + str(size.x - platform_marigins.x) + "x" + str(size.y - platform_marigins.y), Vector2(size.x, size.y), platformPos, platform_marigins, pickup_spawned)
+				plat.generate_platform(p_name + str(size.x - platform_marigins.x) + "x" + str(size.y - platform_marigins.y), Vector2(size.x, size.y), platformPos, platform_marigins, pickup_spawned)
 
 # Handles spawning pickups and when they should spawn
 func pickups_logic(platform_top, quad, current, currentSize):
@@ -343,19 +345,26 @@ func pickups_logic(platform_top, quad, current, currentSize):
 			if quad != 0:
 				for plat in saved_platforms[quad - 1]:
 					available_platforms.append(plat)
-					
-			var selected_platform = available_platforms.pick_random()
-			var spawn_platform = true
+			
+			var spawn_platform
+			var selected_platform
+			
+			if len(available_platforms) > 0:
+				selected_platform = available_platforms.pick_random()
+				spawn_platform = true
+			else:
+				spawn_platform = false
 			
 			# Check if that selected platform is too far away
-			while selected_platform != null and math._distance(platform_top, selected_platform.position) > checking_range and !selected_platform.has_pickup:
+			while selected_platform != null and math._distance(platform_top, selected_platform.position) > checking_range and !selected_platform.has_pickup and spawn_platform:
 				#print(_distance(platform_center, selected_platform.position))
 				available_platforms.erase(selected_platform)
-				selected_platform = available_platforms.pick_random()
 				
 				if len(available_platforms) == 0:
 					spawn_platform = false
 					break
+					
+				selected_platform = available_platforms.pick_random()
 			
 			# If can not find another platform, spawn a reg coin
 			if !spawn_platform or selected_platform == null or selected_platform.has_pickup:
@@ -373,7 +382,7 @@ func pickups_logic(platform_top, quad, current, currentSize):
 # Spawn a coin in the air
 func spawn_coin_2(platform_top, quad, other, current, currentSize):
 	
-	print("spawned")
+	# print("spawned")
 	var use_linear = true
 	
 	# Get points above each platform
@@ -390,7 +399,7 @@ func spawn_coin_2(platform_top, quad, other, current, currentSize):
 	
 	# Check if the line segment will intersept with the platform
 	if math.lineRect(p1.x, p1.y, p2.x, p2.y, tl.x, tl.y, br.x, br.y):
-		print("collide_current")
+		# print("collide_current")
 		use_linear = false
 		
 	# Get Rectangle for the platform previously spawned
@@ -399,29 +408,36 @@ func spawn_coin_2(platform_top, quad, other, current, currentSize):
 	
 	# Check if the line segment will intersept with the platform
 	if math.lineRect(p1.x, p1.y, p2.x, p2.y, tl.x, tl.y, br.x, br.y):
-		print("collide_other")
+		# print("collide_other")
 		use_linear = false
 		
 	# If a the line segment intersects, use a quadratic instead
 	if !use_linear:
 		var p3
+		var height = 20
 		
 		if p2.y < p1.y:
-			p3 = Vector2((p1.x + p2.x) / 2, p2.y - 20)
+			p3 = Vector2((p1.x + p2.x) / 2, p2.y - height)
 		else:
-			p3 = Vector2((p1.x + p2.x) / 2, p1.y - 20)
+			p3 = Vector2((p1.x + p2.x) / 2, p1.y - height)
 		
 		var sol = math.findSolution([[pow(p1.x, 2), p1.x, 1, p1.y], [pow(p3.x, 2), p3.x, 1, p3.y], [pow(p2.x, 2), p2.x, 1, p2.y]])
 		
+		# Unable to find a quadratic formula
 		if sol == null:
 			spawn_coin_1(platform_top, quad)
 			return
 			
-		print("Test!")
+		# print("Test!")
 		
+		# If found, find other position within the formula for coins to spawn
 		var p5 = Vector2((p1.x + p3.x) / 2, math.solve_quad(sol, (p1.x + p3.x) / 2))
 		var p6 = Vector2((p2.x + p3.x) / 2, math.solve_quad(sol, (p2.x + p3.x) / 2))
 		
+		# Check if the coin paths hit any obsticals
+		## Is Important? ##
+		
+		# Spawn Coins
 		var coinObj = coin.instantiate()
 		add_child(coinObj)
 		coinObj.position = p5
@@ -443,8 +459,8 @@ func spawn_coin_2(platform_top, quad, other, current, currentSize):
 		coinObj.position = p2
 		
 		if !saved_coins.has(quad):
-			var arr = []
-			saved_coins[quad] = arr
+			var t_arr = []
+			saved_coins[quad] = t_arr
 
 		var arr = saved_coins[quad]
 		arr.append(coinObj)
@@ -467,8 +483,8 @@ func spawn_coin_2(platform_top, quad, other, current, currentSize):
 		coinObj.position = p2
 	
 		if !saved_coins.has(quad):
-			var arr = []
-			saved_coins[quad] = arr
+			var t_arr = []
+			saved_coins[quad] = t_arr
 
 		var arr = saved_coins[quad]
 		arr.append(coinObj)
@@ -481,8 +497,8 @@ func spawn_coin_1(platform_top, quad):
 	coinObj.position = Vector2(platform_top.x, platform_top.y - 32)
 	
 	if !saved_coins.has(quad):
-		var arr = []
-		saved_coins[quad] = arr
+		var t_arr = []
+		saved_coins[quad] = t_arr
 	
 	var arr = saved_coins[quad]
 	arr.append(coinObj)
@@ -594,7 +610,7 @@ func _ready():
 	_generate_platforms_in_quad(2)
 
 
-func _process(delta):
+func _process(_delta):
 
 	# Have Camera follow the player (TEMPORARY)
 	camera.position = Vector2(camera.position.x, player.position.y)
@@ -610,7 +626,7 @@ func _process(delta):
 		quadFirst += 1
 		quadLast += 1
 		
-		#_generate_platforms_in_quad(quadFirst)
+		_generate_platforms_in_quad(quadFirst)
 		
 	
 	# Lava Checking
@@ -623,7 +639,7 @@ func _process(delta):
 		# Delete all platforms from the quad 2 below the current quad ( if on 5 --> delete quad 3 platforms )
 		if saved_platforms.has(lavaQuad_current - 2):
 			
-			print("Deleting a quad")
+			# print("Deleting a quad")
 			
 			# Delete the walls of the quad
 			for walls in saved_walls[lavaQuad_current - 2]:
