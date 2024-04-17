@@ -14,10 +14,7 @@ func generate_platform(p_name, size, pos, marigins, pickup_spawned):
 	
 	if !FileAccess.file_exists(platform_path):
 		print("Unable to find the picture for the platform: " + str(p_name))
-	
-	#var img = Image.load_from_file(platform_path)
-	#var texture = load(platform_path)
-	#var img: Image = texture
+
 	var img = load(platform_path)
 	
 	$Platform.texture = img
