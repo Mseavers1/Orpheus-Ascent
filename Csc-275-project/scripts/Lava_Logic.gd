@@ -1,5 +1,5 @@
 extends Node2D
-var tempspeed = 200
+var tempspeed = 500
 
 # Constraints
 var minLavaSpeed = 2

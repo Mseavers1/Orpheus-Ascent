@@ -127,3 +127,55 @@ func findSolution(coeff):
 			D3 != 0):
 			# print("No solutions")
 			return null
+
+
+## Quick Sort Code From https://www.geeksforgeeks.org/quick-sort/ ##
+# Modified by Michael for godot
+
+# Function to find the partition position
+func partition(array, low, high):
+	
+	# Choose the rightmost element as pivot
+	var pivot = array[high]
+
+	# Pointer for greater element
+	var i = low - 1
+
+	# Traverse through all elements
+	# compare each element with pivot
+	for j in range(low, high):
+		if array[j] <= pivot:
+			
+			# If element smaller than pivot is found
+			# swap it with the greater element pointed by i
+			i = i + 1
+
+			# Swapping element at i with element at j
+			swap(i, j, array)
+
+	# Swap the pivot element with
+	# the greater element specified by i
+	swap(i + 1, high, array)
+
+	# Return the position from where partition is done
+	return i + 1
+
+func swap(i, j, arr):
+	var temp = arr[i]
+	arr[i] = arr[j]
+	arr[j] = temp
+
+# Function to perform quicksort
+func quicksort(array, low, high):
+	if low < high:
+		
+		# Find pivot element such that
+		# element smaller than pivot are on the left
+		# element greater than pivot are on the right
+		var pi = partition(array, low, high)
+		
+		# Recursive call on the left of pivot
+		quicksort(array, low, pi - 1)
+		
+		# Recursive call on the right of pivot
+		quicksort(array, pi + 1, high)
