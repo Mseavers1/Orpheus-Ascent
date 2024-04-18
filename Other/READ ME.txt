@@ -1,0 +1,3 @@
+JsonSorter.py is a program to sort the platform json folder.
+
+After sorting, go to https://beautifier.io/ or other site to convert the one line json file into a multiline one...

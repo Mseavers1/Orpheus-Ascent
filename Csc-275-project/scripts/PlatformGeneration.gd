@@ -1,6 +1,7 @@
 extends Node2D
 
 ## NOTICE: Integer Division warning has been removed for readability in console - Can be enabled if desired ##
+## NOTICE: Use the platform sorter in the project folder if adding or removing platforms in the json file ##
 
 @export var camera: Camera2D
 @export var player: RigidBody2D
@@ -12,10 +13,12 @@ var math = preload("res://scripts/Math.gd").new()
 var pickup_file = "res://jsons/pickups.json"
 var coin = load("res://scenes/Coin.tscn")
 var saved_coins := {}
+var coin_data
 
 # Platform Json
 var platform_file = "res://jsons/platforms.json"
 var platform_marigins = Vector2(80, 80)
+var platform_data
 
 # Temp Platform Placeholder
 var platform = load("res://scenes/PlaceholderPlatform.tscn")
@@ -24,6 +27,9 @@ var saved_walls := {}
 
 # Walls
 var wall = load("res://scenes/Wall.tscn")
+
+# Floor
+var is_floor_deleted = false
 
 # Player Tracking
 var quadLast = -2 # loaded behind
@@ -51,6 +57,15 @@ var chanceForPlatformToNotSpawn = 0.3
 
 func _init():
 	_error_check()
+	
+	# Get json platform data
+	platform_data = loadData(platform_file)
+	
+	# Ensure chances add up to 100
+	validate_data(platform_data)
+	
+	# Get json for coin data
+	coin_data = loadData(pickup_file)
 
 func _error_check():
 		
@@ -96,8 +111,29 @@ func loadData(file):
 	else:
 		assert(false, "The file: " + file + " does not exsist!")
 
+# Create a dictionary of each platform via their index and chance
+func generate_chances(p_data):
+	
+	var dic = {}
+	
+	for line in len(p_data):
+		dic[line] = p_data[str(line)]["Chance"]
+	
+	return dic
+	
+# Create a dictionary of each platform via their index and size
+func generate_sizes(p_data):
+	
+	var dic = {}
+	
+	for line in len(p_data):
+		dic[line] = p_data[str(line)]["Size"]
+	
+	return dic
+
 # Generate platforms in a certain quad
 func _generate_platforms_in_quad(quad):
+	
 	# Spawn Walls
 	var wallLeft = wall.instantiate()
 	var wallRight = wall.instantiate()
@@ -144,19 +180,16 @@ func _generate_platforms_in_quad(quad):
 				
 				var platformPos = Vector2(centerX + (topX * i), (topY * j) - (1080 * quad))
 				
-				# Get Data from json file
-				var data = loadData(platform_file)
-				
-				# Ensure chances add up to 100
-				validate_data(data)
-				
 				# Get random Platform
-				var available_platforms = get_potential_platform(data)
-				var chances = get_chances(data, available_platforms)
-				var id = get_random_id(chances)
-				var sizeData = data[str(id)]["Size"]
+				var available_platforms = get_potential_platform(platform_data)
+				# var available_sizes = generate_sizes(platform_data)
+				var available_chances = generate_chances(platform_data)
+				
+				var chances = get_chances(platform_data, available_platforms)
+				var id = get_random_id(available_chances)
+				var sizeData = platform_data[str(id)]["Size"]
 				var size = Vector2(sizeData[0] + platform_marigins.x, sizeData[1] + platform_marigins.y)
-				var p_name = data[str(id)]["Name"]
+				var p_name = platform_data[str(id)]["Name"]
 				
 				## Check if platform fits ##
 				var topLeft = Vector2(platformPos.x - (size.x / 2), platformPos.y - (size.y / 2))
@@ -173,9 +206,14 @@ func _generate_platforms_in_quad(quad):
 				var rightWall_topLeft = Vector2(rightWall_center.x - (wallSize.x / 2), rightWall_center.y - (wallSize.y / 2))
 				var rightWall_bottomRight = Vector2(rightWall_center.x + (wallSize.x / 2), rightWall_center.y + (wallSize.y / 2))
 				
-				var floorSize = Vector2(632, 576) + platform_marigins
-				var floor_topLeft = Vector2($Floor.position.x - (floorSize.x / 2), $Floor.position.y - (floorSize.y / 2))
-				var floor_bottomRight = Vector2($Floor.position.x + (floorSize.x / 2), $Floor.position.y + (floorSize.y / 2))
+				var floorSize
+				var floor_topLeft
+				var floor_bottomRight  
+				
+				if !is_floor_deleted:
+					floorSize = Vector2(632, 576) + platform_marigins
+					floor_topLeft = Vector2($Floor.position.x - (floorSize.x / 2), $Floor.position.y - (floorSize.y / 2))
+					floor_bottomRight = Vector2($Floor.position.x + (floorSize.x / 2), $Floor.position.y + (floorSize.y / 2))
 				
 				var spawn_platform = true
 				
@@ -195,9 +233,9 @@ func _generate_platforms_in_quad(quad):
 					
 					# Generate new id
 					id = get_random_id(chances)
-					sizeData = data[str(id)]["Size"]
+					sizeData = platform_data[str(id)]["Size"]
 					size = Vector2(sizeData[0] + platform_marigins.x, sizeData[1] + platform_marigins.y)
-					p_name = data[str(id)]["Name"]
+					p_name = platform_data[str(id)]["Name"]
 					
 					# If size is larger than old size, generate a new one
 					var attempts = 0
@@ -205,14 +243,14 @@ func _generate_platforms_in_quad(quad):
 						
 						attempts += 1
 						# Stop if there is no sizes smaller
-						if chances == null or attempts >= len(data):
+						if chances == null or attempts >= len(platform_data):
 							spawn_platform = false
 							break
 						
 						id = get_random_id(chances)
-						sizeData = data[str(id)]["Size"]
+						sizeData = platform_data[str(id)]["Size"]
 						size = Vector2(sizeData[0] + platform_marigins.x, sizeData[1] + platform_marigins.y)
-						p_name = data[str(id)]["Name"]
+						p_name = platform_data[str(id)]["Name"]
 					
 					topLeft = Vector2(platformPos.x - (size.x / 2), platformPos.y - (size.y / 2))
 					bottomRight = Vector2(platformPos.x + (size.x / 2), platformPos.y + (size.y / 2))
@@ -258,9 +296,9 @@ func _generate_platforms_in_quad(quad):
 						
 						var old_size = Vector2(sizeData[0] + platform_marigins.x, sizeData[1] + platform_marigins.y)
 						id = get_random_id(chances)
-						sizeData = data[str(id)]["Size"]
+						sizeData = platform_data[str(id)]["Size"]
 						size = Vector2(sizeData[0] + platform_marigins.x, sizeData[1] + platform_marigins.y)
-						p_name = data[str(id)]["Name"]
+						p_name = platform_data[str(id)]["Name"]
 						
 						# If size is larger than old size, generate a new one
 						var attempts = 0
@@ -268,14 +306,14 @@ func _generate_platforms_in_quad(quad):
 							
 							attempts += 1
 							# Stop if there is no sizes smaller
-							if chances == null or attempts >= len(data):
+							if chances == null or attempts >= len(platform_data):
 								spawn_platform = false
 								break
 							
 							id = get_random_id(chances)
-							sizeData = data[str(id)]["Size"]
+							sizeData = platform_data[str(id)]["Size"]
 							size = Vector2(sizeData[0] + platform_marigins.x, sizeData[1] + platform_marigins.y)
-							p_name = data[str(id)]["Name"]
+							p_name = platform_data[str(id)]["Name"]
 						
 						topLeft = Vector2(platformPos.x - (size.x / 2), platformPos.y - (size.y / 2))
 						bottomRight = Vector2(platformPos.x + (size.x / 2), platformPos.y + (size.y / 2))
@@ -297,11 +335,11 @@ func _generate_platforms_in_quad(quad):
 				
 				## Spawn Platform ##
 				
-				# Get random ID
+				# Get Free platform from pool
 				var plat = platform.instantiate()
-				
 				plat.set_name("Platform")
 				add_child(plat)
+				
 				plat.position = platformPos
 				
 				# Spawn Pickups?
@@ -322,18 +360,17 @@ func _generate_platforms_in_quad(quad):
 func pickups_logic(platform_top, quad, current, currentSize):
 	
 	const checking_range = 500
-	var data = loadData(pickup_file)
 	
 	## Should coin spawn? ##
 	var rand = randf_range(0, 1)
 	
 	# Can a coin spawn?
-	if rand <= data["Coin"]["Spawning_Chance"] and (!saved_coins.has(quad) or len(saved_coins[quad]) < data["Coin"]["Max_Coins_Spawned_Per_Quad"]):
+	if rand <= coin_data["Coin"]["Spawning_Chance"] and (!saved_coins.has(quad) or len(saved_coins[quad]) < coin_data["Coin"]["Max_Coins_Spawned_Per_Quad"]):
 		
 		# Finds out what type of coin will be spawned (land or air)
 		rand = randf_range(0, 1)
 
-		if rand <= data["Coin"]["Chance_to_Spawn_in_Air"]:
+		if rand <= coin_data["Coin"]["Chance_to_Spawn_in_Air"]:
 			
 			# Get platform to connect to
 			var available_platforms = []
@@ -569,19 +606,16 @@ func get_potential_platform(data):
 
 
 # Gets a random id based on the chances of each platform
-func get_random_id(available_chances):
+func get_random_id(chances):
 	
 	var rand = randf_range(0, 100)
 	var total = 0
-	var id = 0
 	
-	for chance in available_chances:
-		total += chance
+	for id in chances:
+		total += chances[id]
 		
 		if rand <= total:
-			return id
-		
-		id += 1
+			return int(id)
 		
 	return 0
 
@@ -605,6 +639,7 @@ func _can_spawn_platforms_in_quad(rows, total, currentRow, isLastCol):
 	return false
 
 func _ready():
+	# Spawn first 3 chunks / quads
 	_generate_platforms_in_quad(0)
 	_generate_platforms_in_quad(1)
 	_generate_platforms_in_quad(2)
@@ -637,21 +672,22 @@ func _process(_delta):
 		lavaQuad_current = lavaQuad_now
 		
 		# Delete all platforms from the quad 2 below the current quad ( if on 5 --> delete quad 3 platforms )
-		if saved_platforms.has(lavaQuad_current - 2):
+		if saved_platforms.has(lavaQuad_current - 3):
 			
 			# print("Deleting a quad")
 			
 			# Delete the walls of the quad
-			for walls in saved_walls[lavaQuad_current - 2]:
+			for walls in saved_walls[lavaQuad_current - 3]:
 				walls.queue_free()
 				
 			# Delete the floor after reaching the 2nd quad
 			if quadCurrent == 2:
+				is_floor_deleted = true
 				$Floor.queue_free()
 			
-			# Delete the actual objects
-			for plat in saved_platforms[lavaQuad_current - 2]:
+			# Send to free pool
+			for plat in saved_platforms[lavaQuad_current - 3]:
 				plat.queue_free()
 			
 			# Clear the references
-			saved_platforms.erase([lavaQuad_current - 2])
+			saved_platforms.erase([lavaQuad_current - 3])
