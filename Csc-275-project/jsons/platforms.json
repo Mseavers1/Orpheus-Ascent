@@ -352,29 +352,24 @@
 	"70": {
 		"Name": "Platform",
 		"Size": [832, 512],
-		"Chance": 1
+		"Chance": 2
 	},
 	"71": {
-		"Name": "Platform",
-		"Size": [832, 576],
-		"Chance": 1
-	},
-	"72": {
 		"Name": "Platform",
 		"Size": [832, 640],
 		"Chance": 1
 	},
-	"73": {
+	"72": {
 		"Name": "Platform",
 		"Size": [832, 704],
 		"Chance": 1
 	},
-	"74": {
+	"73": {
 		"Name": "Platform",
 		"Size": [832, 768],
 		"Chance": 1
 	},
-	"75": {
+	"74": {
 		"Name": "Platform",
 		"Size": [832, 832],
 		"Chance": 1
