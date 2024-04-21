@@ -645,6 +645,7 @@ func _can_spawn_platforms_in_quad(rows, total, currentRow, isLastCol):
 	return false
 
 func _ready():
+	
 	# Spawn first 3 chunks / quads
 	_generate_platforms_in_quad(0)
 	_generate_platforms_in_quad(1)

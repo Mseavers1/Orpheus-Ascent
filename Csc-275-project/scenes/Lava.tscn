@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dim5l11cdha5l"]
+[gd_scene load_steps=12 format=3 uid="uid://dim5l11cdha5l"]
 
 [ext_resource type="Script" path="res://scripts/Lava_Logic.gd" id="1_r6q6i"]
 [ext_resource type="Texture2D" uid="uid://4j261pegys8y" path="res://animations/lava1-Sheet.png" id="2_l50vk"]
+[ext_resource type="AudioStream" uid="uid://dhu1nte7caaql" path="res://sounds/lava_loop.mp3" id="3_lo8au"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wg7mb"]
 atlas = ExtResource("2_l50vk")
@@ -72,6 +73,11 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(960, 50)
 shape = SubResource("RectangleShape2D_5r4bl")
+
+[node name="Lava_Loop_Sounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lo8au")
+attenuation = 2.07053
+area_mask = 8
 
 [connection signal="body_entered" from="." to="." method="_on_collision_entered"]
 [connection signal="timeout" from="Fireball_Timer" to="." method="_fireball_timer_timeout"]

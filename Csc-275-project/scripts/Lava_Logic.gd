@@ -30,6 +30,10 @@ func _speed_function_pow(slope, exponent):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
+	# Lava loop Sounds
+	if !$Lava_Loop_Sounds.playing:
+		$Lava_Loop_Sounds.play()
+	
 	var velocity = Vector2.ZERO;
 		
 	if Input.is_action_pressed("move-lava-down") :
