@@ -4,6 +4,7 @@ var is_over_start = false
 var is_over_exit = false
 var is_over_hwp = false
 var is_over_credit = false
+var is_over_back = false
 
 func _process(delta):
 	
@@ -15,15 +16,49 @@ func _process(delta):
 			
 		# Credit button is pressed
 		if is_over_credit:
-			print("credit")
+			show_credits()
+			hide_buttons()
 		
 		# How-to-play button is pressed
 		if is_over_hwp:
-			print("How to play")
+			hide_buttons()
+			show_htp()
 			
 		# Exit button is pressed
 		if is_over_exit:
 			call_deferred("exit_game")
+			
+		# Back button is pressed
+		if is_over_back:
+			hide_htp()
+			hide_credits()
+			show_buttons()
+
+func show_htp():
+	$Canvas/HTP_Info.show()
+	
+func hide_htp():
+	$Canvas/HTP_Info.hide()
+
+func show_credits():
+	$Canvas/Credit_Info.show()
+	
+func hide_credits():
+	$Canvas/Credit_Info.hide()
+
+func hide_buttons():
+	$Canvas/Credits.hide()
+	$Canvas/How_To_Play.hide()
+	$Canvas/Exit_Button.hide()
+	$Canvas/Start_Button.hide()
+	$Canvas/Back_Button.show()
+
+func show_buttons():
+	$Canvas/Credits.show()
+	$Canvas/How_To_Play.show()
+	$Canvas/Exit_Button.show()
+	$Canvas/Start_Button.show()
+	$Canvas/Back_Button.hide()
 
 func exit_game():
 	get_tree().quit()
@@ -54,3 +89,11 @@ func _on_mouse_entered_Credits():
 
 func _on_mouse_exit_Credits():
 	is_over_credit = false
+
+
+func _on_mouse_entered_Back():
+	is_over_back = true
+
+
+func _on_mouse_exit_Back():
+	is_over_back = false

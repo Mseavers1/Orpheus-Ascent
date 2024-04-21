@@ -19,6 +19,11 @@ func _on_body_entered(body):
 
 # Collision with platform
 func _on_area_entered(_area):
+	
+	# Doesn't collide with buttons when they are hidden
+	if !_area.get_parent().is_visible():
+		return
+	
 	speed = 0
 	play("explode")
 
