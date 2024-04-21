@@ -45,3 +45,13 @@ func _process(delta):
 	
 	# if lavaSpeed < maxLavaSpeed:
 		# _speed_function_linear(0.5)
+
+# Player touches the lava
+func _on_collision_entered(body):
+	
+	print(body.name)
+
+# Removes coins after lava touches them
+## Note: Make sure layers are properly used as I took the easy way out... (Not checking if the area is a coin or not...)
+func _on_coin_entered(area):
+	area.get_parent().queue_free()

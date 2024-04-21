@@ -476,22 +476,27 @@ func spawn_coin_2(platform_top, quad, other, current, currentSize):
 		
 		# Spawn Coins
 		var coinObj = coin.instantiate()
+		coinObj.name = "Coin1"
 		add_child(coinObj)
 		coinObj.position = p5
 		
 		coinObj = coin.instantiate()
+		coinObj.name = "Coin2"
 		add_child(coinObj)
 		coinObj.position = p6
 		
 		coinObj = coin.instantiate()
+		coinObj.name = "Coin3"
 		add_child(coinObj)
 		coinObj.position = p3
 		
 		coinObj = coin.instantiate()
+		coinObj.name = "Coin4"
 		add_child(coinObj)
 		coinObj.position = p1
 		
 		coinObj = coin.instantiate()
+		coinObj.name = "Coin5"
 		add_child(coinObj)
 		coinObj.position = p2
 		
@@ -530,6 +535,7 @@ func spawn_coin_2(platform_top, quad, other, current, currentSize):
 # Spawns a coin above a platform
 func spawn_coin_1(platform_top, quad):
 	var coinObj = coin.instantiate()
+	coinObj.name = "Coin"
 	add_child(coinObj)
 	coinObj.position = Vector2(platform_top.x, platform_top.y - 32)
 	
@@ -685,7 +691,7 @@ func _process(_delta):
 				is_floor_deleted = true
 				$Floor.queue_free()
 			
-			# Send to free pool
+			# Delete all the platforms in the quad
 			for plat in saved_platforms[lavaQuad_current - 3]:
 				plat.queue_free()
 			

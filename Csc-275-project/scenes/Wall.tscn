@@ -13,6 +13,7 @@ position = Vector2(0, 540)
 texture = ExtResource("1_f4w6u")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Wall"]]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 540)

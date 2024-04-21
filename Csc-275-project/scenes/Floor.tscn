@@ -11,6 +11,7 @@ size = Vector2(832, 577)
 texture = ExtResource("1_8dqb1")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Floor"]]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -0.5)
