@@ -16,13 +16,13 @@ func _process(delta):
 			
 		# Credit button is pressed
 		if is_over_credit:
+			show_credits()
 			hide_buttons()
-			print("credit")
 		
 		# How-to-play button is pressed
 		if is_over_hwp:
 			hide_buttons()
-			print("How to play")
+			show_htp()
 			
 		# Exit button is pressed
 		if is_over_exit:
@@ -30,7 +30,21 @@ func _process(delta):
 			
 		# Back button is pressed
 		if is_over_back:
+			hide_htp()
+			hide_credits()
 			show_buttons()
+
+func show_htp():
+	$Canvas/HTP_Info.show()
+	
+func hide_htp():
+	$Canvas/HTP_Info.hide()
+
+func show_credits():
+	$Canvas/Credit_Info.show()
+	
+func hide_credits():
+	$Canvas/Credit_Info.hide()
 
 func hide_buttons():
 	$Canvas/Credits.hide()
