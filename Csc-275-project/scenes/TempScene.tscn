@@ -18,6 +18,7 @@ position = Vector2(960, 1239)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_xbidr")]
 position = Vector2(967, 840)
+collision_mask = 6
 gravity_scale = 0.0
 
 [node name="Lava" parent="." instance=ExtResource("4_w5ylt")]
