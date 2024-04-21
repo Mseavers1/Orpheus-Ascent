@@ -64,7 +64,7 @@ func exit_game():
 	get_tree().quit()
 
 func start_game():
-	get_tree().change_scene_to_file("res://.godot/exported/133200997/export-dcaaea05617b0915188f8bfcd125ecc1-TempScene.scn")
+	get_tree().change_scene_to_file("res://scenes/TempScene.tscn")
 
 func _on_mouse_enter_Start():
 	is_over_start = true
