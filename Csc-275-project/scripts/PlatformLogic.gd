@@ -18,5 +18,5 @@ func generate_platform(p_name, size, pos, marigins, pickup_spawned):
 	var img = load(platform_path)
 	
 	$Platform.texture = img
-	$Area/Collider.shape = RectangleShape2D.new()
-	$Area/Collider.shape.size = Vector2(size.x - marigins.x, size.y - marigins.y)
+	$Collider.shape = RectangleShape2D.new()
+	$Collider.shape.size = Vector2(size.x - marigins.x, size.y - marigins.y)
