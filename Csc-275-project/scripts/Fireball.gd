@@ -23,3 +23,8 @@ func _on_area_entered(area):
 
 func _on_animation_finished():
 	queue_free()
+
+# Ensures that fireballs despawn after a certain amount of time passes
+func _on_alive_timer_timeout():
+	speed = 0
+	play("explode")

@@ -65,6 +65,12 @@ collision_mask = 5
 position = Vector2(-11, -1)
 shape = SubResource("CircleShape2D_yh7lr")
 
+[node name="AliveTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
 [connection signal="area_entered" from="Area" to="." method="_on_area_entered"]
 [connection signal="body_entered" from="Area" to="." method="_on_body_entered"]
+[connection signal="timeout" from="AliveTimer" to="." method="_on_alive_timer_timeout"]
