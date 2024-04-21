@@ -87,4 +87,6 @@ func _summon_fireball():
 	var randX = randf_range(25, 1894)
 	var randY = randf_range(position.y + 100, position.y + 10)
 	
+	fireballObj.speed = randf_range(80, 200)
+	
 	fireballObj.position = Vector2(randX, randY)
