@@ -85,6 +85,6 @@ func _summon_fireball():
 	$"..".add_child(fireballObj)
 	
 	var randX = randf_range(25, 1894)
-	var randY = randf_range(position.y - 100, position.y - 10)
+	var randY = randf_range(position.y + 100, position.y + 10)
 	
 	fireballObj.position = Vector2(randX, randY)
