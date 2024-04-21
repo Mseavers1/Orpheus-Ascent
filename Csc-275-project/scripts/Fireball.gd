@@ -13,9 +13,10 @@ func _set_alive_timer(time):
 func _process(delta):
 	position.y -= speed * delta
 
-# Collision with player
+# Collision with platform
 func _on_body_entered(body):
-	print(body.name)
+	speed = 0
+	play("explode")
 
 # Collision with platform
 func _on_area_entered(_area):
