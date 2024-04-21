@@ -3,55 +3,54 @@
 [ext_resource type="Texture2D" uid="uid://biaot8j0dohjw" path="res://animations/Coin.png" id="1_0mvod"]
 [ext_resource type="Script" path="res://scripts/Coin.gd" id="2_65eyl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u8gxw"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_toh85"]
+radius = 5.33333
+height = 12.6667
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vf7s"]
 atlas = ExtResource("1_0mvod")
 region = Rect2(0, 0, 10, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7rbeh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxkvc"]
 atlas = ExtResource("1_0mvod")
 region = Rect2(10, 0, 10, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wfax8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0nkf"]
 atlas = ExtResource("1_0mvod")
 region = Rect2(20, 0, 10, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kbl1s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrhlx"]
 atlas = ExtResource("1_0mvod")
 region = Rect2(30, 0, 10, 12)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_5c1o4"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_i22e5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u8gxw")
+"texture": SubResource("AtlasTexture_3vf7s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7rbeh")
+"texture": SubResource("AtlasTexture_qxkvc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wfax8")
+"texture": SubResource("AtlasTexture_k0nkf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kbl1s")
+"texture": SubResource("AtlasTexture_jrhlx")
 }],
 "loop": true,
 "name": &"default",
 "speed": 7.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_toh85"]
-radius = 5.33333
-height = 12.6667
-
-[node name="Coin" type="AnimatedSprite2D"]
+[node name="Coin" type="StaticBody2D" groups=["Coins"]]
 scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_5c1o4")
-frame_progress = 0.272268
-script = ExtResource("2_65eyl")
-
-[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 9
+script = ExtResource("2_65eyl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_toh85")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i22e5")

@@ -9,6 +9,7 @@ load_path = "res://.godot/imported/Platform64x64.png-7996d1527e7bbe8d76af22bc50e
 size = Vector2(64, 64)
 
 [node name="PlaceholderPlatform" type="StaticBody2D"]
+collision_layer = 4
 script = ExtResource("1_gtnhu")
 
 [node name="Platform" type="Sprite2D" parent="."]
