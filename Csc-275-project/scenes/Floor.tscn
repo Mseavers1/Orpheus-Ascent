@@ -7,6 +7,7 @@ load_path = "res://.godot/imported/Platform632x576.png-86e88bb3fec43ead95d7fb4a1
 size = Vector2(832, 577)
 
 [node name="Floor" type="StaticBody2D"]
+collision_layer = 4
 
 [node name="Platform" type="Sprite2D" parent="."]
 texture = SubResource("CompressedTexture2D_8umpa")
