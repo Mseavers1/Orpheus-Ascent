@@ -1,0 +1,236 @@
+[gd_scene load_steps=21 format=3 uid="uid://bsahf1xgtokhx"]
+
+[ext_resource type="Script" path="res://scripts/new_menu_logic.gd" id="1_avby3"]
+[ext_resource type="Texture2D" uid="uid://taedej277h2a" path="res://images/background/Background1.png" id="2_anlhr"]
+[ext_resource type="Texture2D" uid="uid://bakooux75mu03" path="res://images/background/4.png" id="3_xvab2"]
+[ext_resource type="Texture2D" uid="uid://4j261pegys8y" path="res://animations/lava1-Sheet.png" id="4_mvdfx"]
+[ext_resource type="Script" path="res://scripts/LavaMenu.gd" id="5_d75xt"]
+[ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="6_s8nca"]
+[ext_resource type="Texture2D" uid="uid://dkea0cefo41b6" path="res://images/platforms/Platform192x320.png" id="7_82vis"]
+[ext_resource type="Texture2D" uid="uid://5osjs3yegjyl" path="res://images/platforms/Platform320x192.png" id="8_vubau"]
+[ext_resource type="Texture2D" uid="uid://cbmr0rt6mh3s8" path="res://images/platforms/Platform128x256.png" id="9_st2rb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms7at"]
+atlas = ExtResource("4_mvdfx")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l03mv"]
+atlas = ExtResource("4_mvdfx")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vevj1"]
+atlas = ExtResource("4_mvdfx")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv2mq"]
+atlas = ExtResource("4_mvdfx")
+region = Rect2(0, 3240, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33uh4"]
+atlas = ExtResource("4_mvdfx")
+region = Rect2(0, 4320, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r66iy"]
+atlas = ExtResource("4_mvdfx")
+region = Rect2(0, 5400, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f3b6r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms7at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l03mv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vevj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv2mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33uh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r66iy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qncu"]
+size = Vector2(192, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxios"]
+size = Vector2(320, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmi3s"]
+size = Vector2(128, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhifh"]
+size = Vector2(128, 256)
+
+[node name="New_Menu" type="Node2D"]
+script = ExtResource("1_avby3")
+
+[node name="Backgrounds" type="Node" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(960, 540)
+texture = ExtResource("2_anlhr")
+metadata/_edit_lock_ = true
+
+[node name="Foreground" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(960, 540)
+texture = ExtResource("3_xvab2")
+metadata/_edit_lock_ = true
+
+[node name="Fireball_Holder" type="Node2D" parent="Backgrounds"]
+
+[node name="Lava" type="AnimatedSprite2D" parent="Backgrounds"]
+position = Vector2(962, 1506)
+sprite_frames = SubResource("SpriteFrames_f3b6r")
+frame = 2
+frame_progress = 0.806007
+script = ExtResource("5_d75xt")
+
+[node name="Fireball_Timer" type="Timer" parent="Backgrounds/Lava"]
+wait_time = 0.5
+autostart = true
+
+[node name="Canvas" type="CanvasGroup" parent="."]
+z_index = 1
+
+[node name="Title" type="Label" parent="Canvas"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_right = 1920.0
+offset_bottom = 331.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 11
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 18
+theme_override_constants/line_spacing = -15
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 150
+text = "Orpheus’s
+Ascent
+"
+horizontal_alignment = 1
+
+[node name="Credits" type="Sprite2D" parent="Canvas"]
+position = Vector2(1250, 756)
+rotation = 1.5708
+texture = ExtResource("7_82vis")
+
+[node name="Credit_Label" type="Label" parent="Canvas/Credits"]
+offset_left = -40.0
+offset_top = 165.0
+offset_right = 293.0
+offset_bottom = 243.0
+rotation = -1.5708
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 59
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Area2D" type="Area2D" parent="Canvas/Credits"]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/Credits/Area2D"]
+shape = SubResource("RectangleShape2D_5qncu")
+
+[node name="How_To_Play" type="Sprite2D" parent="Canvas"]
+position = Vector2(674, 756)
+texture = ExtResource("8_vubau")
+
+[node name="HTP_Label" type="Label" parent="Canvas/How_To_Play"]
+offset_left = -160.0
+offset_top = -96.0
+offset_right = 159.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 59
+text = "How to 
+Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Area2D" type="Area2D" parent="Canvas/How_To_Play"]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/How_To_Play/Area2D"]
+shape = SubResource("RectangleShape2D_wxios")
+
+[node name="Exit_Button" type="Sprite2D" parent="Canvas"]
+position = Vector2(1250, 462)
+rotation = 1.5708
+texture = ExtResource("9_st2rb")
+
+[node name="Exit_Label" type="Label" parent="Canvas/Exit_Button"]
+offset_left = -40.0
+offset_top = 165.0
+offset_right = 293.0
+offset_bottom = 243.0
+rotation = -1.5708
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 59
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Area2D" type="Area2D" parent="Canvas/Exit_Button"]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/Exit_Button/Area2D"]
+shape = SubResource("RectangleShape2D_rmi3s")
+
+[node name="Start_Button" type="Sprite2D" parent="Canvas"]
+position = Vector2(674, 462)
+rotation = 1.5708
+texture = ExtResource("9_st2rb")
+
+[node name="Start_Label" type="Label" parent="Canvas/Start_Button"]
+offset_left = -40.0
+offset_top = 165.0
+offset_right = 293.0
+offset_bottom = 243.0
+rotation = -1.5708
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 59
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Area2D" type="Area2D" parent="Canvas/Start_Button"]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/Start_Button/Area2D"]
+shape = SubResource("RectangleShape2D_rhifh")
+
+[connection signal="timeout" from="Backgrounds/Lava/Fireball_Timer" to="Backgrounds/Lava" method="_on_fireball_timer_timeout"]
+[connection signal="mouse_entered" from="Canvas/Credits/Area2D" to="." method="_on_mouse_entered_Credits"]
+[connection signal="mouse_exited" from="Canvas/Credits/Area2D" to="." method="_on_mouse_exit_Credits"]
+[connection signal="mouse_entered" from="Canvas/How_To_Play/Area2D" to="." method="_on_mouse_entered_HTP"]
+[connection signal="mouse_exited" from="Canvas/How_To_Play/Area2D" to="." method="_on_mouse_exit_HTP"]
+[connection signal="mouse_entered" from="Canvas/Exit_Button/Area2D" to="." method="_on_mouse_entered_Exit"]
+[connection signal="mouse_exited" from="Canvas/Exit_Button/Area2D" to="." method="_on_mouse_exit_Exit"]
+[connection signal="mouse_entered" from="Canvas/Start_Button/Area2D" to="." method="_on_mouse_enter_Start"]
+[connection signal="mouse_exited" from="Canvas/Start_Button/Area2D" to="." method="_on_mouse_exit_Start"]

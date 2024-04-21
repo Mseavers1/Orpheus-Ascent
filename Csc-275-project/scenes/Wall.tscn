@@ -1,6 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dafan7iquigih"]
 
-[ext_resource type="Texture2D" uid="uid://butcs8hxxycaj" path="res://Images/Wall.png" id="1_f4w6u"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2tdry"]
+load_path = "res://.godot/imported/Wall.png-55ca41e9e9dce10b0a46064cd3cb7ff3.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pm3yt"]
 size = Vector2(64, 1080)
@@ -10,7 +11,7 @@ size = Vector2(64, 1080)
 [node name="Wall" type="Sprite2D" parent="."]
 z_index = 2
 position = Vector2(0, 540)
-texture = ExtResource("1_f4w6u")
+texture = SubResource("CompressedTexture2D_2tdry")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Wall"]]
 collision_layer = 4

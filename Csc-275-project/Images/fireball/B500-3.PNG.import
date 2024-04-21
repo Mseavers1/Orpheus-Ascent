@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cu6owibgs6wgv"
-path="res://.godot/imported/B500-3.PNG-e4029b18b10e27875c36f6b9061c66b1.ctex"
+path="res://.godot/imported/B500-3.PNG-a3cba4fe22c0f85b5def4493f2fa9609.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/fireball/B500-3.PNG"
-dest_files=["res://.godot/imported/B500-3.PNG-e4029b18b10e27875c36f6b9061c66b1.ctex"]
+source_file="res://images/fireball/B500-3.PNG"
+dest_files=["res://.godot/imported/B500-3.PNG-a3cba4fe22c0f85b5def4493f2fa9609.ctex"]
 
 [params]
 

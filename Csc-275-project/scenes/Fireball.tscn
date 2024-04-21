@@ -1,26 +1,42 @@
 [gd_scene load_steps=12 format=3 uid="uid://crdyb730kx4i6"]
 
-[ext_resource type="Texture2D" uid="uid://du3kcgya74nkf" path="res://Images/fireball/B500-2.PNG" id="1_eqeed"]
-[ext_resource type="Texture2D" uid="uid://cu6owibgs6wgv" path="res://Images/fireball/B500-3.PNG" id="2_rjbif"]
-[ext_resource type="Texture2D" uid="uid://c25hdoxe6crof" path="res://Images/fireball/B500-4.PNG" id="3_kdtiv"]
-[ext_resource type="Texture2D" uid="uid://5apefh7qkyml" path="res://Images/fireball/FB500-1.png" id="4_vg3ec"]
-[ext_resource type="Texture2D" uid="uid://co8kqm71h5777" path="res://Images/fireball/FB500-2.png" id="5_k78bo"]
-[ext_resource type="Texture2D" uid="uid://cqhj7823sxre" path="res://Images/fireball/FB500-3.png" id="6_okkrm"]
-[ext_resource type="Texture2D" uid="uid://br6b2ya2q27nm" path="res://Images/fireball/FB500-4.png" id="7_s7jw5"]
-[ext_resource type="Texture2D" uid="uid://3eaa74bthy7f" path="res://Images/fireball/FB500-5.png" id="8_4mbha"]
 [ext_resource type="Script" path="res://scripts/Fireball.gd" id="9_bhtwy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n8pnu"]
+load_path = "res://.godot/imported/B500-2.PNG-40a7f8dd8ca2ad4a689847039eacde61.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fxjar"]
+load_path = "res://.godot/imported/B500-3.PNG-e4029b18b10e27875c36f6b9061c66b1.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rrl6c"]
+load_path = "res://.godot/imported/B500-4.PNG-5115810b0eb3cd89ad6374a63bb73f5f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xyiht"]
+load_path = "res://.godot/imported/FB500-1.png-9c70b175787aa3f3f63439e3721dae55.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0svw6"]
+load_path = "res://.godot/imported/FB500-2.png-e2f0ee99382ce659099a5e41963d2389.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7oof0"]
+load_path = "res://.godot/imported/FB500-3.png-6a867f79225d019b3325df320d2c4f8e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2md7n"]
+load_path = "res://.godot/imported/FB500-4.png-8b2203f48508739ee59d73af7e71d86e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g7a33"]
+load_path = "res://.godot/imported/FB500-5.png-953743ba467177afe3077f7bc7e52e2d.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ism8b"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_eqeed")
+"texture": SubResource("CompressedTexture2D_n8pnu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_rjbif")
+"texture": SubResource("CompressedTexture2D_fxjar")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_kdtiv")
+"texture": SubResource("CompressedTexture2D_rrl6c")
 }],
 "loop": false,
 "name": &"explode",
@@ -28,19 +44,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_vg3ec")
+"texture": SubResource("CompressedTexture2D_xyiht")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_k78bo")
+"texture": SubResource("CompressedTexture2D_0svw6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_okkrm")
+"texture": SubResource("CompressedTexture2D_7oof0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_s7jw5")
+"texture": SubResource("CompressedTexture2D_2md7n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_4mbha")
+"texture": SubResource("CompressedTexture2D_g7a33")
 }],
 "loop": true,
 "name": &"moving",
@@ -59,12 +75,18 @@ script = ExtResource("9_bhtwy")
 
 [node name="Area" type="Area2D" parent="."]
 collision_layer = 16
-collision_mask = 5
+collision_mask = 21
 
 [node name="Collider" type="CollisionShape2D" parent="Area"]
 position = Vector2(-11, -1)
 shape = SubResource("CircleShape2D_yh7lr")
 
+[node name="AliveTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
 [connection signal="area_entered" from="Area" to="." method="_on_area_entered"]
 [connection signal="body_entered" from="Area" to="." method="_on_body_entered"]
+[connection signal="timeout" from="AliveTimer" to="." method="_on_alive_timer_timeout"]
