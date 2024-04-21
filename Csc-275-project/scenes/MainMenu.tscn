@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://yeugcqmy5fki"]
+[gd_scene load_steps=3 format=3 uid="uid://yeugcqmy5fki"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_hp4fr"]
+[ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="2_1htkj"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_hp4fr")
@@ -14,13 +15,21 @@ color = Color(0.921569, 0.372549, 0.356863, 1)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -219.0
-offset_right = 219.0
-offset_bottom = 156.0
+offset_left = -411.0
+offset_right = 412.0
+offset_bottom = 331.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 11
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 18
+theme_override_constants/line_spacing = -15
+theme_override_fonts/font = ExtResource("2_1htkj")
 theme_override_font_sizes/font_size = 150
 text = "Orpheus’s
 Ascent
@@ -44,6 +53,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1htkj")
 theme_override_font_sizes/font_size = 75
 text = "Start"
 
@@ -61,6 +72,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_1htkj")
 theme_override_font_sizes/font_size = 75
 text = "Credits
 "
@@ -80,6 +92,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_1htkj")
 theme_override_font_sizes/font_size = 75
 text = "Exit
 "

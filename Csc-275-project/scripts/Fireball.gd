@@ -6,6 +6,8 @@ extends AnimatedSprite2D
 func _ready():
 	play("moving")
 
+func _set_alive_timer(time):
+	$AliveTimer.wait_time = time
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -16,7 +18,7 @@ func _on_body_entered(body):
 	print(body.name)
 
 # Collision with platform
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	speed = 0
 	play("explode")
 

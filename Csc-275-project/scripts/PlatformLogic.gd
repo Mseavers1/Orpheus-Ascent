@@ -10,7 +10,7 @@ func generate_platform(p_name, size, pos, marigins, pickup_spawned):
 	platform_pos = pos
 	has_pickup = pickup_spawned
 	
-	var platform_path = "res://Images/platforms/" + p_name + ".png"
+	var platform_path = "res://images/platforms/" + p_name + ".png"
 	
 	if !FileAccess.file_exists(platform_path):
 		print("Unable to find the picture for the platform: " + str(p_name))
