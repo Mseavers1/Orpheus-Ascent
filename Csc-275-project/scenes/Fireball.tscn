@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://crdyb730kx4i6"]
+
+[ext_resource type="Texture2D" uid="uid://du3kcgya74nkf" path="res://Images/fireball/B500-2.PNG" id="1_eqeed"]
+[ext_resource type="Texture2D" uid="uid://cu6owibgs6wgv" path="res://Images/fireball/B500-3.PNG" id="2_rjbif"]
+[ext_resource type="Texture2D" uid="uid://c25hdoxe6crof" path="res://Images/fireball/B500-4.PNG" id="3_kdtiv"]
+[ext_resource type="Texture2D" uid="uid://5apefh7qkyml" path="res://Images/fireball/FB500-1.png" id="4_vg3ec"]
+[ext_resource type="Texture2D" uid="uid://co8kqm71h5777" path="res://Images/fireball/FB500-2.png" id="5_k78bo"]
+[ext_resource type="Texture2D" uid="uid://cqhj7823sxre" path="res://Images/fireball/FB500-3.png" id="6_okkrm"]
+[ext_resource type="Texture2D" uid="uid://br6b2ya2q27nm" path="res://Images/fireball/FB500-4.png" id="7_s7jw5"]
+[ext_resource type="Texture2D" uid="uid://3eaa74bthy7f" path="res://Images/fireball/FB500-5.png" id="8_4mbha"]
+[ext_resource type="Script" path="res://scripts/Fireball.gd" id="9_bhtwy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ism8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eqeed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rjbif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kdtiv")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vg3ec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k78bo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_okkrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_s7jw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4mbha")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yh7lr"]
+radius = 157.153
+
+[node name="Fireball" type="AnimatedSprite2D"]
+rotation = 1.5708
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_ism8b")
+animation = &"moving"
+script = ExtResource("9_bhtwy")
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 5
+
+[node name="Collider" type="CollisionShape2D" parent="Area"]
+position = Vector2(-11, -1)
+shape = SubResource("CircleShape2D_yh7lr")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[connection signal="area_entered" from="Area" to="." method="_on_area_entered"]
+[connection signal="body_entered" from="Area" to="." method="_on_body_entered"]

@@ -5,6 +5,10 @@ var tempspeed = 500
 var minLavaSpeed = 2
 var maxLavaSpeed = 110
 
+# Fireball
+var fireball = load("res://scenes/Fireball.tscn")
+var chance_to_spawn = 0.7
+
 # Vars
 var time = 0
 var lavaSpeed = 0
@@ -49,9 +53,38 @@ func _process(delta):
 # Player touches the lava
 func _on_collision_entered(body):
 	
-	print(body.name)
+	print(body.name + " Test")
 
 # Removes coins after lava touches them
 ## Note: Make sure layers are properly used as I took the easy way out... (Not checking if the area is a coin or not...)
 func _on_coin_entered(area):
 	area.get_parent().queue_free()
+
+# Summon fireball
+func _fireball_timer_timeout():
+	
+	var rand = randf_range(0, 1)
+	var spawn_chance = chance_to_spawn
+	
+	# Keep spawning fireballs until spawn_chance fails
+	while true:
+		
+		rand = randf_range(0, 1)
+		
+		if rand <= spawn_chance:
+			_summon_fireball()
+			spawn_chance /= 2
+		else:
+			break
+	
+
+
+func _summon_fireball():
+	var fireballObj = fireball.instantiate()
+	fireballObj.name = "Fireball"
+	$"..".add_child(fireballObj)
+	
+	var randX = randf_range(25, 1894)
+	var randY = randf_range(position.y + 100, position.y + 10)
+	
+	fireballObj.position = Vector2(randX, randY)
