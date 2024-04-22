@@ -16,6 +16,8 @@ var lavaSpeed = 0
 func _ready():
 	lavaSpeed = minLavaSpeed
 	$AnimatedSprite2D.play()
+	
+	$Lava_Loop_Sounds.pitch_scale = randf_range(0.5, 4)
 
 # Functions that controls how fast the lava goes
 func _speed_function_linear(slope):

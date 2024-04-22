@@ -14,6 +14,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	# Lava loop Sounds
+	if !$Lava_Loop_Sounds.playing:
+		$Lava_Loop_Sounds.play()
+	
 	timer += delta
 	
 	position.y -= sin(timer * speed) * height
