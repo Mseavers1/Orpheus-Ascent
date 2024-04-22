@@ -4,7 +4,7 @@ extends Node2D
 ## NOTICE: Use the platform sorter in the project folder if adding or removing platforms in the json file ##
 
 @export var camera: Camera2D
-@export var player: RigidBody2D
+@export var player: CharacterBody2D
 
 # Math script
 var math = preload("res://scripts/Math.gd").new()
