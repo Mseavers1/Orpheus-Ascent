@@ -13,6 +13,7 @@ player = NodePath("PlayerCharacter")
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(960, 541)
+limit_bottom = 1080
 
 [node name="Floor" parent="." instance=ExtResource("2_5ofet")]
 position = Vector2(960, 1239)
