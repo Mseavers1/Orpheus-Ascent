@@ -5,12 +5,16 @@ const SPEED = 300.0
 var max_jump_velocity
 var min_jump_velocity
 
+const max_jumps = 2
 var jump_count = 0;
 var gravity
 
-var taps = 0
-var tap_direction
-@export var number_of_taps = 2
+const max_dashes = 1
+var dash_count = 0
+var dash_over = true
+
+@export var dash_power_x = 800
+@export var dash_power_y = 800
 
 ## Kinematic Jumpings from https://www.youtube.com/watch?v=918wFTru2-c
 @export var max_jump_height = 3.25 * 64
@@ -24,39 +28,16 @@ func _ready():
 
 func _physics_process(delta):
 	
-	var is_dashing = false
-	
-	if taps >= number_of_taps:
-		velocity.x = 200 * tap_direction
-		is_dashing = true
-		taps = 0
-		$DoubleTap_Timer.stop()
-		
-	
-	if Input.is_action_just_pressed("move-left"):
-		
-		if tap_direction != -1:
-			$DoubleTap_Timer.start()
-			taps = 0
-		
-		taps += 1
-		tap_direction = -1
-	elif Input.is_action_just_pressed("move-right"):
-		
-		if tap_direction != 1:
-			$DoubleTap_Timer.start()
-			taps = 0
-		
-		taps += 1
-		tap_direction = 1
-	
 	# Add the gravity.
 	if not is_on_floor():
 		$Sprite.play("jump");
 		velocity.y += gravity * delta
+		
+	if is_on_floor():
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or jump_count < 2):
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or jump_count < max_jumps):
 		jump_count += 1;
 		velocity.y = max_jump_velocity
 	
@@ -64,31 +45,43 @@ func _physics_process(delta):
 		velocity.y = min_jump_velocity
 		
 	if is_on_floor():
+		dash_count = 0
 		$Sprite.play("idle");
 		jump_count = 0;
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("move-left", "move-right")
-	
-	if direction < 0:
-		$Sprite.flip_h = true
-
-	if direction > 0:
-		$Sprite.flip_h = false
+	if dash_over:
+		# Get the input direction and handle the movement/deceleration.
+		var direction = Input.get_axis("move-left", "move-right")
 		
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		_flip_player(direction)
 		
-	if is_dashing:
-		velocity.x = 20000 * tap_direction
-		tap_direction = 0
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	# Dashing
+	if Input.is_action_just_pressed("mouse-click") && dash_count < max_dashes:
+		dash_count += 1
+		dash_over = false
+		$Dash_Timer.start()
+		
+		var mousePos = get_global_mouse_position()
+		var vect = global_position.direction_to(mousePos)
+		
+		_flip_player(vect.x)
+		
+		velocity.x += dash_power_x * vect.x
+		velocity.y = dash_power_y * vect.y
 
 	move_and_slide()
 
+func _flip_player(direction):
+	if direction < 0:
+			$Sprite.flip_h = true
 
-func _on_double_tap_timeout():
-	taps = 0
-	tap_direction = 0
+	if direction > 0:
+		$Sprite.flip_h = false
+
+func _on_dash_timer_timeout():
+	dash_over = true
