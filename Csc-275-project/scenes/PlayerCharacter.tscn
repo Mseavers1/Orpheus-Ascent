@@ -16,7 +16,10 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v5aa3"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_up8dq")
+}],
 "loop": true,
 "name": &"fall",
 "speed": 5.0
@@ -41,9 +44,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_bf3e7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_up8dq")
 }],
 "loop": true,
 "name": &"jump",
@@ -78,13 +78,13 @@ radius = 8.5
 height = 24.0
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
 collision_mask = 4
 script = ExtResource("1_vwyqc")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v5aa3")
-animation = &"fall"
+animation = &"jump"
 autoplay = "idle"
 
 [node name="Collider" type="CollisionShape2D" parent="."]
