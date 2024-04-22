@@ -654,7 +654,11 @@ func _ready():
 
 func _process(_delta):
 
-	# Have Camera follow the player (TEMPORARY)
+	# Temp maybe? 
+	if !$PlayerCharacter:
+		return
+
+	# Have Camera follow the player
 	camera.position = Vector2(camera.position.x, player.position.y)
 	
 	# Check if player moved onto the next quad
