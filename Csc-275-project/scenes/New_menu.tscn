@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://bsahf1xgtokhx"]
 
 [ext_resource type="Script" path="res://scripts/new_menu_logic.gd" id="1_avby3"]
-[ext_resource type="Texture2D" uid="uid://taedej277h2a" path="res://images/background/Background1.png" id="2_anlhr"]
+[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="2_5x6j7"]
 [ext_resource type="Texture2D" uid="uid://bakooux75mu03" path="res://images/background/4.png" id="3_xvab2"]
 [ext_resource type="Texture2D" uid="uid://4j261pegys8y" path="res://animations/lava1-Sheet.png" id="4_mvdfx"]
 [ext_resource type="Script" path="res://scripts/LavaMenu.gd" id="5_d75xt"]
@@ -80,10 +80,11 @@ script = ExtResource("1_avby3")
 
 [node name="Background" type="Sprite2D" parent="Backgrounds"]
 position = Vector2(960, 540)
-texture = ExtResource("2_anlhr")
+texture = ExtResource("2_5x6j7")
 metadata/_edit_lock_ = true
 
 [node name="Foreground" type="Sprite2D" parent="Backgrounds"]
+visible = false
 position = Vector2(960, 540)
 texture = ExtResource("3_xvab2")
 metadata/_edit_lock_ = true
@@ -153,7 +154,7 @@ offset_right = 1920.0
 offset_bottom = 331.0
 grow_horizontal = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.976409, 0.638762, 0.611611, 1)
+theme_override_colors/font_color = Color(0.564706, 0.760784, 0.968627, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 11

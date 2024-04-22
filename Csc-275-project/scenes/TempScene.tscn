@@ -1,15 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cykm5wcd57mry"]
+[gd_scene load_steps=6 format=3 uid="uid://cykm5wcd57mry"]
 
 [ext_resource type="Script" path="res://scripts/PlatformGeneration.gd" id="1_bx10i"]
 [ext_resource type="PackedScene" uid="uid://cohf1yqeswom8" path="res://scenes/Floor.tscn" id="2_5ofet"]
 [ext_resource type="PackedScene" uid="uid://bgn04w7ih44h" path="res://scenes/PlayerCharacter.tscn" id="3_xbidr"]
 [ext_resource type="PackedScene" uid="uid://dim5l11cdha5l" path="res://scenes/Lava.tscn" id="4_w5ylt"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1p6lj"]
-load_path = "res://.godot/imported/Background1.png-47f3c1bfca99d259ffa288a98b771808.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nexru"]
-load_path = "res://.godot/imported/4.png-3c9bd6cdabf06c3780a6b09e7eab6fa1.ctex"
+[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="5_kdq10"]
 
 [node name="TempScene" type="Node2D" node_paths=PackedStringArray("camera", "player")]
 script = ExtResource("1_bx10i")
@@ -35,10 +30,6 @@ position = Vector2(0, 1033)
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(0, 1080)
 
-[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Background2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(960, 540)
-texture = SubResource("CompressedTexture2D_1p6lj")
-
-[node name="Overlay" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(960, 540)
-texture = SubResource("CompressedTexture2D_nexru")
+texture = ExtResource("5_kdq10")
