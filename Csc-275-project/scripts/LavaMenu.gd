@@ -14,6 +14,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	# Lava loop Sounds
+	if !$Lava_Loop_Sounds.playing:
+		$Lava_Loop_Sounds.play()
+	
 	timer += delta
 	
 	position.y -= sin(timer * speed) * height
@@ -43,7 +48,9 @@ func _summon_fireball():
 	
 	fireballObj._set_alive_timer(rand_alive)
 	fireballObj.name = "Fireball"
+	fireballObj.set_explosion_sound(-10)
 	$"../Fireball_Holder".add_child(fireballObj)
+	fireballObj.set_lava_pos_y(900)
 	
 	var randX = randf_range(25, 1894)
 	var randY = randf_range(1080, 1080 + 100)

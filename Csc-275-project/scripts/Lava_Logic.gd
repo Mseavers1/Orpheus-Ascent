@@ -16,6 +16,8 @@ var lavaSpeed = 0
 func _ready():
 	lavaSpeed = minLavaSpeed
 	$AnimatedSprite2D.play()
+	
+	$Lava_Loop_Sounds.pitch_scale = randf_range(0.5, 4)
 
 # Functions that controls how fast the lava goes
 func _speed_function_linear(slope):
@@ -29,6 +31,10 @@ func _speed_function_pow(slope, exponent):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	# Lava loop Sounds
+	if !$Lava_Loop_Sounds.playing:
+		$Lava_Loop_Sounds.play()
 	
 	var velocity = Vector2.ZERO;
 		
@@ -82,9 +88,10 @@ func _summon_fireball():
 	var fireballObj = fireball.instantiate()
 	fireballObj.name = "Fireball"
 	$"..".add_child(fireballObj)
+	fireballObj.set_lava_pos_y(position.y)
 	
-	var randX = randf_range(25, 1894)
-	var randY = randf_range(position.y + 100, position.y + 10)
+	var randX = randf_range(100, 1800)
+	var randY = randf_range(position.y + 100, position.y + 30)
 	
 	fireballObj.speed = randf_range(80, 200)
 	
