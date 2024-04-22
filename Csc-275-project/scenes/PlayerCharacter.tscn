@@ -96,4 +96,13 @@ shape = SubResource("CapsuleShape2D_hadp8")
 wait_time = 0.2
 one_shot = true
 
+[node name="Coin_Collector" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="Collider" type="CollisionShape2D" parent="Coin_Collector"]
+visible = false
+position = Vector2(-1.25, 4.25)
+shape = SubResource("CapsuleShape2D_hadp8")
+
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="body_entered" from="Coin_Collector" to="." method="_on_coin_collector_body_entered"]
