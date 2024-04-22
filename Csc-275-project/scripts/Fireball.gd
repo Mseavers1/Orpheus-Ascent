@@ -12,6 +12,8 @@ func set_explosion_sound(volume):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	play("moving")
+	
+	$Explosion_Sound.pitch_scale = randf_range(0.5, 4)
 
 func _set_alive_timer(time):
 	$AliveTimer.wait_time = time
