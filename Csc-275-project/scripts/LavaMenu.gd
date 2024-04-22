@@ -43,6 +43,7 @@ func _summon_fireball():
 	
 	fireballObj._set_alive_timer(rand_alive)
 	fireballObj.name = "Fireball"
+	fireballObj.set_explosion_sound(-10)
 	$"../Fireball_Holder".add_child(fireballObj)
 	
 	var randX = randf_range(25, 1894)
