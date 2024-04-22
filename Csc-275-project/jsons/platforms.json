@@ -1,317 +1,317 @@
 {
-    "0": {
-        "Name": "Platform",
-        "Size": [64, 64],
-        "Chance": 0
-    },
-    "1": {
-        "Name": "Platform",
-        "Size": [128, 128],
-        "Chance": 2
-    },
-    "2": {
-        "Name": "Platform",
-        "Size": [128, 192],
-        "Chance": 2
-    },
-    "3": {
-        "Name": "Platform",
-        "Size": [128, 256],
-        "Chance": 2
-    },
-    "4": {
-        "Name": "Platform",
-        "Size": [128, 320],
-        "Chance": 2
-    },
-    "5": {
-        "Name": "Platform",
-        "Size": [128, 384],
-        "Chance": 2
-    },
-    "6": {
-        "Name": "Platform",
-        "Size": [128, 704],
-        "Chance": 1
-    },
-    "7": {
-        "Name": "Platform",
-        "Size": [128, 768],
-        "Chance": 1
-    },
-    "8": {
-        "Name": "Platform",
-        "Size": [128, 832],
-        "Chance": 1
-    },
-    "9": {
-        "Name": "Platform",
-        "Size": [192, 128],
-        "Chance": 2
-    },
-    "10": {
-        "Name": "Platform",
-        "Size": [192, 192],
-        "Chance": 2
-    },
-    "11": {
-        "Name": "Platform",
-        "Size": [192, 256],
-        "Chance": 2
-    },
-    "12": {
-        "Name": "Platform",
-        "Size": [192, 320],
-        "Chance": 2
-    },
-    "13": {
-        "Name": "Platform",
-        "Size": [192, 384],
-        "Chance": 2
-    },
-    "14": {
-        "Name": "Platform",
-        "Size": [192, 704],
-        "Chance": 1
-    },
-    "15": {
-        "Name": "Platform",
-        "Size": [192, 768],
-        "Chance": 1
-    },
-    "16": {
-        "Name": "Platform",
-        "Size": [192, 832],
-        "Chance": 1
-    },
-    "17": {
-        "Name": "Platform",
-        "Size": [256, 128],
-        "Chance": 2
-    },
-    "18": {
-        "Name": "Platform",
-        "Size": [256, 192],
-        "Chance": 1
-    },
-    "19": {
-        "Name": "Platform",
-        "Size": [256, 256],
-        "Chance": 1
-    },
-    "20": {
-        "Name": "Platform",
-        "Size": [256, 320],
-        "Chance": 1
-    },
-    "21": {
-        "Name": "Platform",
-        "Size": [256, 384],
-        "Chance": 1
-    },
-    "22": {
-        "Name": "Platform",
-        "Size": [256, 704],
-        "Chance": 2
-    },
-    "23": {
-        "Name": "Platform",
-        "Size": [256, 768],
-        "Chance": 1
-    },
-    "24": {
-        "Name": "Platform",
-        "Size": [256, 832],
-        "Chance": 1
-    },
-    "25": {
-        "Name": "Platform",
-        "Size": [320, 128],
-        "Chance": 1
-    },
-    "26": {
-        "Name": "Platform",
-        "Size": [320, 192],
-        "Chance": 1
-    },
-    "27": {
-        "Name": "Platform",
-        "Size": [320, 256],
-        "Chance": 1
-    },
-    "28": {
-        "Name": "Platform",
-        "Size": [320, 320],
-        "Chance": 1
-    },
-    "29": {
-        "Name": "Platform",
-        "Size": [320, 384],
-        "Chance": 1
-    },
-    "30": {
-        "Name": "Platform",
-        "Size": [320, 832],
-        "Chance": 1
-    },
-    "31": {
-        "Name": "Platform",
-        "Size": [384, 128],
-        "Chance": 1
-    },
-    "32": {
-        "Name": "Platform",
-        "Size": [384, 192],
-        "Chance": 1
-    },
-    "33": {
-        "Name": "Platform",
-        "Size": [384, 256],
-        "Chance": 1
-    },
-    "34": {
-        "Name": "Platform",
-        "Size": [384, 320],
-        "Chance": 1
-    },
-    "35": {
-        "Name": "Platform",
-        "Size": [384, 384],
-        "Chance": 1
-    },
-    "36": {
-        "Name": "Platform",
-        "Size": [384, 832],
-        "Chance": 1
-    },
-    "37": {
-        "Name": "Platform",
-        "Size": [448, 448],
-        "Chance": 1
-    },
-    "38": {
-        "Name": "Platform",
-        "Size": [448, 832],
-        "Chance": 1
-    },
-    "39": {
-        "Name": "Platform",
-        "Size": [512, 512],
-        "Chance": 1
-    },
-    "40": {
-        "Name": "Platform",
-        "Size": [512, 832],
-        "Chance": 1
-    },
-    "41": {
-        "Name": "Platform",
-        "Size": [576, 576],
-        "Chance": 1
-    },
-    "42": {
-        "Name": "Platform",
-        "Size": [576, 832],
-        "Chance": 1
-    },
-    "43": {
-        "Name": "Platform",
-        "Size": [640, 832],
-        "Chance": 1
-    },
-    "44": {
-        "Name": "Platform",
-        "Size": [704, 128],
-        "Chance": 1
-    },
-    "45": {
-        "Name": "Platform",
-        "Size": [704, 192],
-        "Chance": 1
-    },
-    "46": {
-        "Name": "Platform",
-        "Size": [704, 256],
-        "Chance": 1
-    },
-    "47": {
-        "Name": "Platform",
-        "Size": [704, 832],
-        "Chance": 1
-    },
-    "48": {
-        "Name": "Platform",
-        "Size": [768, 128],
-        "Chance": 1
-    },
-    "49": {
-        "Name": "Platform",
-        "Size": [768, 192],
-        "Chance": 1
-    },
-    "50": {
-        "Name": "Platform",
-        "Size": [768, 256],
-        "Chance": 1
-    },
-    "51": {
-        "Name": "Platform",
-        "Size": [768, 832],
-        "Chance": 1
-    },
-    "52": {
-        "Name": "Platform",
-        "Size": [832, 128],
-        "Chance": 1
-    },
-    "53": {
-        "Name": "Platform",
-        "Size": [832, 192],
-        "Chance": 1
-    },
-    "54": {
-        "Name": "Platform",
-        "Size": [832, 256],
-        "Chance": 1
-    },
-    "55": {
-        "Name": "Platform",
-        "Size": [832, 320],
-        "Chance": 1
-    },
-    "56": {
-        "Name": "Platform",
-        "Size": [832, 384],
-        "Chance": 1
-    },
-    "57": {
-        "Name": "Platform",
-        "Size": [832, 448],
-        "Chance": 1
-    },
-    "58": {
-        "Name": "Platform",
-        "Size": [832, 512],
-        "Chance": 2
-    },
-    "59": {
-        "Name": "Platform",
-        "Size": [832, 640],
-        "Chance": 1
-    },
-    "60": {
-        "Name": "Platform",
-        "Size": [832, 704],
-        "Chance": 1
-    },
-    "61": {
-        "Name": "Platform",
-        "Size": [832, 768],
-        "Chance": 1
-    },
-    "62": {
-        "Name": "Platform",
-        "Size": [832, 832],
-        "Chance": 1
-    }
+	"0": {
+		"Name": "Platform",
+		"Size": [64, 64],
+		"Chance": 0
+	},
+	"1": {
+		"Name": "Platform",
+		"Size": [128, 128],
+		"Chance": 3
+	},
+	"2": {
+		"Name": "Platform",
+		"Size": [128, 192],
+		"Chance": 3
+	},
+	"3": {
+		"Name": "Platform",
+		"Size": [128, 256],
+		"Chance": 3
+	},
+	"4": {
+		"Name": "Platform",
+		"Size": [128, 320],
+		"Chance": 3
+	},
+	"5": {
+		"Name": "Platform",
+		"Size": [128, 384],
+		"Chance": 3
+	},
+	"6": {
+		"Name": "Platform",
+		"Size": [128, 704],
+		"Chance": 1
+	},
+	"7": {
+		"Name": "Platform",
+		"Size": [128, 768],
+		"Chance": 1
+	},
+	"8": {
+		"Name": "Platform",
+		"Size": [128, 832],
+		"Chance": 1
+	},
+	"9": {
+		"Name": "Platform",
+		"Size": [192, 128],
+		"Chance": 2
+	},
+	"10": {
+		"Name": "Platform",
+		"Size": [192, 192],
+		"Chance": 2
+	},
+	"11": {
+		"Name": "Platform",
+		"Size": [192, 256],
+		"Chance": 2
+	},
+	"12": {
+		"Name": "Platform",
+		"Size": [192, 320],
+		"Chance": 2
+	},
+	"13": {
+		"Name": "Platform",
+		"Size": [192, 384],
+		"Chance": 2
+	},
+	"14": {
+		"Name": "Platform",
+		"Size": [192, 704],
+		"Chance": 1
+	},
+	"15": {
+		"Name": "Platform",
+		"Size": [192, 768],
+		"Chance": 1
+	},
+	"16": {
+		"Name": "Platform",
+		"Size": [192, 832],
+		"Chance": 1
+	},
+	"17": {
+		"Name": "Platform",
+		"Size": [256, 128],
+		"Chance": 2
+	},
+	"18": {
+		"Name": "Platform",
+		"Size": [256, 192],
+		"Chance": 1
+	},
+	"19": {
+		"Name": "Platform",
+		"Size": [256, 256],
+		"Chance": 1
+	},
+	"20": {
+		"Name": "Platform",
+		"Size": [256, 320],
+		"Chance": 1
+	},
+	"21": {
+		"Name": "Platform",
+		"Size": [256, 384],
+		"Chance": 1
+	},
+	"22": {
+		"Name": "Platform",
+		"Size": [256, 704],
+		"Chance": 2
+	},
+	"23": {
+		"Name": "Platform",
+		"Size": [256, 768],
+		"Chance": 1
+	},
+	"24": {
+		"Name": "Platform",
+		"Size": [256, 832],
+		"Chance": 1
+	},
+	"25": {
+		"Name": "Platform",
+		"Size": [320, 128],
+		"Chance": 1
+	},
+	"26": {
+		"Name": "Platform",
+		"Size": [320, 192],
+		"Chance": 1
+	},
+	"27": {
+		"Name": "Platform",
+		"Size": [320, 256],
+		"Chance": 1
+	},
+	"28": {
+		"Name": "Platform",
+		"Size": [320, 320],
+		"Chance": 1
+	},
+	"29": {
+		"Name": "Platform",
+		"Size": [320, 384],
+		"Chance": 1
+	},
+	"30": {
+		"Name": "Platform",
+		"Size": [320, 832],
+		"Chance": 1
+	},
+	"31": {
+		"Name": "Platform",
+		"Size": [384, 128],
+		"Chance": 1
+	},
+	"32": {
+		"Name": "Platform",
+		"Size": [384, 192],
+		"Chance": 2
+	},
+	"33": {
+		"Name": "Platform",
+		"Size": [384, 256],
+		"Chance": 2
+	},
+	"34": {
+		"Name": "Platform",
+		"Size": [384, 320],
+		"Chance": 2
+	},
+	"35": {
+		"Name": "Platform",
+		"Size": [384, 384],
+		"Chance": 2
+	},
+	"36": {
+		"Name": "Platform",
+		"Size": [384, 832],
+		"Chance": 2
+	},
+	"37": {
+		"Name": "Platform",
+		"Size": [448, 448],
+		"Chance": 2
+	},
+	"38": {
+		"Name": "Platform",
+		"Size": [448, 832],
+		"Chance": 2
+	},
+	"39": {
+		"Name": "Platform",
+		"Size": [512, 512],
+		"Chance": 2
+	},
+	"40": {
+		"Name": "Platform",
+		"Size": [512, 832],
+		"Chance": 2
+	},
+	"41": {
+		"Name": "Platform",
+		"Size": [576, 576],
+		"Chance": 2
+	},
+	"42": {
+		"Name": "Platform",
+		"Size": [576, 832],
+		"Chance": 2
+	},
+	"43": {
+		"Name": "Platform",
+		"Size": [640, 832],
+		"Chance": 2
+	},
+	"44": {
+		"Name": "Platform",
+		"Size": [704, 128],
+		"Chance": 2
+	},
+	"45": {
+		"Name": "Platform",
+		"Size": [704, 192],
+		"Chance": 2
+	},
+	"46": {
+		"Name": "Platform",
+		"Size": [704, 256],
+		"Chance": 2
+	},
+	"47": {
+		"Name": "Platform",
+		"Size": [704, 832],
+		"Chance": 2
+	},
+	"48": {
+		"Name": "Platform",
+		"Size": [768, 128],
+		"Chance": 2
+	},
+	"49": {
+		"Name": "Platform",
+		"Size": [768, 192],
+		"Chance": 2
+	},
+	"50": {
+		"Name": "Platform",
+		"Size": [768, 256],
+		"Chance": 2
+	},
+	"51": {
+		"Name": "Platform",
+		"Size": [768, 832],
+		"Chance": 2
+	},
+	"52": {
+		"Name": "Platform",
+		"Size": [832, 128],
+		"Chance": 1
+	},
+	"53": {
+		"Name": "Platform",
+		"Size": [832, 192],
+		"Chance": 1
+	},
+	"54": {
+		"Name": "Platform",
+		"Size": [832, 256],
+		"Chance": 1
+	},
+	"55": {
+		"Name": "Platform",
+		"Size": [832, 320],
+		"Chance": 1
+	},
+	"56": {
+		"Name": "Platform",
+		"Size": [832, 384],
+		"Chance": 1
+	},
+	"57": {
+		"Name": "Platform",
+		"Size": [832, 448],
+		"Chance": 1
+	},
+	"58": {
+		"Name": "Platform",
+		"Size": [832, 512],
+		"Chance": 2
+	},
+	"59": {
+		"Name": "Platform",
+		"Size": [832, 640],
+		"Chance": 1
+	},
+	"60": {
+		"Name": "Platform",
+		"Size": [832, 704],
+		"Chance": 1
+	},
+	"61": {
+		"Name": "Platform",
+		"Size": [832, 768],
+		"Chance": 1
+	},
+	"62": {
+		"Name": "Platform",
+		"Size": [832, 832],
+		"Chance": 1
+	}
 }
