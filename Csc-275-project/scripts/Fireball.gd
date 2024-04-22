@@ -1,6 +1,10 @@
 extends AnimatedSprite2D
 
 @export var speed = 200
+var lava_pos_y
+
+func set_lava_pos_y(y):
+	lava_pos_y = y
 
 func set_explosion_sound(volume):
 	$Explosion_Sound.volume_db = volume
@@ -20,7 +24,14 @@ func _process(delta):
 func _on_body_entered(body):
 	speed = 0
 	play("explode")
-	$Explosion_Sound.play()
+	play_explosion()
+	
+func play_explosion():
+	
+	if position.y > lava_pos_y:
+		queue_free()
+	else:
+		$Explosion_Sound.play()
 
 # Collision with platform -- MENU
 func _on_area_entered(_area):
@@ -31,7 +42,7 @@ func _on_area_entered(_area):
 	
 	speed = 0
 	play("explode")
-	$Explosion_Sound.play()
+	play_explosion()
 	
 
 
@@ -42,7 +53,7 @@ func _on_animation_finished():
 func _on_alive_timer_timeout():
 	speed = 0
 	play("explode")
-	$Explosion_Sound.play()
+	play_explosion()
 
 func _explosion_finished():
 	queue_free()

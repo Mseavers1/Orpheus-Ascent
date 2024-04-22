@@ -86,9 +86,10 @@ func _summon_fireball():
 	var fireballObj = fireball.instantiate()
 	fireballObj.name = "Fireball"
 	$"..".add_child(fireballObj)
+	fireballObj.set_lava_pos_y(position.y)
 	
-	var randX = randf_range(25, 1894)
-	var randY = randf_range(position.y + 100, position.y + 10)
+	var randX = randf_range(100, 1800)
+	var randY = randf_range(position.y + 100, position.y + 30)
 	
 	fireballObj.speed = randf_range(80, 200)
 	
