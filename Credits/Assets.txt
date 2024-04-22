@@ -1,2 +1,7 @@
 Fireball - httpsnyknck.itch.iofireball-animationdownload
-Lava Sounds - Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=28887">Pixabay</a>
+
+Lava loop Sounds - Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=28887">Pixabay</a>
+
+Explosion - Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=40472">Pixabay</a>
+
+Lava Loop 2 - Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=67307">Pixabay</a>
