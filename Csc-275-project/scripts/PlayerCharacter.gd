@@ -13,6 +13,9 @@ const max_dashes = 1
 var dash_count = 0
 var dash_over = true
 
+var coin_pitch_restarted = true
+var current_coin_pitch = 1
+
 @export var dash_power_x = 800
 @export var dash_power_y = 800
 
@@ -89,4 +92,18 @@ func _on_dash_timer_timeout():
 
 func _on_coin_collector_body_entered(body):
 	if body.is_in_group("Coins"):
-		body.queue_free()
+		
+		# If coin & restart, set pitch to 1
+		if coin_pitch_restarted:
+			# current_coin_pitch = randf_range(0.9, 1.2)
+			current_coin_pitch = 1
+			coin_pitch_restarted = false
+		else:
+			current_coin_pitch += 0.2
+		
+		$Coin_Timer.start()
+		body.pickup(current_coin_pitch)
+
+
+func _on_coin_timer_timeout():
+	coin_pitch_restarted = true
