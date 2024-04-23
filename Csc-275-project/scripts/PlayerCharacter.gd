@@ -72,7 +72,7 @@ func _process(_delta):
 	var value = current_height
 	
 	if is_metric:
-			value = ceil(record_height / 3.281)
+			value = ceil(current_height / 3.281)
 	
 	$"../UI/Current_Height_Value".text = str(value) + " " + suffix
 
