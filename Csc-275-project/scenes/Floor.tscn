@@ -1,17 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://cohf1yqeswom8"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8umpa"]
-load_path = "res://.godot/imported/Platform632x576.png-86e88bb3fec43ead95d7fb4a10eb9404.ctex"
+[ext_resource type="Texture2D" uid="uid://bamo48qv273ql" path="res://images/platforms/Platform832x512.png" id="1_4b0sp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fy7d7"]
-size = Vector2(832, 577)
+size = Vector2(832, 512)
 
 [node name="Floor" type="StaticBody2D"]
 collision_layer = 4
 
 [node name="Platform" type="Sprite2D" parent="."]
-texture = SubResource("CompressedTexture2D_8umpa")
+texture = ExtResource("1_4b0sp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_fy7d7")
