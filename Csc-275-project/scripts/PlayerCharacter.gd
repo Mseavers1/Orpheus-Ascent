@@ -67,7 +67,7 @@ func _process(_delta):
 		
 		$"../UI/Record".text = "Record: " + str(value) + " " + suffix
 		
-	current_height = int((901 - int(position.y)) / 25)
+	current_height = int((950 - int(position.y)) / 25)
 	
 	var value = current_height
 	
