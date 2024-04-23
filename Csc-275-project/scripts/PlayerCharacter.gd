@@ -89,4 +89,4 @@ func _on_dash_timer_timeout():
 
 func _on_coin_collector_body_entered(body):
 	if body.is_in_group("Coins"):
-		body.queue_free()
+		body.pickup()
