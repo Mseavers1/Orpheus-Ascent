@@ -12,8 +12,8 @@ func generate_platform(p_name, size, pos, marigins, pickup_spawned):
 	
 	var platform_path = "res://images/platforms/" + p_name + ".png"
 	
-	if !FileAccess.file_exists(platform_path):
-		print("Unable to find the picture for the platform: " + str(p_name))
+	# if !FileAccess.file_exists(platform_path):
+		# print("Unable to find the picture for the platform: " + str(p_name))
 
 	var img = load(platform_path)
 	
