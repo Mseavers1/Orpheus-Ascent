@@ -7,9 +7,13 @@ const SPEED = 300.0
 var max_jump_velocity
 var min_jump_velocity
 
-const max_jumps = 2
+const max_jumps = 1
 var jump_count = 0;
 var gravity
+
+var can_wall_jump = true;
+const max_wall_jumps = 1;
+const wall_jump_velocity = 300;
 
 const max_dashes = 1
 var dash_count = 0
@@ -79,8 +83,15 @@ func _physics_process(delta):
 		$Sprite.play("jump");
 		velocity.y += gravity * delta
 		
+	if is_on_wall() and Input.is_action_just_pressed("jump") and can_wall_jump:
+		print('On wall and jump pressed')
+		velocity.y = max_jump_velocity;
+		velocity.x = dash_power_x;
+		can_wall_jump = false;
+		
 	if is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		can_wall_jump = true;
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or jump_count < max_jumps):
@@ -107,7 +118,7 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	# Dashing
-	if Input.is_action_just_pressed("mouse-click") && dash_count < max_dashes:
+	if (Input.is_action_just_pressed("mouse-click") or Input.is_action_just_pressed("dash")) && dash_count < max_dashes:
 		dash_count += 1
 		dash_over = false
 		$Dash_Timer.start()
