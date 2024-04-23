@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var current_height = 0
+var record_height = 0
 
 const SPEED = 300.0
 var max_jump_velocity
@@ -13,8 +15,15 @@ const max_dashes = 1
 var dash_count = 0
 var dash_over = true
 
+var coin_value = 100
+var coin_bonus = 1
 var coin_pitch_restarted = true
 var current_coin_pitch = 1
+
+var suffix
+var is_metric = true
+
+var score = 0
 
 @export var dash_power_x = 800
 @export var dash_power_y = 800
@@ -24,10 +33,44 @@ var current_coin_pitch = 1
 @export var min_jump_height = 0.5 * 64
 @export var jump_duration = 0.5
 
+func _update_conversion():
+	
+	if is_metric:
+		suffix = "m"
+	else:
+		suffix = "ft"
+
 func _ready():
+	
+	_update_conversion()
+	
 	gravity = 2 * max_jump_height / pow(jump_duration, 2)
 	max_jump_velocity = -sqrt(2 * gravity * max_jump_height)
 	min_jump_velocity = -sqrt(2 * gravity * min_jump_height)
+	
+func _process(_delta):
+	
+	if record_height < current_height:
+		record_height = current_height
+		score += ceil(1)
+		
+		update_score()
+		
+		var value = record_height
+		
+		if is_metric:
+			value = ceil(record_height / 3.281)
+		
+		$"../UI/Record".text = "Record: " + str(value) + " " + suffix
+		
+	current_height = int((901 - int(position.y)) / 25)
+	
+	var value = current_height
+	
+	if is_metric:
+			value = ceil(record_height / 3.281)
+	
+	$"../UI/Current_Height_Value".text = str(value) + " " + suffix
 
 func _physics_process(delta):
 	
@@ -89,6 +132,8 @@ func _flip_player(direction):
 func _on_dash_timer_timeout():
 	dash_over = true
 
+func update_score():
+	$"../UI/Score".text = "Score: " + str(score)
 
 func _on_coin_collector_body_entered(body):
 	if body.is_in_group("Coins"):
@@ -98,11 +143,17 @@ func _on_coin_collector_body_entered(body):
 			# current_coin_pitch = randf_range(0.9, 1.2)
 			current_coin_pitch = 1
 			coin_pitch_restarted = false
+			coin_bonus = 1
 		else:
-			current_coin_pitch += 0.2
+			current_coin_pitch += 0.05
+			coin_bonus += 0.1
 		
 		$Coin_Timer.start()
 		body.pickup(current_coin_pitch)
+		
+		score += coin_value * coin_bonus
+		# print(coin_value * coin_bonus)
+		update_score()
 
 
 func _on_coin_timer_timeout():
