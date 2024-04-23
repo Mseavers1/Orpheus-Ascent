@@ -2,7 +2,13 @@ extends StaticBody2D
 
 var has_been_picked_up = false
 
-func pickup():
+func pickup(pitch):
+	
+	if has_been_picked_up:
+		return
+	
+	$Coin_Pickup_Sound.pitch_scale = pitch
+	$Coin_Pickup_Sound.play()
 	$AnimatedSprite2D.play("pick_up")
 	has_been_picked_up = true
 
