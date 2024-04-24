@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bob1f58xpxuk7"]
+[gd_scene load_steps=26 format=3 uid="uid://bob1f58xpxuk7"]
 
 [ext_resource type="Texture2D" uid="uid://biaot8j0dohjw" path="res://animations/Coin.png" id="1_0mvod"]
 [ext_resource type="Script" path="res://scripts/Coin.gd" id="2_65eyl"]
@@ -23,22 +23,6 @@ region = Rect2(20, 0, 10, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jrhlx"]
 atlas = ExtResource("1_0mvod")
-region = Rect2(30, 0, 10, 12)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nl2lw"]
-atlas = ExtResource("3_tbmna")
-region = Rect2(0, 0, 10, 12)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gkwl4"]
-atlas = ExtResource("3_tbmna")
-region = Rect2(10, 0, 10, 12)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_djkeo"]
-atlas = ExtResource("3_tbmna")
-region = Rect2(20, 0, 10, 12)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p0ipu"]
-atlas = ExtResource("3_tbmna")
 region = Rect2(30, 0, 10, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4mr3h"]
@@ -122,18 +106,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nl2lw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gkwl4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_djkeo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p0ipu")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_4mr3h")
 }, {
 "duration": 1.0,
@@ -180,7 +152,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"pick_up",
-"speed": 25.0
+"speed": 33.0
 }]
 
 [node name="Coin" type="StaticBody2D" groups=["Coins"]]

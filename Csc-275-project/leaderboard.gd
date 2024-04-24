@@ -16,6 +16,8 @@ var user_score
 
 func _ready():
 	
+	get_tree().paused = false
+	
 	current_score.text = str(Globals.get_score())
 	current_height.text = str(Globals.get_height())
 	
@@ -82,21 +84,25 @@ func load_data():
 			data_label.text = "Load failed"
 
 func update_scores():
-	$Highest_Score_Label/Score_Data.text = str(user_score)
-	$Name_Label/Name_Data.text = str(user_name)
-	$Record_Height_Label/Height_Data.text = str(user_height)
+	highest_score.text = str(user_score)
+	name_label.text = str(user_name)
+	highest_height.text = str(user_height)
+	
+func update_scores_new():
+	highest_score.text = str(Globals.get_score())
+	highest_height.text = str(Globals.get_height())
 
 func _on_save_button_pressed():
 	var player_data: Dictionary = {}
 	var fail = false
 	
 	if highest_score.text != "0":
-		player_data["Score"] = highest_score.text
+		player_data["Score"] = current_score.text
 	else:
 		fail = true
 		
 	if highest_score.text != "0":
-		player_data["Height"] = highest_height.text
+		player_data["Height"] = current_height.text
 	else:
 		fail = true
 		
@@ -110,6 +116,9 @@ func save_data(player_data: Dictionary):
 		data_label.text = "Saving"
 		var sw_result = await SilentWolf.Players.save_player_data(SilentWolf.Auth.logged_in_player, player_data).sw_save_player_data_complete
 		data_label.text = "Save success" if sw_result and sw_result.success else "Save failed"
+		update_scores_new()
+		SilentWolf.Scores.save_score(user_name, Globals.get_score())
+		SilentWolf.Scores.save_score(user_name, Globals.get_height(), "Height")
 
 func to_game():
 	get_tree().change_scene_to_file("res://scenes/TempScene.tscn")

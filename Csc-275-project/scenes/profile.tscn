@@ -19,7 +19,7 @@ data_label = NodePath("Error_Label/Error_Info")
 login_info = NodePath("Login Info/Login_State")
 highest_score = NodePath("Best Scores/Highest_Score_Label/Score_Data")
 highest_height = NodePath("Best Scores/Record_Height_Label/Height_Data")
-name_label = NodePath("Best Scores/Name_Label")
+name_label = NodePath("Best Scores/Name_Label/Name_Data")
 current_score = NodePath("Played Scores/Current Score/Score_Data1")
 current_height = NodePath("Played Scores/Current Height/Height_Data1")
 
