@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bgn04w7ih44h"]
+[gd_scene load_steps=17 format=3 uid="uid://bgn04w7ih44h"]
 
 [ext_resource type="Texture2D" uid="uid://bwpadveff8bnh" path="res://images/player/idle/player-idle-1.png" id="1_hhbwi"]
 [ext_resource type="Script" path="res://scripts/PlayerCharacter.gd" id="1_vwyqc"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://l4cr6nb4oonc" path="res://images/player/run/player-run-4.png" id="9_i4unn"]
 [ext_resource type="Texture2D" uid="uid://dldx5o4hyg7so" path="res://images/player/run/player-run-5.png" id="10_hqkgm"]
 [ext_resource type="Texture2D" uid="uid://cniftwpesuwn4" path="res://images/player/run/player-run-6.png" id="11_6h5pe"]
+[ext_resource type="Script" path="res://scenes/pause.gd" id="14_upbw2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v5aa3"]
 animations = [{
@@ -110,6 +111,10 @@ collision_mask = 2
 visible = false
 position = Vector2(-1.25, 4.25)
 shape = SubResource("CapsuleShape2D_hadp8")
+
+[node name="Pause Controller" type="Node2D" parent="."]
+process_mode = 3
+script = ExtResource("14_upbw2")
 
 [connection signal="timeout" from="Coin_Timer" to="." method="_on_coin_timer_timeout"]
 [connection signal="timeout" from="Wall_Jump_Timer" to="." method="_on_wall_jump_timeout"]

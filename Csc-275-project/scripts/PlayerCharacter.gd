@@ -77,6 +77,9 @@ func _process(_delta):
 		
 	current_height = int((950 - int(position.y)) / 25)
 	
+	if current_height < 0: 
+		current_height = 0
+	
 	var value = current_height
 	
 	if is_metric:
@@ -261,3 +264,7 @@ func _on_coin_timer_timeout():
 
 func _on_wall_jump_timeout():
 	wall_jump_over = true
+
+func death():
+	hide()
+	$"Pause Controller".force_pause()
