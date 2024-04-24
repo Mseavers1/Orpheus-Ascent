@@ -60,8 +60,7 @@ func _process(delta):
 func _on_collision_entered(body):
 	
 	if body.is_in_group("Player"):
-		print("Player Died")
-		body.queue_free()
+		body.death()
 	
 	if body.is_in_group("Coins"):
 		body.queue_free()
