@@ -266,5 +266,14 @@ func _on_wall_jump_timeout():
 	wall_jump_over = true
 
 func death():
+	Globals.set_score(score)
+	Globals.set_height(record_height)
 	hide()
 	$"Pause Controller".force_pause()
+	$"Pause Controller/Game Over".show()
+
+func to_profile():
+	get_tree().change_scene_to_file("res://scenes/profile.tscn")
+
+func _on_upload_score_pressed():
+	call_deferred("to_profile")
