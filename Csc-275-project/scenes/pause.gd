@@ -10,6 +10,11 @@ func _process(_delta):
 func pause_game():
 	currently_paused = !currently_paused
 	get_tree().paused = currently_paused
+	
+	if currently_paused:
+		$"Pause Menu".show()
+	else:
+		$"Pause Menu".hide()
 
 func force_pause():
 	paused_forced = true
