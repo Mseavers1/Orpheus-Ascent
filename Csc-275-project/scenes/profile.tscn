@@ -1,0 +1,294 @@
+[gd_scene load_steps=7 format=3 uid="uid://cywve8icpqmmr"]
+
+[ext_resource type="Script" path="res://leaderboard.gd" id="1_m0kb2"]
+[ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="2_8x7v7"]
+[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="2_h0tog"]
+[ext_resource type="Texture2D" uid="uid://dsbkiq3l2l14v" path="res://images/platforms/Platform320x320.png" id="3_bfju8"]
+[ext_resource type="Texture2D" uid="uid://cl1pd03esiakl" path="res://images/platforms/Platform384x192.png" id="5_hie8u"]
+[ext_resource type="Texture2D" uid="uid://dxhmp81usarrg" path="res://images/platforms/Platform832x256.png" id="6_hx65m"]
+
+[node name="Profile" type="Control" node_paths=PackedStringArray("data_label", "login_info", "highest_score", "highest_height", "name_label", "current_score", "current_height")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m0kb2")
+data_label = NodePath("Error_Label/Error_Info")
+login_info = NodePath("Login Info/Login_State")
+highest_score = NodePath("Best Scores/Highest_Score_Label/Score_Data")
+highest_height = NodePath("Best Scores/Record_Height_Label/Height_Data")
+name_label = NodePath("Best Scores/Name_Label/Name_Data")
+current_score = NodePath("Played Scores/Current Score/Score_Data1")
+current_height = NodePath("Played Scores/Current Height/Height_Data1")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_h0tog")
+
+[node name="Platform320x320" type="Sprite2D" parent="."]
+position = Vector2(204, 196)
+texture = ExtResource("3_bfju8")
+
+[node name="Error_Label" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 1040.0
+offset_right = 462.0
+offset_bottom = 1079.0
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Status: "
+
+[node name="Error_Info" type="Label" parent="Error_Label"]
+layout_mode = 2
+offset_left = 137.0
+offset_right = 1011.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.893302, 0.420832, 0.543166, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Data"
+
+[node name="Data Info" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1436.0
+offset_top = 145.0
+offset_right = 1892.0
+offset_bottom = 221.0
+
+[node name="Space" type="MarginContainer" parent="Data Info"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Save_but" type="Button" parent="Data Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.839216, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Save"
+
+[node name="Login Info" type="VBoxContainer" parent="."]
+offset_left = 88.0
+offset_top = 69.0
+offset_right = 327.0
+offset_bottom = 303.0
+
+[node name="Login_State" type="Label" parent="Login Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.839216, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Not logged in"
+
+[node name="Space" type="MarginContainer" parent="Login Info"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Register_but" type="Button" parent="Login Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.517647, 0.898039, 0.529412, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Register"
+
+[node name="Space2" type="MarginContainer" parent="Login Info"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Login_but" type="Button" parent="Login Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584314, 0.839216, 0.909804, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Login"
+
+[node name="Space3" type="MarginContainer" parent="Login Info"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Logout_but" type="Button" parent="Login Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.894118, 0.419608, 0.545098, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Log Out"
+
+[node name="Played Scores" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -485.0
+offset_top = -525.0
+offset_right = -27.0
+offset_bottom = -400.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Played Scores"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.517955, 0.897074, 0.527549, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "       - Last Run Scores -       "
+
+[node name="Current Score" type="Label" parent="Played Scores"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Played Score:"
+
+[node name="Score_Data1" type="Label" parent="Played Scores/Current Score"]
+offset_left = 279.0
+offset_top = 1.0
+offset_right = 478.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.905882, 0.839216, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "No Data"
+
+[node name="Current Height" type="Label" parent="Played Scores"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.761903, 0.736047, 0.955366, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Played Height:"
+
+[node name="Height_Data1" type="Label" parent="Played Scores/Current Height"]
+offset_left = 279.0
+offset_top = 1.0
+offset_right = 481.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.905882, 0.839216, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "No Data"
+
+[node name="Best Scores" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 36.0
+offset_right = 658.0
+offset_bottom = 189.0
+
+[node name="Name_Label" type="Label" parent="Best Scores"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.517955, 0.897074, 0.527549, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Display Name:"
+
+[node name="Name_Data" type="Label" parent="Best Scores/Name_Label"]
+offset_left = 264.0
+offset_top = 1.0
+offset_right = 523.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.905882, 0.839216, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "No Data"
+
+[node name="Space" type="MarginContainer" parent="Best Scores"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Highest_Score_Label" type="Label" parent="Best Scores"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Best Score:"
+
+[node name="Score_Data" type="Label" parent="Best Scores/Highest_Score_Label"]
+offset_left = 213.0
+offset_top = 1.0
+offset_right = 472.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.905882, 0.839216, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "No Data"
+
+[node name="Space2" type="MarginContainer" parent="Best Scores"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Record_Height_Label" type="Label" parent="Best Scores"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.761903, 0.736047, 0.955366, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Record Height:"
+
+[node name="Height_Data" type="Label" parent="Best Scores/Record_Height_Label"]
+offset_left = 275.0
+offset_top = 1.0
+offset_right = 534.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.905882, 0.839216, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "No Data"
+
+[node name="Back1" type="Sprite2D" parent="."]
+position = Vector2(237, 570)
+texture = ExtResource("5_hie8u")
+
+[node name="Leaving Buttons" type="VBoxContainer" parent="Back1"]
+offset_left = -147.0
+offset_top = -58.0
+offset_right = 148.0
+offset_bottom = 54.0
+
+[node name="Replay" type="Button" parent="Back1/Leaving Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.517955, 0.897074, 0.527549, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Retry Game"
+
+[node name="Space" type="MarginContainer" parent="Back1/Leaving Buttons"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Menu" type="Button" parent="Back1/Leaving Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_fonts/font = ExtResource("2_8x7v7")
+theme_override_font_sizes/font_size = 34
+text = "Return To Menu"
+
+[node name="Platform832x320" type="Sprite2D" parent="."]
+position = Vector2(1447, 893)
+texture = ExtResource("6_hx65m")
+
+[node name="Info1" type="RichTextLabel" parent="Platform832x320"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -809.0
+offset_top = -346.0
+offset_right = -24.0
+offset_bottom = -163.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.996078, 0.858824, 0.854902, 1)
+theme_override_fonts/normal_font = ExtResource("2_8x7v7")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Press [color=e7d60d]SAVE[/color] to save and upload your score and height to the leaderboards"
+
+[connection signal="pressed" from="Data Info/Save_but" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Login Info/Register_but" to="." method="_on_register_but_pressed"]
+[connection signal="pressed" from="Login Info/Login_but" to="." method="_on_login_but_pressed"]
+[connection signal="pressed" from="Login Info/Logout_but" to="." method="_on_logout_but_pressed"]
+[connection signal="pressed" from="Back1/Leaving Buttons/Replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="Back1/Leaving Buttons/Menu" to="." method="_on_menu_pressed"]

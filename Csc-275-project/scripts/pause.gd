@@ -16,6 +16,10 @@ func pause_game():
 	else:
 		$"Pause Menu".hide()
 
+func force_unpause():
+	paused_forced = false
+	get_tree().paused = false
+
 func force_pause():
 	paused_forced = true
 	get_tree().paused = true

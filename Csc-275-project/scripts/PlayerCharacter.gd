@@ -266,5 +266,40 @@ func _on_wall_jump_timeout():
 	wall_jump_over = true
 
 func death():
+	Globals.set_score(score)
+	Globals.set_height(record_height)
 	hide()
 	$"Pause Controller".force_pause()
+	$"Pause Controller/Game Over".show()
+
+func to_game():
+	get_tree().change_scene_to_file("res://scenes/TempScene.tscn")
+
+func to_menu():
+	get_tree().change_scene_to_file("res://scenes/New_menu.tscn")
+
+func to_profile():
+	get_tree().change_scene_to_file("res://scenes/profile.tscn")
+
+func _on_upload_score_pressed():
+	call_deferred("to_profile")
+
+func to_leaderboards():
+	get_tree().change_scene_to_file("res://scenes/leaderboardss.tscn")
+
+func _on_leaderboard_pressed():
+	call_deferred("to_leaderboards")
+
+
+func _on_play_again_button_pressed():
+	call_deferred("to_game")
+
+
+func _on_menu_button_pressed():
+	call_deferred("to_menu")
+
+func quit_game():
+	get_tree().quit()
+
+func _on_quit_pressed():
+	call_deferred("quit_game")

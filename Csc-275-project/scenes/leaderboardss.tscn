@@ -1,0 +1,848 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0ahtai0imodb"]
+
+[ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="1_7smnr"]
+[ext_resource type="Script" path="res://scripts/leaderboards_display.gd" id="1_iuxfm"]
+
+[node name="Leaderboardss" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iuxfm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -569.5
+offset_top = -339.0
+offset_right = 569.5
+offset_bottom = 339.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scores" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Labels" type="HBoxContainer" parent="HBoxContainer/Scores"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Scores/Labels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.761903, 0.736047, 0.955366, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "   Best Scores   "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_1" type="HBoxContainer" parent="HBoxContainer/Scores"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_1"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_2" type="HBoxContainer" parent="HBoxContainer/Scores"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_2"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_3" type="HBoxContainer" parent="HBoxContainer/Scores"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_3"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_4" type="HBoxContainer" parent="HBoxContainer/Scores"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_4"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_5" type="HBoxContainer" parent="HBoxContainer/Scores"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_5"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_6" type="HBoxContainer" parent="HBoxContainer/Scores"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_6"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_6"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_6"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_7" type="HBoxContainer" parent="HBoxContainer/Scores"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_7"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_7"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_7"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_8" type="HBoxContainer" parent="HBoxContainer/Scores"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_8"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_8"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_8"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_9" type="HBoxContainer" parent="HBoxContainer/Scores"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_9"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_9"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_9"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_10" type="HBoxContainer" parent="HBoxContainer/Scores"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_10"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_10"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_10"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Heights" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Labels" type="HBoxContainer" parent="HBoxContainer/Heights"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Heights/Labels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.761903, 0.736047, 0.955366, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "   Record Height   "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_1" type="HBoxContainer" parent="HBoxContainer/Heights"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_1"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000 m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_2" type="HBoxContainer" parent="HBoxContainer/Heights"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_2"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000 m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_3" type="HBoxContainer" parent="HBoxContainer/Heights"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_3"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000 m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_4" type="HBoxContainer" parent="HBoxContainer/Heights"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_4"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000 m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_5" type="HBoxContainer" parent="HBoxContainer/Heights"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_5"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_5"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000 m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_6" type="HBoxContainer" parent="HBoxContainer/Heights"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_6"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_6"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_6"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000 m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_7" type="HBoxContainer" parent="HBoxContainer/Heights"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_7"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_7"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_7"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000 m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_8" type="HBoxContainer" parent="HBoxContainer/Heights"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_8"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_8"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_8"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000 m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_9" type="HBoxContainer" parent="HBoxContainer/Heights"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_9"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_9"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_9"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000 m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score_10" type="HBoxContainer" parent="HBoxContainer/Heights"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_10"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_10"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_10"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000 m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Leaving Buttons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -262.0
+offset_top = -90.0
+offset_right = 263.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Replay" type="Button" parent="Leaving Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.517955, 0.897074, 0.527549, 1)
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 34
+text = "Retry Game"
+
+[node name="Space" type="MarginContainer" parent="Leaving Buttons"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Menu" type="Button" parent="Leaving Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 34
+text = "Return To Menu"
+
+[connection signal="pressed" from="Leaving Buttons/Replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="Leaving Buttons/Menu" to="." method="_on_menu_pressed"]
