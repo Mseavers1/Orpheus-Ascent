@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var is_facing_right = false
+
 var current_height = 0
 var record_height = 0
 
@@ -7,13 +9,9 @@ const SPEED = 300.0
 var max_jump_velocity
 var min_jump_velocity
 
-const max_jumps = 1
+const max_jumps = 2
 var jump_count = 0;
 var gravity
-
-var can_wall_jump = true;
-const max_wall_jumps = 1;
-const wall_jump_velocity = 300;
 
 const max_dashes = 1
 var dash_count = 0
@@ -29,8 +27,16 @@ var is_metric = true
 
 var score = 0
 
+var is_wall_sliding = false
+@export var sliding_speed = 80
+
 @export var dash_power_x = 800
 @export var dash_power_y = 800
+
+@export var wall_jump_power_x = 400
+@export var wall_jump_power_y = 0.8
+var wall_jump_over = true
+var saved_jump_direction = 0
 
 ## Kinematic Jumpings from https://www.youtube.com/watch?v=918wFTru2-c
 @export var max_jump_height = 3.25 * 64
@@ -76,69 +82,134 @@ func _process(_delta):
 	
 	$"../UI/Current_Height_Value".text = str(value) + " " + suffix
 
-func _physics_process(delta):
-	
-	# Add the gravity.
-	if not is_on_floor():
-		$Sprite.play("jump");
-		velocity.y += gravity * delta
-		
-	if is_on_wall() and Input.is_action_just_pressed("jump") and can_wall_jump:
-		print('On wall and jump pressed')
-		velocity.y = max_jump_velocity;
-		velocity.x = dash_power_x;
-		can_wall_jump = false;
-		
-	if is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		can_wall_jump = true;
+func apply_gravity(delta):
+	velocity.y += gravity * delta
 
-	# Handle jump.
+func jumping():
+	
+	if !wall_jump_over:
+		return
+	
+	# Start long jump
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or jump_count < max_jumps):
 		jump_count += 1;
 		velocity.y = max_jump_velocity
 	
+	# Stops jump -- shortens the jump
 	if Input.is_action_just_released("jump") && velocity.y < min_jump_velocity:
 		velocity.y = min_jump_velocity
-		
-	if is_on_floor():
-		dash_count = 0
-		$Sprite.play("idle");
-		jump_count = 0;
 
-	if dash_over:
-		# Get the input direction and handle the movement/deceleration.
-		var direction = Input.get_axis("move-left", "move-right")
+func dash_conditions():
+	return (Input.is_action_just_pressed("mouse-click") or Input.is_action_just_pressed("dash")) && dash_count < max_dashes
+
+func dash():
+	dash_count += 1
+	dash_over = false
+	$Dash_Timer.start()
+	
+	var mousePos = get_global_mouse_position()
+	var vect = global_position.direction_to(mousePos)
+	
+	_flip_player(vect.x)
+	
+	velocity.x += dash_power_x * vect.x
+	velocity.y = dash_power_y * vect.y
+
+func wall_jump_conditions():
+	return is_on_wall() and Input.is_action_just_pressed("jump")
+
+func wall_jump():
+	
+	var direction
+	
+	if is_facing_right: 
+		direction = -1 
+	else: 
+		direction = 1
+	
+	# No wall jumping if attempting to wall jump on same section
+	if direction == saved_jump_direction:
+		return
 		
-		_flip_player(direction)
+	saved_jump_direction = direction
+	velocity.y = max_jump_velocity * wall_jump_power_y
+	velocity.x = wall_jump_power_x * direction
+	_flip_player(direction)
+	wall_jump_over = false
+	$Wall_Jump_Timer.start()
+	
+func on_floor():
+	
+	# Stop momentum
+	velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	# Reset counters
+	dash_count = 0
+	jump_count = 0
+	saved_jump_direction = 0
+	
+	# Play animation
+	$Sprite.play("idle")
+
+func wall_slide_condition():
+	return is_on_wall_only() and (Input.is_action_pressed("move-left") or Input.is_action_pressed("move-right")) and !Input.is_action_pressed("jump") and !Input.is_action_pressed("move-down") and wall_jump_over and dash_over
+
+func _physics_process(delta):
+	
+	# Apply Gravity OR wall slide
+	if not is_on_floor():
 		
-		if direction:
-			velocity.x = direction * SPEED
+		# Wall Slide
+		if wall_slide_condition():
+			velocity.y = sliding_speed
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			apply_gravity(delta)
+	
+	# Items processed when player is on the floor
+	if is_on_floor():
+		on_floor()
+	
+	# Wall jump
+	if wall_jump_conditions():
+		wall_jump()
+	
+	# Handles jumping
+	jumping()
+	
+	# Handles Dashing
+	if dash_conditions(): 
+		dash()
 		
-	# Dashing
-	if (Input.is_action_just_pressed("mouse-click") or Input.is_action_just_pressed("dash")) && dash_count < max_dashes:
-		dash_count += 1
-		dash_over = false
-		$Dash_Timer.start()
-		
-		var mousePos = get_global_mouse_position()
-		var vect = global_position.direction_to(mousePos)
-		
-		_flip_player(vect.x)
-		
-		velocity.x += dash_power_x * vect.x
-		velocity.y = dash_power_y * vect.y
+	# Handles Movement
+	movement()
 
+	# Apply movement
 	move_and_slide()
+	
+func movement():
+	
+	# Cancels if player can't move
+	if !wall_jump_over or !dash_over:
+		return
+	
+	# Get the input direction and handle the movement/deceleration.
+	var direction = Input.get_axis("move-left", "move-right")
+	
+	_flip_player(direction)
+	
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 func _flip_player(direction):
 	if direction < 0:
 			$Sprite.flip_h = true
+			is_facing_right = false
 
 	if direction > 0:
 		$Sprite.flip_h = false
+		is_facing_right = true
 
 func _on_dash_timer_timeout():
 	dash_over = true
@@ -169,3 +240,7 @@ func _on_coin_collector_body_entered(body):
 
 func _on_coin_timer_timeout():
 	coin_pitch_restarted = true
+
+
+func _on_wall_jump_timeout():
+	wall_jump_over = true
