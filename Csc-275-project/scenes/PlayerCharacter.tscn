@@ -202,6 +202,7 @@ vertical_alignment = 1
 
 [node name="Game Over" type="CanvasLayer" parent="Pause Controller"]
 layer = 2
+visible = false
 
 [node name="Shade" type="ColorRect" parent="Pause Controller/Game Over"]
 anchors_preset = 15
