@@ -68,6 +68,7 @@ sprite_frames = SubResource("SpriteFrames_nl7g2")
 animation = &"Idle"
 
 [node name="Fireball_Timer" type="Timer" parent="."]
+wait_time = 0.222
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

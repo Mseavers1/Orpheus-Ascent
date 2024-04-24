@@ -2,6 +2,7 @@ extends AnimatedSprite2D
 
 @export var speed = 200
 var lava_pos_y
+var sounds_played = 0
 
 func set_lava_pos_y(y):
 	lava_pos_y = y
@@ -22,11 +23,22 @@ func _set_alive_timer(time):
 func _process(delta):
 	position.y -= speed * delta
 
-# Collision with platform
+# Collision with platform & player
 func _on_body_entered(body):
+	
+	# ensures balls cant get hit more than once
+	if sounds_played >= 1:
+		return
+	
+	# Player Hit
+	if body.is_in_group("Player"):
+		body.hit()
+	
+	# Explode fireball
 	speed = 0
 	play("explode")
 	play_explosion()
+	sounds_played += 1
 	
 func play_explosion():
 	

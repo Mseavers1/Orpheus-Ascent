@@ -27,6 +27,8 @@ var is_metric = true
 
 var score = 0
 
+var controllable = true
+
 var is_wall_sliding = false
 @export var sliding_speed = 80
 
@@ -140,6 +142,9 @@ func wall_jump():
 	
 func on_floor():
 	
+	# Restore moveability
+	controllable = true
+	
 	# Stop momentum
 	velocity.x = move_toward(velocity.x, 0, SPEED)
 	
@@ -152,7 +157,7 @@ func on_floor():
 	$Sprite.play("idle")
 
 func wall_slide_condition():
-	return is_on_wall_only() and (Input.is_action_pressed("move-left") or Input.is_action_pressed("move-right")) and !Input.is_action_pressed("jump") and !Input.is_action_pressed("move-down") and wall_jump_over and dash_over
+	return is_on_wall_only() and (Input.is_action_pressed("move-left") or Input.is_action_pressed("move-right")) and !Input.is_action_pressed("jump") and !Input.is_action_pressed("move-down") and wall_jump_over and dash_over and controllable
 
 func _physics_process(delta):
 	
@@ -168,6 +173,13 @@ func _physics_process(delta):
 	# Items processed when player is on the floor
 	if is_on_floor():
 		on_floor()
+	
+	# Prevents movement abilities if player is not controllable
+	if !controllable:
+		
+		# Apply gravity onlu
+		move_and_slide()
+		return
 	
 	# Wall jump
 	if wall_jump_conditions():
@@ -237,6 +249,11 @@ func _on_coin_collector_body_entered(body):
 		# print(coin_value * coin_bonus)
 		update_score()
 
+# Fireball collides with player
+func hit():
+	controllable = false
+	velocity.x = 0
+	velocity.y = -5
 
 func _on_coin_timer_timeout():
 	coin_pitch_restarted = true
