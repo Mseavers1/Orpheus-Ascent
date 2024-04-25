@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
+@onready var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
+@onready var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
+
 var is_facing_right = false
+var is_first_contact_with_slide = true
 
 var current_height = 0
 var record_height = 0
@@ -53,6 +57,10 @@ func _update_conversion():
 		suffix = "ft"
 
 func _ready():
+	
+	$"Pause Controller/Pause Menu/Volume/Master/Master_slider".value = db_to_linear(AudioServer.get_bus_volume_db(0))
+	$"Pause Controller/Pause Menu/Volume/Music/music_Slider".value = db_to_linear(AudioServer.get_bus_volume_db(MUSIC_BUS_ID))
+	$"Pause Controller/Pause Menu/Volume/SFX/Sound_Slider".value = db_to_linear(AudioServer.get_bus_volume_db(SFX_BUS_ID))
 	
 	_update_conversion()
 	
@@ -155,6 +163,7 @@ func on_floor():
 	dash_count = 0
 	jump_count = 0
 	saved_jump_direction = 0
+	is_first_contact_with_slide = true
 	
 	# Play animation
 	$Sprite.play("idle")
@@ -169,9 +178,15 @@ func _physics_process(delta):
 		
 		# Wall Slide
 		if wall_slide_condition():
-			velocity.y = sliding_speed
+			
+			if is_first_contact_with_slide:
+				velocity.y = sliding_speed
+			
+			is_first_contact_with_slide = false
+			velocity.y += sliding_speed * delta
 		else:
 			apply_gravity(delta)
+			is_first_contact_with_slide = true
 	
 	# Items processed when player is on the floor
 	if is_on_floor():
@@ -303,3 +318,26 @@ func quit_game():
 
 func _on_quit_pressed():
 	call_deferred("quit_game")
+
+
+func _on_menu_pressed():
+	call_deferred("to_menu")
+
+
+func _on_music_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(MUSIC_BUS_ID, linear_to_db(value))
+	AudioServer.set_bus_mute(MUSIC_BUS_ID, value < 0.01)
+
+
+func _on_sound_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(SFX_BUS_ID, linear_to_db(value))
+	AudioServer.set_bus_mute(SFX_BUS_ID, value < 0.01)
+
+
+func _on_master_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(0, linear_to_db(value))
+	AudioServer.set_bus_mute(0, value < 0.01)
+
+
+func _on_tree_exiting():
+	Globals.save_audio()

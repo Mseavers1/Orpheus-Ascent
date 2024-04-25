@@ -99,6 +99,7 @@ autostart = true
 stream = ExtResource("6_dhccn")
 volume_db = -10.0
 autoplay = true
+bus = &"SFX"
 
 [node name="Canvas" type="CanvasGroup" parent="."]
 z_index = 1

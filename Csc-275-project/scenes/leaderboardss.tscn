@@ -1,7 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0ahtai0imodb"]
+[gd_scene load_steps=11 format=3 uid="uid://c0ahtai0imodb"]
 
 [ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="1_7smnr"]
 [ext_resource type="Script" path="res://scripts/leaderboards_display.gd" id="1_iuxfm"]
+[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="2_sb22e"]
+[ext_resource type="Texture2D" uid="uid://cu1su0brmctfi" path="res://images/UI/Pixel UI pack 3/03.png" id="4_740fr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk5an"]
+atlas = ExtResource("4_740fr")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upcia"]
+atlas = ExtResource("4_740fr")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cjok"]
+atlas = ExtResource("4_740fr")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn0v2"]
+atlas = ExtResource("4_740fr")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpw8f"]
+atlas = ExtResource("4_740fr")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nyygc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk5an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upcia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cjok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn0v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpw8f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="Leaderboardss" type="Control"]
 layout_mode = 3
@@ -12,7 +57,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iuxfm")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_sb22e")
+metadata/_edit_lock_ = true
+
+[node name="Score_background" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 383.0
+offset_top = 203.0
+offset_right = 1544.0
+offset_bottom = 903.0
+color = Color(0.337255, 0.337255, 0.337255, 0.552941)
+
+[node name="Leaderboard_display" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,13 +85,13 @@ offset_bottom = 339.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Scores" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Scores" type="VBoxContainer" parent="Leaderboard_display"]
 layout_mode = 2
 
-[node name="Labels" type="HBoxContainer" parent="HBoxContainer/Scores"]
+[node name="Labels" type="HBoxContainer" parent="Leaderboard_display/Scores"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Scores/Labels"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Scores/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.761903, 0.736047, 0.955366, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -47,47 +106,10 @@ text = "   Best Scores   "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_1" type="HBoxContainer" parent="HBoxContainer/Scores"]
+[node name="Score_1" type="HBoxContainer" parent="Leaderboard_display/Scores"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_1"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 5
-theme_override_constants/shadow_outline_size = 3
-theme_override_fonts/font = ExtResource("1_7smnr")
-theme_override_font_sizes/font_size = 50
-text = "Player:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_1"]
-custom_minimum_size = Vector2(8, 0)
-layout_mode = 2
-
-[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_1"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 5
-theme_override_constants/shadow_outline_size = 3
-theme_override_fonts/font = ExtResource("1_7smnr")
-theme_override_font_sizes/font_size = 50
-text = "10000"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Score_2" type="HBoxContainer" parent="HBoxContainer/Scores"]
-layout_mode = 2
-
-[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_2"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Scores/Score_1"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -102,11 +124,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_2"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Scores/Score_1"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_2"]
+[node name="Value" type="Label" parent="Leaderboard_display/Scores/Score_1"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -121,10 +143,10 @@ text = "10000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_3" type="HBoxContainer" parent="HBoxContainer/Scores"]
+[node name="Score_2" type="HBoxContainer" parent="Leaderboard_display/Scores"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_3"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Scores/Score_2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -139,11 +161,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_3"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Scores/Score_2"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_3"]
+[node name="Value" type="Label" parent="Leaderboard_display/Scores/Score_2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -158,10 +180,10 @@ text = "10000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_4" type="HBoxContainer" parent="HBoxContainer/Scores"]
+[node name="Score_3" type="HBoxContainer" parent="Leaderboard_display/Scores"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_4"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Scores/Score_3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -176,11 +198,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_4"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Scores/Score_3"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_4"]
+[node name="Value" type="Label" parent="Leaderboard_display/Scores/Score_3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -195,10 +217,10 @@ text = "10000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_5" type="HBoxContainer" parent="HBoxContainer/Scores"]
+[node name="Score_4" type="HBoxContainer" parent="Leaderboard_display/Scores"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_5"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Scores/Score_4"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -213,11 +235,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_5"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Scores/Score_4"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_5"]
+[node name="Value" type="Label" parent="Leaderboard_display/Scores/Score_4"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -232,10 +254,10 @@ text = "10000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_6" type="HBoxContainer" parent="HBoxContainer/Scores"]
+[node name="Score_5" type="HBoxContainer" parent="Leaderboard_display/Scores"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_6"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Scores/Score_5"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -250,11 +272,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_6"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Scores/Score_5"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_6"]
+[node name="Value" type="Label" parent="Leaderboard_display/Scores/Score_5"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -269,10 +291,10 @@ text = "10000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_7" type="HBoxContainer" parent="HBoxContainer/Scores"]
+[node name="Score_6" type="HBoxContainer" parent="Leaderboard_display/Scores"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_7"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Scores/Score_6"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -287,11 +309,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_7"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Scores/Score_6"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_7"]
+[node name="Value" type="Label" parent="Leaderboard_display/Scores/Score_6"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -306,10 +328,10 @@ text = "10000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_8" type="HBoxContainer" parent="HBoxContainer/Scores"]
+[node name="Score_7" type="HBoxContainer" parent="Leaderboard_display/Scores"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_8"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Scores/Score_7"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -324,11 +346,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_8"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Scores/Score_7"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_8"]
+[node name="Value" type="Label" parent="Leaderboard_display/Scores/Score_7"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -343,10 +365,10 @@ text = "10000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_9" type="HBoxContainer" parent="HBoxContainer/Scores"]
+[node name="Score_8" type="HBoxContainer" parent="Leaderboard_display/Scores"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_9"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Scores/Score_8"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -361,11 +383,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_9"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Scores/Score_8"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_9"]
+[node name="Value" type="Label" parent="Leaderboard_display/Scores/Score_8"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -380,10 +402,10 @@ text = "10000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_10" type="HBoxContainer" parent="HBoxContainer/Scores"]
+[node name="Score_9" type="HBoxContainer" parent="Leaderboard_display/Scores"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Scores/Score_10"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Scores/Score_9"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -398,11 +420,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Scores/Score_10"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Scores/Score_9"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Scores/Score_10"]
+[node name="Value" type="Label" parent="Leaderboard_display/Scores/Score_9"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -417,17 +439,54 @@ text = "10000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+[node name="Score_10" type="HBoxContainer" parent="Leaderboard_display/Scores"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="Leaderboard_display/Scores/Score_10"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Scores/Score_10"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Value" type="Label" parent="Leaderboard_display/Scores/Score_10"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Leaderboard_display"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="Heights" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Heights" type="VBoxContainer" parent="Leaderboard_display"]
 layout_mode = 2
 
-[node name="Labels" type="HBoxContainer" parent="HBoxContainer/Heights"]
+[node name="Labels" type="HBoxContainer" parent="Leaderboard_display/Heights"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Heights/Labels"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Heights/Labels"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.761903, 0.736047, 0.955366, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -442,10 +501,10 @@ text = "   Record Height   "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_1" type="HBoxContainer" parent="HBoxContainer/Heights"]
+[node name="Score_1" type="HBoxContainer" parent="Leaderboard_display/Heights"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_1"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Heights/Score_1"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -460,11 +519,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_1"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Heights/Score_1"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_1"]
+[node name="Value" type="Label" parent="Leaderboard_display/Heights/Score_1"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -479,10 +538,10 @@ text = "10000 m"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_2" type="HBoxContainer" parent="HBoxContainer/Heights"]
+[node name="Score_2" type="HBoxContainer" parent="Leaderboard_display/Heights"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_2"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Heights/Score_2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -497,11 +556,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_2"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Heights/Score_2"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_2"]
+[node name="Value" type="Label" parent="Leaderboard_display/Heights/Score_2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -516,10 +575,10 @@ text = "10000 m"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_3" type="HBoxContainer" parent="HBoxContainer/Heights"]
+[node name="Score_3" type="HBoxContainer" parent="Leaderboard_display/Heights"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_3"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Heights/Score_3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -534,11 +593,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_3"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Heights/Score_3"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_3"]
+[node name="Value" type="Label" parent="Leaderboard_display/Heights/Score_3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -553,10 +612,10 @@ text = "10000 m"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_4" type="HBoxContainer" parent="HBoxContainer/Heights"]
+[node name="Score_4" type="HBoxContainer" parent="Leaderboard_display/Heights"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_4"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Heights/Score_4"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -571,11 +630,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_4"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Heights/Score_4"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_4"]
+[node name="Value" type="Label" parent="Leaderboard_display/Heights/Score_4"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -590,10 +649,10 @@ text = "10000 m"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_5" type="HBoxContainer" parent="HBoxContainer/Heights"]
+[node name="Score_5" type="HBoxContainer" parent="Leaderboard_display/Heights"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_5"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Heights/Score_5"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -608,11 +667,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_5"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Heights/Score_5"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_5"]
+[node name="Value" type="Label" parent="Leaderboard_display/Heights/Score_5"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -627,10 +686,10 @@ text = "10000 m"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_6" type="HBoxContainer" parent="HBoxContainer/Heights"]
+[node name="Score_6" type="HBoxContainer" parent="Leaderboard_display/Heights"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_6"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Heights/Score_6"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -645,11 +704,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_6"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Heights/Score_6"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_6"]
+[node name="Value" type="Label" parent="Leaderboard_display/Heights/Score_6"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -664,10 +723,10 @@ text = "10000 m"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_7" type="HBoxContainer" parent="HBoxContainer/Heights"]
+[node name="Score_7" type="HBoxContainer" parent="Leaderboard_display/Heights"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_7"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Heights/Score_7"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -682,11 +741,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_7"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Heights/Score_7"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_7"]
+[node name="Value" type="Label" parent="Leaderboard_display/Heights/Score_7"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -701,10 +760,10 @@ text = "10000 m"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_8" type="HBoxContainer" parent="HBoxContainer/Heights"]
+[node name="Score_8" type="HBoxContainer" parent="Leaderboard_display/Heights"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_8"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Heights/Score_8"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -719,11 +778,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_8"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Heights/Score_8"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_8"]
+[node name="Value" type="Label" parent="Leaderboard_display/Heights/Score_8"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -738,10 +797,10 @@ text = "10000 m"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_9" type="HBoxContainer" parent="HBoxContainer/Heights"]
+[node name="Score_9" type="HBoxContainer" parent="Leaderboard_display/Heights"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_9"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Heights/Score_9"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -756,11 +815,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_9"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Heights/Score_9"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_9"]
+[node name="Value" type="Label" parent="Leaderboard_display/Heights/Score_9"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -775,10 +834,10 @@ text = "10000 m"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score_10" type="HBoxContainer" parent="HBoxContainer/Heights"]
+[node name="Score_10" type="HBoxContainer" parent="Leaderboard_display/Heights"]
 layout_mode = 2
 
-[node name="Score1" type="Label" parent="HBoxContainer/Heights/Score_10"]
+[node name="Score1" type="Label" parent="Leaderboard_display/Heights/Score_10"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -793,11 +852,11 @@ text = "Player:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Space" type="MarginContainer" parent="HBoxContainer/Heights/Score_10"]
+[node name="Space" type="MarginContainer" parent="Leaderboard_display/Heights/Score_10"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
-[node name="Value" type="Label" parent="HBoxContainer/Heights/Score_10"]
+[node name="Value" type="Label" parent="Leaderboard_display/Heights/Score_10"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -826,6 +885,18 @@ offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="Refresh" type="Button" parent="Leaving Buttons"]
+custom_minimum_size = Vector2(423.195, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 34
+text = "Refresh Leaderboards"
+
+[node name="Space2" type="MarginContainer" parent="Leaving Buttons"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
 [node name="Replay" type="Button" parent="Leaving Buttons"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.517955, 0.897074, 0.527549, 1)
@@ -839,10 +910,141 @@ layout_mode = 2
 
 [node name="Menu" type="Button" parent="Leaving Buttons"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.584489, 0.839824, 0.909095, 1)
+theme_override_colors/font_color = Color(0.760784, 0.737255, 0.952941, 1)
 theme_override_fonts/font = ExtResource("1_7smnr")
 theme_override_font_sizes/font_size = 34
 text = "Return To Menu"
 
+[node name="Space3" type="MarginContainer" parent="Leaving Buttons"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="Leaving Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.893302, 0.420832, 0.543166, 1)
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 34
+text = "Quit"
+
+[node name="Heights" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 17.0
+offset_right = 653.0
+offset_bottom = 58.0
+
+[node name="Height" type="Label" parent="Heights"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584314, 0.839216, 0.909804, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Record Height: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Height_value" type="Label" parent="Heights"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "100000 m"
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="Scores" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 240.0
+offset_top = 51.0
+offset_right = 1866.0
+offset_bottom = 109.0
+
+[node name="Score" type="Label" parent="Scores"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.584314, 0.839216, 0.909804, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Score: "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Score_value" type="Label" parent="Scores"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "100000"
+vertical_alignment = 1
+
+[node name="Upload Score" type="Button" parent="."]
+custom_minimum_size = Vector2(423.195, 0)
+layout_mode = 2
+offset_left = 1341.0
+offset_top = 77.0
+offset_right = 1764.2
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(0.517647, 0.898039, 0.529412, 1)
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+text = "Upload Scores"
+
+[node name="Loading Stuff" type="Node" parent="."]
+
+[node name="HideScoreBackground" type="ColorRect" parent="Loading Stuff"]
+visible = false
+offset_left = 386.0
+offset_top = 204.0
+offset_right = 1544.0
+offset_bottom = 903.0
+color = Color(0.337255, 0.337255, 0.337255, 0.552941)
+
+[node name="Loading" type="AnimatedSprite2D" parent="Loading Stuff"]
+visible = false
+position = Vector2(822, 539)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_nyygc")
+frame = 4
+frame_progress = 0.0494598
+
+[node name="Display_Name" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(714.87, 0)
+offset_left = 1194.0
+offset_top = 7.0
+offset_right = 1908.87
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(0.893302, 0.420832, 0.543166, 1)
+theme_override_fonts/font = ExtResource("1_7smnr")
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Enter display name here!"
+alignment = 1
+max_length = 10
+
+[connection signal="pressed" from="Leaving Buttons/Refresh" to="." method="_on_refresh_pressed"]
 [connection signal="pressed" from="Leaving Buttons/Replay" to="." method="_on_replay_pressed"]
 [connection signal="pressed" from="Leaving Buttons/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Leaving Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Upload Score" to="." method="_on_upload_score_pressed"]

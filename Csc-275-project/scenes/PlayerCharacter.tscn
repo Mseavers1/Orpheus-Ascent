@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bgn04w7ih44h"]
+[gd_scene load_steps=18 format=3 uid="uid://bgn04w7ih44h"]
 
 [ext_resource type="Texture2D" uid="uid://bwpadveff8bnh" path="res://images/player/idle/player-idle-1.png" id="1_hhbwi"]
 [ext_resource type="Script" path="res://scripts/PlayerCharacter.gd" id="1_vwyqc"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://cniftwpesuwn4" path="res://images/player/run/player-run-6.png" id="11_6h5pe"]
 [ext_resource type="Script" path="res://scripts/pause.gd" id="14_pi7h7"]
 [ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="15_cpuxv"]
-[ext_resource type="Texture2D" uid="uid://360c1rk27xkh" path="res://images/platforms/Platform192x128.png" id="16_rrflh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v5aa3"]
 animations = [{
@@ -146,7 +145,7 @@ theme_override_constants/outline_size = 9
 theme_override_fonts/normal_font = ExtResource("15_cpuxv")
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
-text = "[center]Press [color=e7ff4d]ESCAPE[/color] to unpause"
+text = "[center]Press [color=ffff86]ESCAPE[/color] to unpause"
 
 [node name="Pause_label" type="Label" parent="Pause Controller/Pause Menu"]
 anchors_preset = 14
@@ -170,33 +169,117 @@ text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Pause Controller/Pause Menu"]
-position = Vector2(158, 993.5)
-scale = Vector2(1, 0.851563)
-texture = ExtResource("16_rrflh")
+[node name="Buttons" type="VBoxContainer" parent="Pause Controller/Pause Menu"]
+offset_left = 17.0
+offset_top = 875.0
+offset_right = 218.0
+offset_bottom = 1059.0
 
-[node name="Quit_Button" type="Label" parent="Pause Controller/Pause Menu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -898.0
-offset_top = 392.0
-offset_right = -706.0
-offset_bottom = 508.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.905882, 1, 0.301961, 1)
+[node name="Menu" type="Button" parent="Pause Controller/Pause Menu/Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_fonts/font = ExtResource("15_cpuxv")
+theme_override_font_sizes/font_size = 60
+text = "Menu"
+
+[node name="MarginContainer" type="MarginContainer" parent="Pause Controller/Pause Menu/Buttons"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="Pause Controller/Pause Menu/Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.478431, 0.411765, 1)
+theme_override_fonts/font = ExtResource("15_cpuxv")
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+
+[node name="Volume" type="VBoxContainer" parent="Pause Controller/Pause Menu"]
+layout_direction = 3
+offset_left = 13.0
+offset_top = 890.0
+offset_right = 439.0
+offset_bottom = 1060.0
+
+[node name="Master" type="HBoxContainer" parent="Pause Controller/Pause Menu/Volume"]
+layout_mode = 2
+
+[node name="Master_slider" type="HSlider" parent="Pause Controller/Pause Menu/Volume/Master"]
+custom_minimum_size = Vector2(300, 38.56)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+tick_count = 3
+
+[node name="master_label" type="Label" parent="Pause Controller/Pause Menu/Volume/Master"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
-theme_override_constants/outline_size = 15
-theme_override_constants/shadow_outline_size = 13
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 10
 theme_override_fonts/font = ExtResource("15_cpuxv")
-theme_override_font_sizes/font_size = 59
-text = "Quit"
+theme_override_font_sizes/font_size = 30
+text = "Master "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space3" type="MarginContainer" parent="Pause Controller/Pause Menu/Volume"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Music" type="HBoxContainer" parent="Pause Controller/Pause Menu/Volume"]
+layout_mode = 2
+
+[node name="music_Slider" type="HSlider" parent="Pause Controller/Pause Menu/Volume/Music"]
+custom_minimum_size = Vector2(300, 38.56)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+tick_count = 3
+
+[node name="music_label" type="Label" parent="Pause Controller/Pause Menu/Volume/Music"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("15_cpuxv")
+theme_override_font_sizes/font_size = 30
+text = "Music "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space2" type="MarginContainer" parent="Pause Controller/Pause Menu/Volume"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="SFX" type="HBoxContainer" parent="Pause Controller/Pause Menu/Volume"]
+layout_mode = 2
+
+[node name="Sound_Slider" type="HSlider" parent="Pause Controller/Pause Menu/Volume/SFX"]
+custom_minimum_size = Vector2(300, 38.56)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+tick_count = 3
+
+[node name="sound_label" type="Label" parent="Pause Controller/Pause Menu/Volume/SFX"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("15_cpuxv")
+theme_override_font_sizes/font_size = 30
+text = "SFX "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -254,17 +337,6 @@ theme_override_fonts/font = ExtResource("15_cpuxv")
 theme_override_font_sizes/font_size = 80
 text = "Play Again"
 
-[node name="Space3" type="MarginContainer" parent="Pause Controller/Game Over/Buttons"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="Upload Score" type="Button" parent="Pause Controller/Game Over/Buttons"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
-theme_override_fonts/font = ExtResource("15_cpuxv")
-theme_override_font_sizes/font_size = 80
-text = "Upload Score"
-
 [node name="Space" type="MarginContainer" parent="Pause Controller/Game Over/Buttons"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
@@ -298,12 +370,17 @@ theme_override_fonts/font = ExtResource("15_cpuxv")
 theme_override_font_sizes/font_size = 80
 text = "Quit"
 
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Coin_Timer" to="." method="_on_coin_timer_timeout"]
 [connection signal="timeout" from="Wall_Jump_Timer" to="." method="_on_wall_jump_timeout"]
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="body_entered" from="Coin_Collector" to="." method="_on_coin_collector_body_entered"]
+[connection signal="pressed" from="Pause Controller/Pause Menu/Buttons/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Pause Controller/Pause Menu/Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="Pause Controller/Pause Menu/Volume/Master/Master_slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Pause Controller/Pause Menu/Volume/Music/music_Slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Pause Controller/Pause Menu/Volume/SFX/Sound_Slider" to="." method="_on_sound_slider_value_changed"]
 [connection signal="pressed" from="Pause Controller/Game Over/Buttons/Play_again_button" to="." method="_on_play_again_button_pressed"]
-[connection signal="pressed" from="Pause Controller/Game Over/Buttons/Upload Score" to="." method="_on_upload_score_pressed"]
 [connection signal="pressed" from="Pause Controller/Game Over/Buttons/Leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="Pause Controller/Game Over/Buttons/Menu_button" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Pause Controller/Game Over/Buttons/Quit" to="." method="_on_quit_pressed"]

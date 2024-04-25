@@ -78,6 +78,7 @@ shape = SubResource("RectangleShape2D_5r4bl")
 [node name="Lava_Loop_Sounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_lo8au")
 attenuation = 2.07053
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_collision_entered"]
 [connection signal="timeout" from="Fireball_Timer" to="." method="_fireball_timer_timeout"]
