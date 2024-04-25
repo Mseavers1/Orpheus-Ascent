@@ -646,6 +646,8 @@ func _can_spawn_platforms_in_quad(rows, total, currentRow, isLastCol):
 
 func _ready():
 	
+	Globals.load_new_scened()
+	
 	# Spawn first 3 chunks / quads
 	_generate_platforms_in_quad(0)
 	_generate_platforms_in_quad(1)

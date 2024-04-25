@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@onready var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
+@onready var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
+
 var is_facing_right = false
 
 var current_height = 0
@@ -53,6 +56,10 @@ func _update_conversion():
 		suffix = "ft"
 
 func _ready():
+	
+	$"Pause Controller/Pause Menu/Volume/Master/Master_slider".value = db_to_linear(AudioServer.get_bus_volume_db(0))
+	$"Pause Controller/Pause Menu/Volume/Music/music_Slider".value = db_to_linear(AudioServer.get_bus_volume_db(MUSIC_BUS_ID))
+	$"Pause Controller/Pause Menu/Volume/SFX/Sound_Slider".value = db_to_linear(AudioServer.get_bus_volume_db(MUSIC_BUS_ID))
 	
 	_update_conversion()
 	
@@ -303,3 +310,22 @@ func quit_game():
 
 func _on_quit_pressed():
 	call_deferred("quit_game")
+
+
+func _on_menu_pressed():
+	call_deferred("to_menu")
+
+
+func _on_music_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(MUSIC_BUS_ID, linear_to_db(value))
+	AudioServer.set_bus_mute(MUSIC_BUS_ID, value < 0.05)
+
+
+func _on_sound_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(SFX_BUS_ID, linear_to_db(value))
+	AudioServer.set_bus_mute(SFX_BUS_ID, value < 0.05)
+
+
+func _on_master_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(0, linear_to_db(value))
+	AudioServer.set_bus_mute(0, value < 0.05)

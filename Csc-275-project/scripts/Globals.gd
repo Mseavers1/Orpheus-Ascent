@@ -3,6 +3,10 @@ extends Node
 var current_score
 var current_height
 
+func load_new_scened():
+	if get_tree().paused:
+		get_tree().paused = false
+
 func set_score(v):
 	current_score = v
 	
@@ -16,6 +20,7 @@ func get_height():
 	return current_height
 
 func _ready():
+	
 	SilentWolf.configure({
 	"api_key": "3G6CrSINJuO9ZK99DzmO7NUyox8ii2f2WVrRLq6a",
 	"game_id": "mynewgame",

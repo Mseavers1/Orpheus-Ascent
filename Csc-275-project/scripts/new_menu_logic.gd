@@ -6,6 +6,9 @@ var is_over_hwp = false
 var is_over_credit = false
 var is_over_back = false
 
+func _ready():
+	Globals.load_new_scened()
+
 func _process(delta):
 	
 	if Input.is_action_just_pressed("mouse-click"):
