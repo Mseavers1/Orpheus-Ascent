@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
 
 var is_facing_right = false
+var is_first_contact_with_slide = true
 
 var current_height = 0
 var record_height = 0
@@ -162,6 +163,7 @@ func on_floor():
 	dash_count = 0
 	jump_count = 0
 	saved_jump_direction = 0
+	is_first_contact_with_slide = true
 	
 	# Play animation
 	$Sprite.play("idle")
@@ -176,9 +178,15 @@ func _physics_process(delta):
 		
 		# Wall Slide
 		if wall_slide_condition():
-			velocity.y = sliding_speed
+			
+			if is_first_contact_with_slide:
+				velocity.y = sliding_speed
+			
+			is_first_contact_with_slide = false
+			velocity.y += sliding_speed * delta
 		else:
 			apply_gravity(delta)
+			is_first_contact_with_slide = true
 	
 	# Items processed when player is on the floor
 	if is_on_floor():
