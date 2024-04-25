@@ -60,7 +60,7 @@ func _ready():
 	
 	$"Pause Controller/Pause Menu/Volume/Master/Master_slider".value = db_to_linear(AudioServer.get_bus_volume_db(0))
 	$"Pause Controller/Pause Menu/Volume/Music/music_Slider".value = db_to_linear(AudioServer.get_bus_volume_db(MUSIC_BUS_ID))
-	$"Pause Controller/Pause Menu/Volume/SFX/Sound_Slider".value = db_to_linear(AudioServer.get_bus_volume_db(MUSIC_BUS_ID))
+	$"Pause Controller/Pause Menu/Volume/SFX/Sound_Slider".value = db_to_linear(AudioServer.get_bus_volume_db(SFX_BUS_ID))
 	
 	_update_conversion()
 	
@@ -326,14 +326,18 @@ func _on_menu_pressed():
 
 func _on_music_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(MUSIC_BUS_ID, linear_to_db(value))
-	AudioServer.set_bus_mute(MUSIC_BUS_ID, value < 0.05)
+	AudioServer.set_bus_mute(MUSIC_BUS_ID, value < 0.01)
 
 
 func _on_sound_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(SFX_BUS_ID, linear_to_db(value))
-	AudioServer.set_bus_mute(SFX_BUS_ID, value < 0.05)
+	AudioServer.set_bus_mute(SFX_BUS_ID, value < 0.01)
 
 
 func _on_master_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
-	AudioServer.set_bus_mute(0, value < 0.05)
+	AudioServer.set_bus_mute(0, value < 0.01)
+
+
+func _on_tree_exiting():
+	Globals.save_audio()

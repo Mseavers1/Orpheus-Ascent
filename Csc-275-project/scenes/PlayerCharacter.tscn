@@ -370,6 +370,7 @@ theme_override_fonts/font = ExtResource("15_cpuxv")
 theme_override_font_sizes/font_size = 80
 text = "Quit"
 
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Coin_Timer" to="." method="_on_coin_timer_timeout"]
 [connection signal="timeout" from="Wall_Jump_Timer" to="." method="_on_wall_jump_timeout"]
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
