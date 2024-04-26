@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bsahf1xgtokhx"]
+[gd_scene load_steps=26 format=3 uid="uid://bsahf1xgtokhx"]
 
 [ext_resource type="Script" path="res://scripts/new_menu_logic.gd" id="1_avby3"]
 [ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="2_5x6j7"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dhu1nte7caaql" path="res://sounds/lava_loop.mp3" id="6_dhccn"]
 [ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="6_s8nca"]
 [ext_resource type="Texture2D" uid="uid://dkea0cefo41b6" path="res://images/platforms/Platform192x320.png" id="7_82vis"]
+[ext_resource type="Script" path="res://scenes/Units.gd" id="7_wr3cy"]
 [ext_resource type="Texture2D" uid="uid://5osjs3yegjyl" path="res://images/platforms/Platform320x192.png" id="8_vubau"]
 [ext_resource type="Texture2D" uid="uid://cbmr0rt6mh3s8" path="res://images/platforms/Platform128x256.png" id="9_st2rb"]
 [ext_resource type="Texture2D" uid="uid://f784edg2eg0q" path="res://images/platforms/Platform192x384.png" id="10_e6wbb"]
@@ -61,6 +62,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sii0c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpalw"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qncu"]
 size = Vector2(193, 320)
 
@@ -109,7 +114,6 @@ bus = &"SFX"
 z_index = 1
 
 [node name="Setting_info" type="Node2D" parent="Canvas"]
-visible = false
 
 [node name="Volume" type="VBoxContainer" parent="Canvas/Setting_info"]
 layout_direction = 3
@@ -118,9 +122,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1897.0
+offset_left = -1698.0
 offset_top = 464.0
-offset_right = -1471.0
+offset_right = -1272.0
 offset_bottom = 634.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -207,6 +211,61 @@ theme_override_font_sizes/font_size = 30
 text = "SFX "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Units" type="VBoxContainer" parent="Canvas/Setting_info"]
+offset_left = 118.0
+offset_top = 398.0
+offset_right = 250.0
+offset_bottom = 482.0
+script = ExtResource("7_wr3cy")
+
+[node name="Units" type="Label" parent="Canvas/Setting_info/Units"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "Units"
+horizontal_alignment = 1
+
+[node name="Meter_Using" type="CheckBox" parent="Canvas/Setting_info/Units"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_hover_color = Color(0.761903, 0.736047, 0.955366, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.761903, 0.736047, 0.955366, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 6
+theme_override_constants/check_v_offset = 1
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sii0c")
+text = "Meters"
+
+[node name="Feet_Using" type="CheckBox" parent="Canvas/Setting_info/Units"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_hover_color = Color(0.761903, 0.736047, 0.955366, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.761903, 0.736047, 0.955366, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 6
+theme_override_constants/check_v_offset = 1
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vpalw")
+text = "Feet"
 
 [node name="HTP_Info" type="Node2D" parent="Canvas"]
 visible = false
@@ -430,6 +489,8 @@ shape = SubResource("RectangleShape2D_ptxp5")
 [connection signal="value_changed" from="Canvas/Setting_info/Volume/Master/Master_slider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Canvas/Setting_info/Volume/Music/music_Slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Canvas/Setting_info/Volume/SFX/Sound_Slider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="pressed" from="Canvas/Setting_info/Units/Meter_Using" to="Canvas/Setting_info/Units" method="_on_meter_using_pressed"]
+[connection signal="pressed" from="Canvas/Setting_info/Units/Feet_Using" to="Canvas/Setting_info/Units" method="_on_feet_using_pressed"]
 [connection signal="mouse_entered" from="Canvas/Credits/Area2D" to="." method="_on_mouse_entered_Credits"]
 [connection signal="mouse_exited" from="Canvas/Credits/Area2D" to="." method="_on_mouse_exit_Credits"]
 [connection signal="mouse_entered" from="Canvas/How_To_Play/Area2D" to="." method="_on_mouse_entered_HTP"]
