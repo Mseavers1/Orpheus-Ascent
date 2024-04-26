@@ -3,8 +3,14 @@ extends CharacterBody2D
 @onready var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
 @onready var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
 
+var has_played_falling_once = false
+var has_played_landing_once = false
+
 var is_facing_right = false
 var is_first_contact_with_slide = true
+
+var is_wall_sliding = false
+var is_moving_on_floor = false
 
 var current_height = 0
 var record_height = 0
@@ -34,7 +40,8 @@ var score = 0
 var controllable = true
 var countdown_expired = false
 
-var is_wall_sliding = false
+var is_animation_over = true
+
 @export var sliding_speed = 80
 
 @export var dash_power_x = 800
@@ -140,6 +147,7 @@ func jumping():
 			$Jump_Sound.pitch_scale += 0.2
 		
 		$Jump_Sound.play()
+		$Sprite.play("Jump")
 	
 	# Stops jump -- shortens the jump
 	if Input.is_action_just_released("jump") && velocity.y < min_jump_velocity:
@@ -193,6 +201,7 @@ func wall_jump():
 	
 	$Jump_Sound.pitch_scale = randf_range(1, 1.5)
 	$Jump_Sound.play()
+	$Sprite.play("Jump")
 	
 func on_floor():
 	
@@ -210,9 +219,6 @@ func on_floor():
 	# Reset other stuff
 	is_first_contact_with_slide = true
 	reset_ability_icons()
-	
-	# Play animation
-	$Sprite.play("idle")
 
 func wall_slide_condition():
 	return is_on_wall_only() and (Input.is_action_pressed("move-left") or Input.is_action_pressed("move-right")) and !Input.is_action_pressed("jump") and !Input.is_action_pressed("move-down") and wall_jump_over and dash_over and controllable
@@ -228,18 +234,47 @@ func _physics_process(delta):
 		# Wall Slide
 		if wall_slide_condition():
 			
+			$Sprite.play("Wall")
+			
 			if is_first_contact_with_slide:
 				velocity.y = sliding_speed
 			
 			is_first_contact_with_slide = false
 			velocity.y += sliding_speed * delta
+			is_wall_sliding = true
 		else:
 			apply_gravity(delta)
 			is_first_contact_with_slide = true
+			
+			if is_wall_sliding:
+				has_played_falling_once = false
+				
+			is_wall_sliding = false
 	
 	# Items processed when player is on the floor
 	if is_on_floor():
 		on_floor()
+		
+	# Animation
+	if velocity.y < 0:
+			
+		if has_played_falling_once:
+			has_played_falling_once = false
+			
+	elif velocity.y > 0:
+		
+		has_played_landing_once = false
+		
+		if !has_played_falling_once:
+			$Sprite.play("Fall")
+			has_played_falling_once = true	
+		
+	elif velocity.y == 0:
+		has_played_falling_once = false
+		
+		if !has_played_landing_once:
+			has_played_landing_once = true
+			$Sprite.play("Land")
 	
 	# Prevents movement abilities if player is not controllable
 	if !controllable:
@@ -252,15 +287,15 @@ func _physics_process(delta):
 	if wall_jump_conditions():
 		wall_jump()
 	
+	# Handles Movement
+	movement()
+	
 	# Handles jumping
 	jumping()
 	
 	# Handles Dashing
 	if dash_conditions(): 
 		dash()
-		
-	# Handles Movement
-	movement()
 
 	# Apply movement
 	move_and_slide()
@@ -278,8 +313,17 @@ func movement():
 	
 	if direction:
 		velocity.x = direction * SPEED
+		
+		if is_on_floor():
+			is_moving_on_floor = true
+			$Sprite.play("Move")
+			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		if $Sprite.animation == "Move":
+			$Sprite.play("Idle")
+			is_moving_on_floor = false
 
 func _flip_player(direction):
 	if direction < 0:
@@ -330,6 +374,7 @@ func _on_wall_jump_timeout():
 	wall_jump_over = true
 
 func death():
+	$"..".is_player_dead = true
 	Globals.set_score(score)
 	Globals.set_height(record_height)
 	hide()
@@ -394,3 +439,8 @@ func _on_tree_exiting():
 
 func _on_count_down_start_of_game():
 	countdown_expired = true
+
+
+func _on_sprite_animation_finished():
+	if $Sprite.animation == "Land":
+		$Sprite.play("Idle")
