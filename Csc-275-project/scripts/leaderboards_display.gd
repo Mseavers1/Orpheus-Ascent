@@ -10,7 +10,11 @@ func _ready():
 	
 	Globals.load_new_scened()
 	
-	$Heights/Height_value.text = str(Globals.get_height()) + " m"
+	var units = "m"
+	if !Globals.is_units_meters():
+		units = "ft"
+		
+	$Heights/Height_value.text = str(Globals.get_height()) + " " + units
 	$Scores/Score_value.text = str(Globals.get_score())
 	
 	score_names = [$Leaderboard_display/Scores/Score_1/Score1, $Leaderboard_display/Scores/Score_2/Score1, $Leaderboard_display/Scores/Score_3/Score1, $Leaderboard_display/Scores/Score_4/Score1, $Leaderboard_display/Scores/Score_5/Score1, $Leaderboard_display/Scores/Score_6/Score1, $Leaderboard_display/Scores/Score_7/Score1, $Leaderboard_display/Scores/Score_8/Score1, $Leaderboard_display/Scores/Score_9/Score1, $Leaderboard_display/Scores/Score_10/Score1]
@@ -40,8 +44,18 @@ func refresh_leaderboard():
 	var sw_result2 = await SilentWolf.Scores.get_scores(0, "Height").sw_get_scores_complete
 	var heights = sw_result2.scores
 	
+	var suffix = "m"
+	
+	if !Globals.is_units_meters():
+		suffix = "ft"
+	
 	# Display scores
 	for i in range(10):
+		
+		var conversion = 1
+		
+		if Globals.is_units_meters():
+			conversion = 3.281
 		
 		if i > len(scores) - 1:
 			score_names[i].text = "--"
@@ -55,7 +69,7 @@ func refresh_leaderboard():
 			height_values[i].text = "--"
 		else:
 			height_names[i].text = str(heights[i]["player_name"]) + ":"
-			height_values[i].text = str(heights[i]["score"]) + " m"
+			height_values[i].text = str(ceil(heights[i]["score"] / conversion)) + " " + suffix
 			
 	
 	# Done loading
@@ -91,7 +105,7 @@ func clear_scores():
 func _on_upload_score_pressed():
 	if $Display_Name.text != "" && !has_inputed_score:
 		SilentWolf.Scores.save_score($Display_Name.text, Globals.get_score())
-		SilentWolf.Scores.save_score($Display_Name.text, Globals.get_height(), "Height")
+		SilentWolf.Scores.save_score($Display_Name.text, Globals.get_height_ft(), "Height")
 		has_inputed_score = true
 		start_loading()
 

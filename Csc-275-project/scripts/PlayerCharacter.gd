@@ -32,6 +32,7 @@ var is_metric = true
 var score = 0
 
 var controllable = true
+var countdown_expired = false
 
 var is_wall_sliding = false
 @export var sliding_speed = 80
@@ -49,6 +50,22 @@ var saved_jump_direction = 0
 @export var min_jump_height = 0.5 * 64
 @export var jump_duration = 0.5
 
+func reset_ability_icons():
+	$"Abilities Icons/Jump 1".show()
+	$"Abilities Icons/Jump 2".show()
+	$"Abilities Icons/Star".show()
+
+func update_ability_icons():
+	if jump_count == 1:
+		$"Abilities Icons/Jump 1".hide()
+	
+	if jump_count > 1:
+		$"Abilities Icons/Jump 2".hide()
+		
+	if dash_count > 0:
+		$"Abilities Icons/Star".hide()
+	
+
 func _update_conversion():
 	
 	if is_metric:
@@ -56,13 +73,23 @@ func _update_conversion():
 	else:
 		suffix = "ft"
 
+func check_conversion():
+	is_metric = Globals.is_units_meters()
+	_update_conversion()
+
+	var value = record_height
+		
+	if is_metric:
+		value = ceil(record_height / 3.281)
+	$"../UI/Record".text = "Record: " + str(value) + " " + suffix
+
 func _ready():
+	
+	check_conversion()
 	
 	$"Pause Controller/Pause Menu/Volume/Master/Master_slider".value = db_to_linear(AudioServer.get_bus_volume_db(0))
 	$"Pause Controller/Pause Menu/Volume/Music/music_Slider".value = db_to_linear(AudioServer.get_bus_volume_db(MUSIC_BUS_ID))
 	$"Pause Controller/Pause Menu/Volume/SFX/Sound_Slider".value = db_to_linear(AudioServer.get_bus_volume_db(SFX_BUS_ID))
-	
-	_update_conversion()
 	
 	gravity = 2 * max_jump_height / pow(jump_duration, 2)
 	max_jump_velocity = -sqrt(2 * gravity * max_jump_height)
@@ -107,10 +134,18 @@ func jumping():
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or jump_count < max_jumps):
 		jump_count += 1;
 		velocity.y = max_jump_velocity
+		$Jump_Sound.pitch_scale = randf_range(1, 1.5)
+		
+		if jump_count > 1:
+			$Jump_Sound.pitch_scale += 0.2
+		
+		$Jump_Sound.play()
 	
 	# Stops jump -- shortens the jump
 	if Input.is_action_just_released("jump") && velocity.y < min_jump_velocity:
 		velocity.y = min_jump_velocity
+	
+	update_ability_icons()
 
 func dash_conditions():
 	return (Input.is_action_just_pressed("mouse-click") or Input.is_action_just_pressed("dash")) && dash_count < max_dashes
@@ -120,6 +155,9 @@ func dash():
 	dash_over = false
 	$Dash_Timer.start()
 	
+	$Dash_Sound.pitch_scale = randf_range(1, 1.3)
+	$Dash_Sound.play()
+	
 	var mousePos = get_global_mouse_position()
 	var vect = global_position.direction_to(mousePos)
 	
@@ -127,6 +165,8 @@ func dash():
 	
 	velocity.x += dash_power_x * vect.x
 	velocity.y = dash_power_y * vect.y
+	
+	update_ability_icons()
 
 func wall_jump_conditions():
 	return is_on_wall() and Input.is_action_just_pressed("jump")
@@ -151,6 +191,9 @@ func wall_jump():
 	wall_jump_over = false
 	$Wall_Jump_Timer.start()
 	
+	$Jump_Sound.pitch_scale = randf_range(1, 1.5)
+	$Jump_Sound.play()
+	
 func on_floor():
 	
 	# Restore moveability
@@ -163,7 +206,10 @@ func on_floor():
 	dash_count = 0
 	jump_count = 0
 	saved_jump_direction = 0
+	
+	# Reset other stuff
 	is_first_contact_with_slide = true
+	reset_ability_icons()
 	
 	# Play animation
 	$Sprite.play("idle")
@@ -172,6 +218,9 @@ func wall_slide_condition():
 	return is_on_wall_only() and (Input.is_action_pressed("move-left") or Input.is_action_pressed("move-right")) and !Input.is_action_pressed("jump") and !Input.is_action_pressed("move-down") and wall_jump_over and dash_over and controllable
 
 func _physics_process(delta):
+	
+	if !countdown_expired:
+		return
 	
 	# Apply Gravity OR wall slide
 	if not is_on_floor():
@@ -341,3 +390,7 @@ func _on_master_slider_value_changed(value):
 
 func _on_tree_exiting():
 	Globals.save_audio()
+
+
+func _on_count_down_start_of_game():
+	countdown_expired = true

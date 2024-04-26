@@ -25,3 +25,8 @@ func _process(_delta):
 func _on_animated_sprite_2d_animation_finished():
 	if has_been_picked_up:
 		queue_free()
+
+
+# Delete if coin is colliding with platform
+func _on_platform_collider_body_entered(_body):
+	queue_free()

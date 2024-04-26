@@ -1,8 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://bgn04w7ih44h"]
+[gd_scene load_steps=25 format=3 uid="uid://bgn04w7ih44h"]
 
 [ext_resource type="Texture2D" uid="uid://bwpadveff8bnh" path="res://images/player/idle/player-idle-1.png" id="1_hhbwi"]
 [ext_resource type="Script" path="res://scripts/PlayerCharacter.gd" id="1_vwyqc"]
+[ext_resource type="Texture2D" uid="uid://pmcu3yopiprv" path="res://images/UI/Pixel UI pack 3/star.png" id="2_07ve3"]
 [ext_resource type="Texture2D" uid="uid://ctgqcm2bj3oe8" path="res://images/player/idle/player-idle-2.png" id="2_njq2u"]
+[ext_resource type="Texture2D" uid="uid://35ox1hq5du76" path="res://images/UI/Pixel UI pack 3/up.png" id="3_mcu7y"]
 [ext_resource type="Texture2D" uid="uid://b1fyb6v3gh5i7" path="res://images/player/idle/player-idle-3.png" id="3_sour4"]
 [ext_resource type="Texture2D" uid="uid://38xgovjn3xi3" path="res://images/player/idle/player-idle-4.png" id="4_uali1"]
 [ext_resource type="Texture2D" uid="uid://cknohi4muftga" path="res://images/player/run/player-run-1.png" id="6_22vcn"]
@@ -15,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://cniftwpesuwn4" path="res://images/player/run/player-run-6.png" id="11_6h5pe"]
 [ext_resource type="Script" path="res://scripts/pause.gd" id="14_pi7h7"]
 [ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="15_cpuxv"]
+[ext_resource type="Script" path="res://scripts/Units.gd" id="16_qmp53"]
+[ext_resource type="AudioStream" uid="uid://bvm8oslsh3g2h" path="res://sounds/player/Dash1.mp3" id="19_nexs1"]
+[ext_resource type="AudioStream" uid="uid://cr04dafjoqnk1" path="res://sounds/player/Jump.mp3" id="20_ln8w5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v5aa3"]
 animations = [{
@@ -79,10 +84,38 @@ animations = [{
 radius = 7.33333
 height = 24.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xxkvb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6flxb"]
+
 [node name="PlayerCharacter" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(3, 3)
 collision_mask = 12
 script = ExtResource("1_vwyqc")
+
+[node name="Abilities Icons" type="VBoxContainer" parent="."]
+z_index = 1
+offset_left = -17.6667
+offset_top = -42.3333
+offset_right = 34.3333
+offset_bottom = 7.66667
+scale = Vector2(0.7, 0.7)
+alignment = 2
+
+[node name="Star" type="TextureRect" parent="Abilities Icons"]
+layout_mode = 2
+texture = ExtResource("2_07ve3")
+stretch_mode = 3
+
+[node name="Jump 2" type="TextureRect" parent="Abilities Icons"]
+layout_mode = 2
+texture = ExtResource("3_mcu7y")
+stretch_mode = 3
+
+[node name="Jump 1" type="TextureRect" parent="Abilities Icons"]
+layout_mode = 2
+texture = ExtResource("3_mcu7y")
+stretch_mode = 3
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v5aa3")
@@ -283,6 +316,61 @@ text = "SFX "
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Units" type="VBoxContainer" parent="Pause Controller/Pause Menu"]
+offset_left = 1684.0
+offset_top = 727.0
+offset_right = 1828.0
+offset_bottom = 869.0
+script = ExtResource("16_qmp53")
+
+[node name="Units" type="Label" parent="Pause Controller/Pause Menu/Units"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("15_cpuxv")
+theme_override_font_sizes/font_size = 40
+text = "Units"
+horizontal_alignment = 1
+
+[node name="Meter_Using" type="CheckBox" parent="Pause Controller/Pause Menu/Units"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_hover_color = Color(0.761903, 0.736047, 0.955366, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.761903, 0.736047, 0.955366, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 6
+theme_override_constants/check_v_offset = 1
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("15_cpuxv")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxkvb")
+text = "Meters"
+
+[node name="Feet_Using" type="CheckBox" parent="Pause Controller/Pause Menu/Units"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_hover_color = Color(0.761903, 0.736047, 0.955366, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.761903, 0.736047, 0.955366, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 6
+theme_override_constants/check_v_offset = 1
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("15_cpuxv")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6flxb")
+text = "Feet"
+
 [node name="Game Over" type="CanvasLayer" parent="Pause Controller"]
 layer = 2
 visible = false
@@ -370,6 +458,16 @@ theme_override_fonts/font = ExtResource("15_cpuxv")
 theme_override_font_sizes/font_size = 80
 text = "Quit"
 
+[node name="Dash_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_nexs1")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Jump_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_ln8w5")
+volume_db = 8.0
+bus = &"SFX"
+
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Coin_Timer" to="." method="_on_coin_timer_timeout"]
 [connection signal="timeout" from="Wall_Jump_Timer" to="." method="_on_wall_jump_timeout"]
@@ -380,6 +478,8 @@ text = "Quit"
 [connection signal="value_changed" from="Pause Controller/Pause Menu/Volume/Master/Master_slider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Pause Controller/Pause Menu/Volume/Music/music_Slider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Pause Controller/Pause Menu/Volume/SFX/Sound_Slider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="pressed" from="Pause Controller/Pause Menu/Units/Meter_Using" to="Pause Controller/Pause Menu/Units" method="_on_meter_using_pressed"]
+[connection signal="pressed" from="Pause Controller/Pause Menu/Units/Feet_Using" to="Pause Controller/Pause Menu/Units" method="_on_feet_using_pressed"]
 [connection signal="pressed" from="Pause Controller/Game Over/Buttons/Play_again_button" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="Pause Controller/Game Over/Buttons/Leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="Pause Controller/Game Over/Buttons/Menu_button" to="." method="_on_menu_button_pressed"]

@@ -12,6 +12,7 @@ var chance_to_spawn = 0.7
 # Vars
 var time = 0
 var lavaSpeed = 0
+var countdown_expired = false
 
 func _ready():
 	lavaSpeed = minLavaSpeed
@@ -36,6 +37,9 @@ func _process(delta):
 	if !$Lava_Loop_Sounds.playing:
 		$Lava_Loop_Sounds.play()
 	
+	if !countdown_expired:
+		return
+		
 	var velocity = Vector2.ZERO;
 		
 	if Input.is_action_pressed("move-lava-down") :
@@ -96,3 +100,8 @@ func _summon_fireball():
 	fireballObj.speed = randf_range(80, 200)
 	
 	fireballObj.position = Vector2(randX, randY)
+
+
+func _on_count_down_start_of_game():
+	countdown_expired = true
+	$Fireball_Timer.start()

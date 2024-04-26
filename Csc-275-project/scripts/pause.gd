@@ -10,6 +10,7 @@ func _process(_delta):
 func pause_game():
 	currently_paused = !currently_paused
 	get_tree().paused = currently_paused
+	$"..".check_conversion()
 	
 	if currently_paused:
 		$"Pause Menu".show()
