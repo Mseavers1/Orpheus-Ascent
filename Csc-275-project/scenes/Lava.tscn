@@ -68,7 +68,7 @@ sprite_frames = SubResource("SpriteFrames_nl7g2")
 animation = &"Idle"
 
 [node name="Fireball_Timer" type="Timer" parent="."]
-wait_time = 0.222
+wait_time = 0.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(960, 50)
