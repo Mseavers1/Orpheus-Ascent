@@ -363,7 +363,7 @@ func _on_coin_collector_body_entered(body):
 # Fireball collides with player
 func hit():
 	controllable = false
-	velocity.x = 0
+	velocity.x = randf_range(70, 200) * randi_range(-1, 1)
 	velocity.y = -5
 
 func _on_coin_timer_timeout():

@@ -303,7 +303,7 @@ stretch_mode = 3
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_okhlp")
-animation = &"Move"
+animation = &"Idle"
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.333333)
