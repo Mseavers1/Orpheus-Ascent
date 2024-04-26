@@ -49,6 +49,22 @@ var saved_jump_direction = 0
 @export var min_jump_height = 0.5 * 64
 @export var jump_duration = 0.5
 
+func reset_ability_icons():
+	$"Abilities Icons/Jump 1".show()
+	$"Abilities Icons/Jump 2".show()
+	$"Abilities Icons/Star".show()
+
+func update_ability_icons():
+	if jump_count == 1:
+		$"Abilities Icons/Jump 1".hide()
+	
+	if jump_count > 1:
+		$"Abilities Icons/Jump 2".hide()
+		
+	if dash_count > 0:
+		$"Abilities Icons/Star".hide()
+	
+
 func _update_conversion():
 	
 	if is_metric:
@@ -121,6 +137,8 @@ func jumping():
 	# Stops jump -- shortens the jump
 	if Input.is_action_just_released("jump") && velocity.y < min_jump_velocity:
 		velocity.y = min_jump_velocity
+	
+	update_ability_icons()
 
 func dash_conditions():
 	return (Input.is_action_just_pressed("mouse-click") or Input.is_action_just_pressed("dash")) && dash_count < max_dashes
@@ -137,6 +155,8 @@ func dash():
 	
 	velocity.x += dash_power_x * vect.x
 	velocity.y = dash_power_y * vect.y
+	
+	update_ability_icons()
 
 func wall_jump_conditions():
 	return is_on_wall() and Input.is_action_just_pressed("jump")
@@ -173,7 +193,10 @@ func on_floor():
 	dash_count = 0
 	jump_count = 0
 	saved_jump_direction = 0
+	
+	# Reset other stuff
 	is_first_contact_with_slide = true
+	reset_ability_icons()
 	
 	# Play animation
 	$Sprite.play("idle")
