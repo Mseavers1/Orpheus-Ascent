@@ -115,7 +115,7 @@ func _fireball_timer_timeout():
 		
 		if new_time < current:
 			$Fireball_Timer.wait_time = new_time
-			print(new_time)
+			#print(new_time)
 
 
 func _summon_fireball():
