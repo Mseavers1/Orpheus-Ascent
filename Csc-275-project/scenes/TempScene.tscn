@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cohf1yqeswom8" path="res://scenes/Floor.tscn" id="2_5ofet"]
 [ext_resource type="PackedScene" uid="uid://bgn04w7ih44h" path="res://scenes/PlayerCharacter.tscn" id="3_xbidr"]
 [ext_resource type="PackedScene" uid="uid://dim5l11cdha5l" path="res://scenes/Lava.tscn" id="4_w5ylt"]
-[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://Images/background/Background2.png" id="5_kdq10"]
+[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="5_kdq10"]
 [ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="6_nvosy"]
 [ext_resource type="Script" path="res://scripts/Count Down.gd" id="7_jbui1"]
 

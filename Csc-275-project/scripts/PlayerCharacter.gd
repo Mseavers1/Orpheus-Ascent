@@ -330,6 +330,7 @@ func _on_wall_jump_timeout():
 	wall_jump_over = true
 
 func death():
+	$"..".is_player_dead = true
 	Globals.set_score(score)
 	Globals.set_height(record_height)
 	hide()

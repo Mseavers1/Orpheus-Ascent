@@ -36,6 +36,9 @@ var quadLast = -2 # loaded behind
 var quadCurrent = 0
 var quadFirst = 2 # loaded ahead
 
+# Player Death
+var is_player_dead = false
+
 # Lava Tracking
 var lavaQuad_current = 0
 
@@ -656,8 +659,7 @@ func _ready():
 
 func _process(_delta):
 
-	# Temp maybe? 
-	if !$PlayerCharacter:
+	if is_player_dead:
 		return
 
 	# Have Camera follow the player
