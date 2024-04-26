@@ -1,5 +1,9 @@
 ## This script is for all math functions ##
 
+# From https://godotforums.org/d/20410-how-do-i-calculate-logarithms-of-differing-bases-in-godot
+func log_with_base(value, base): 
+	return log(value) / log(base)
+
 # Distance formula
 func _distance(p1, p2):
 	return abs(pow(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2), 0.5))
