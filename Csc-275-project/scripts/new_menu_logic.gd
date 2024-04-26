@@ -22,6 +22,7 @@ func _process(delta):
 		
 		# Setting button is pressed
 		if is_over_setting:
+			$Select_Sound.play()
 			hide_buttons()
 			show_setting()
 		
@@ -31,11 +32,13 @@ func _process(delta):
 			
 		# Credit button is pressed
 		if is_over_credit:
+			$Select_Sound.play()
 			show_credits()
 			hide_buttons()
 		
 		# How-to-play button is pressed
 		if is_over_hwp:
+			$Select_Sound.play()
 			hide_buttons()
 			show_htp()
 			
@@ -45,6 +48,7 @@ func _process(delta):
 			
 		# Back button is pressed
 		if is_over_back:
+			$Select_Sound.play()
 			hide_htp()
 			hide_credits()
 			hide_setting()

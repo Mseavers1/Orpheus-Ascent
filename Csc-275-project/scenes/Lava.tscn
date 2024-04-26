@@ -69,7 +69,6 @@ animation = &"Idle"
 
 [node name="Fireball_Timer" type="Timer" parent="."]
 wait_time = 0.222
-autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(960, 50)

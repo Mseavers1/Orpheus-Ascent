@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bgn04w7ih44h"]
+[gd_scene load_steps=25 format=3 uid="uid://bgn04w7ih44h"]
 
 [ext_resource type="Texture2D" uid="uid://bwpadveff8bnh" path="res://images/player/idle/player-idle-1.png" id="1_hhbwi"]
 [ext_resource type="Script" path="res://scripts/PlayerCharacter.gd" id="1_vwyqc"]
@@ -18,6 +18,8 @@
 [ext_resource type="Script" path="res://scripts/pause.gd" id="14_pi7h7"]
 [ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="15_cpuxv"]
 [ext_resource type="Script" path="res://scripts/Units.gd" id="16_qmp53"]
+[ext_resource type="AudioStream" uid="uid://bvm8oslsh3g2h" path="res://sounds/player/Dash1.mp3" id="19_nexs1"]
+[ext_resource type="AudioStream" uid="uid://cr04dafjoqnk1" path="res://sounds/player/Jump.mp3" id="20_ln8w5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v5aa3"]
 animations = [{
@@ -455,6 +457,16 @@ theme_override_colors/font_color = Color(1, 0.576471, 0.52549, 1)
 theme_override_fonts/font = ExtResource("15_cpuxv")
 theme_override_font_sizes/font_size = 80
 text = "Quit"
+
+[node name="Dash_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_nexs1")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Jump_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_ln8w5")
+volume_db = 8.0
+bus = &"SFX"
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Coin_Timer" to="." method="_on_coin_timer_timeout"]

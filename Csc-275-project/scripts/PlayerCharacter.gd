@@ -32,6 +32,7 @@ var is_metric = true
 var score = 0
 
 var controllable = true
+var countdown_expired = false
 
 var is_wall_sliding = false
 @export var sliding_speed = 80
@@ -133,6 +134,12 @@ func jumping():
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or jump_count < max_jumps):
 		jump_count += 1;
 		velocity.y = max_jump_velocity
+		$Jump_Sound.pitch_scale = randf_range(1, 1.5)
+		
+		if jump_count > 1:
+			$Jump_Sound.pitch_scale += 0.2
+		
+		$Jump_Sound.play()
 	
 	# Stops jump -- shortens the jump
 	if Input.is_action_just_released("jump") && velocity.y < min_jump_velocity:
@@ -147,6 +154,9 @@ func dash():
 	dash_count += 1
 	dash_over = false
 	$Dash_Timer.start()
+	
+	$Dash_Sound.pitch_scale = randf_range(1, 1.3)
+	$Dash_Sound.play()
 	
 	var mousePos = get_global_mouse_position()
 	var vect = global_position.direction_to(mousePos)
@@ -181,6 +191,9 @@ func wall_jump():
 	wall_jump_over = false
 	$Wall_Jump_Timer.start()
 	
+	$Jump_Sound.pitch_scale = randf_range(1, 1.5)
+	$Jump_Sound.play()
+	
 func on_floor():
 	
 	# Restore moveability
@@ -205,6 +218,9 @@ func wall_slide_condition():
 	return is_on_wall_only() and (Input.is_action_pressed("move-left") or Input.is_action_pressed("move-right")) and !Input.is_action_pressed("jump") and !Input.is_action_pressed("move-down") and wall_jump_over and dash_over and controllable
 
 func _physics_process(delta):
+	
+	if !countdown_expired:
+		return
 	
 	# Apply Gravity OR wall slide
 	if not is_on_floor():
@@ -374,3 +390,7 @@ func _on_master_slider_value_changed(value):
 
 func _on_tree_exiting():
 	Globals.save_audio()
+
+
+func _on_count_down_start_of_game():
+	countdown_expired = true

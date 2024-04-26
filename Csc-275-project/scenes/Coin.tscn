@@ -163,6 +163,7 @@ script = ExtResource("2_65eyl")
 
 [node name="Coin_Pickup_Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_nmewj")
+volume_db = -4.561
 bus = &"SFX"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
