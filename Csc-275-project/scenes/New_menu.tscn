@@ -1,16 +1,16 @@
 [gd_scene load_steps=27 format=3 uid="uid://bsahf1xgtokhx"]
 
 [ext_resource type="Script" path="res://scripts/new_menu_logic.gd" id="1_avby3"]
-[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="2_5x6j7"]
+[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://Images/background/Background2.png" id="2_5x6j7"]
 [ext_resource type="Texture2D" uid="uid://4j261pegys8y" path="res://animations/lava1-Sheet.png" id="4_mvdfx"]
 [ext_resource type="Script" path="res://scripts/LavaMenu.gd" id="5_d75xt"]
 [ext_resource type="AudioStream" uid="uid://dhu1nte7caaql" path="res://sounds/lava_loop.mp3" id="6_dhccn"]
 [ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="6_s8nca"]
-[ext_resource type="Texture2D" uid="uid://dkea0cefo41b6" path="res://images/platforms/Platform192x320.png" id="7_82vis"]
+[ext_resource type="Texture2D" uid="uid://dkea0cefo41b6" path="res://Images/platforms/Platform192x320.png" id="7_82vis"]
 [ext_resource type="Script" path="res://scripts/Units.gd" id="7_wr3cy"]
-[ext_resource type="Texture2D" uid="uid://5osjs3yegjyl" path="res://images/platforms/Platform320x192.png" id="8_vubau"]
-[ext_resource type="Texture2D" uid="uid://cbmr0rt6mh3s8" path="res://images/platforms/Platform128x256.png" id="9_st2rb"]
-[ext_resource type="Texture2D" uid="uid://f784edg2eg0q" path="res://images/platforms/Platform192x384.png" id="10_e6wbb"]
+[ext_resource type="Texture2D" uid="uid://5osjs3yegjyl" path="res://Images/platforms/Platform320x192.png" id="8_vubau"]
+[ext_resource type="Texture2D" uid="uid://cbmr0rt6mh3s8" path="res://Images/platforms/Platform128x256.png" id="9_st2rb"]
+[ext_resource type="Texture2D" uid="uid://f784edg2eg0q" path="res://Images/platforms/Platform192x384.png" id="10_e6wbb"]
 [ext_resource type="AudioStream" uid="uid://bn4ukqgrt7woq" path="res://sounds/Select.mp3" id="12_7jico"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ms7at"]
@@ -273,17 +273,33 @@ text = "Feet"
 visible = false
 
 [node name="Info" type="RichTextLabel" parent="Canvas/HTP_Info"]
-offset_left = 90.0
-offset_top = 148.0
-offset_right = 618.0
-offset_bottom = 411.0
+offset_left = 24.0
+offset_top = 143.0
+offset_right = 616.0
+offset_bottom = 500.0
 theme_override_colors/default_color = Color(0.972549, 0.976471, 0.639216, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 17
 theme_override_fonts/normal_font = ExtResource("6_s8nca")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Hello There!"
+text = "When the countdown starts, ascend! Don't get hit by a fireball, and don't touch the lava! Collect coins and make it as high as you can to get the best score you can!"
+
+[node name="Controls" type="RichTextLabel" parent="Canvas/HTP_Info"]
+offset_left = 1391.0
+offset_top = 142.0
+offset_right = 1916.0
+offset_bottom = 499.0
+theme_override_colors/default_color = Color(0.972549, 0.976471, 0.639216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 17
+theme_override_fonts/normal_font = ExtResource("6_s8nca")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Space or W to jump
+E or left click to dash
+
+Space or W while sliding on a wall to wall jump"
 
 [node name="Credit_Info" type="Node2D" parent="Canvas"]
 visible = false
@@ -309,8 +325,10 @@ text = "Development Team:
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_right = 1920.0
-offset_bottom = 331.0
+offset_left = -11.0
+offset_top = -1.0
+offset_right = 1909.0
+offset_bottom = 330.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.690196, 0.721569, 0.964706, 1)

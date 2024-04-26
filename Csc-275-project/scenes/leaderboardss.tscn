@@ -2,8 +2,8 @@
 
 [ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="1_7smnr"]
 [ext_resource type="Script" path="res://scripts/leaderboards_display.gd" id="1_iuxfm"]
-[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="2_sb22e"]
-[ext_resource type="Texture2D" uid="uid://cu1su0brmctfi" path="res://images/UI/Pixel UI pack 3/03.png" id="4_740fr"]
+[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://Images/background/Background2.png" id="2_sb22e"]
+[ext_resource type="Texture2D" uid="uid://cu1su0brmctfi" path="res://Images/UI/Pixel UI pack 3/03.png" id="4_740fr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nk5an"]
 atlas = ExtResource("4_740fr")
