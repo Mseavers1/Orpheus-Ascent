@@ -1032,6 +1032,7 @@ frame_progress = 0.0494598
 
 [node name="Display_Name" type="LineEdit" parent="."]
 custom_minimum_size = Vector2(714.87, 0)
+layout_mode = 0
 offset_left = 1194.0
 offset_top = 7.0
 offset_right = 1908.87

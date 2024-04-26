@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bsahf1xgtokhx"]
+[gd_scene load_steps=23 format=3 uid="uid://bsahf1xgtokhx"]
 
 [ext_resource type="Script" path="res://scripts/new_menu_logic.gd" id="1_avby3"]
 [ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="2_5x6j7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dkea0cefo41b6" path="res://images/platforms/Platform192x320.png" id="7_82vis"]
 [ext_resource type="Texture2D" uid="uid://5osjs3yegjyl" path="res://images/platforms/Platform320x192.png" id="8_vubau"]
 [ext_resource type="Texture2D" uid="uid://cbmr0rt6mh3s8" path="res://images/platforms/Platform128x256.png" id="9_st2rb"]
+[ext_resource type="Texture2D" uid="uid://f784edg2eg0q" path="res://images/platforms/Platform192x384.png" id="10_e6wbb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ms7at"]
 atlas = ExtResource("4_mvdfx")
@@ -61,7 +62,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qncu"]
-size = Vector2(192, 320)
+size = Vector2(193, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wxios"]
 size = Vector2(320, 192)
@@ -71,6 +72,9 @@ size = Vector2(128, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhifh"]
 size = Vector2(128, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptxp5"]
+size = Vector2(192, 384)
 
 [node name="New_Menu" type="Node2D"]
 script = ExtResource("1_avby3")
@@ -103,6 +107,106 @@ bus = &"SFX"
 
 [node name="Canvas" type="CanvasGroup" parent="."]
 z_index = 1
+
+[node name="Setting_info" type="Node2D" parent="Canvas"]
+visible = false
+
+[node name="Volume" type="VBoxContainer" parent="Canvas/Setting_info"]
+layout_direction = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1897.0
+offset_top = 464.0
+offset_right = -1471.0
+offset_bottom = 634.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Master" type="HBoxContainer" parent="Canvas/Setting_info/Volume"]
+layout_mode = 2
+
+[node name="Master_slider" type="HSlider" parent="Canvas/Setting_info/Volume/Master"]
+custom_minimum_size = Vector2(300, 38.56)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+tick_count = 3
+
+[node name="master_label" type="Label" parent="Canvas/Setting_info/Volume/Master"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 30
+text = "Master "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space3" type="MarginContainer" parent="Canvas/Setting_info/Volume"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Music" type="HBoxContainer" parent="Canvas/Setting_info/Volume"]
+layout_mode = 2
+
+[node name="music_Slider" type="HSlider" parent="Canvas/Setting_info/Volume/Music"]
+custom_minimum_size = Vector2(300, 38.56)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+tick_count = 3
+
+[node name="music_label" type="Label" parent="Canvas/Setting_info/Volume/Music"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 30
+text = "Music "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space2" type="MarginContainer" parent="Canvas/Setting_info/Volume"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="SFX" type="HBoxContainer" parent="Canvas/Setting_info/Volume"]
+layout_mode = 2
+
+[node name="Sound_Slider" type="HSlider" parent="Canvas/Setting_info/Volume/SFX"]
+custom_minimum_size = Vector2(300, 38.56)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+tick_count = 3
+
+[node name="sound_label" type="Label" parent="Canvas/Setting_info/Volume/SFX"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 30
+text = "SFX "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HTP_Info" type="Node2D" parent="Canvas"]
 visible = false
@@ -164,7 +268,7 @@ Ascent
 horizontal_alignment = 1
 
 [node name="Credits" type="Sprite2D" parent="Canvas"]
-position = Vector2(1250, 756)
+position = Vector2(1508, 756)
 rotation = 1.5708
 texture = ExtResource("7_82vis")
 
@@ -188,10 +292,11 @@ collision_layer = 4
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/Credits/Area2D"]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_5qncu")
 
 [node name="How_To_Play" type="Sprite2D" parent="Canvas"]
-position = Vector2(674, 756)
+position = Vector2(412, 756)
 texture = ExtResource("8_vubau")
 
 [node name="HTP_Label" type="Label" parent="Canvas/How_To_Play"]
@@ -279,7 +384,7 @@ offset_top = 165.0
 offset_right = 293.0
 offset_bottom = 243.0
 rotation = -1.5708
-theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_fonts/font = ExtResource("6_s8nca")
 theme_override_font_sizes/font_size = 59
 text = "Start"
@@ -294,7 +399,37 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/Start_Button/Area2D"]
 shape = SubResource("RectangleShape2D_rhifh")
 
+[node name="Settings_Button" type="Sprite2D" parent="Canvas"]
+position = Vector2(960, 756)
+rotation = 1.5708
+texture = ExtResource("10_e6wbb")
+
+[node name="Setting_label" type="Label" parent="Canvas/Settings_Button"]
+offset_left = -40.0
+offset_top = 165.0
+offset_right = 293.0
+offset_bottom = 243.0
+rotation = -1.5708
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 59
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Area2D" type="Area2D" parent="Canvas/Settings_Button"]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/Settings_Button/Area2D"]
+shape = SubResource("RectangleShape2D_ptxp5")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Backgrounds/Lava/Fireball_Timer" to="Backgrounds/Lava" method="_on_fireball_timer_timeout"]
+[connection signal="value_changed" from="Canvas/Setting_info/Volume/Master/Master_slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Canvas/Setting_info/Volume/Music/music_Slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Canvas/Setting_info/Volume/SFX/Sound_Slider" to="." method="_on_sound_slider_value_changed"]
 [connection signal="mouse_entered" from="Canvas/Credits/Area2D" to="." method="_on_mouse_entered_Credits"]
 [connection signal="mouse_exited" from="Canvas/Credits/Area2D" to="." method="_on_mouse_exit_Credits"]
 [connection signal="mouse_entered" from="Canvas/How_To_Play/Area2D" to="." method="_on_mouse_entered_HTP"]
@@ -305,3 +440,5 @@ shape = SubResource("RectangleShape2D_rhifh")
 [connection signal="mouse_exited" from="Canvas/Back_Button/Area2D" to="." method="_on_mouse_exit_Back"]
 [connection signal="mouse_entered" from="Canvas/Start_Button/Area2D" to="." method="_on_mouse_enter_Start"]
 [connection signal="mouse_exited" from="Canvas/Start_Button/Area2D" to="." method="_on_mouse_exit_Start"]
+[connection signal="mouse_entered" from="Canvas/Settings_Button/Area2D" to="." method="_on_mouse_entered_settings"]
+[connection signal="mouse_exited" from="Canvas/Settings_Button/Area2D" to="." method="_on_mouse_exit_Settings"]
