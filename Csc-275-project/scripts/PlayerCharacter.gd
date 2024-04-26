@@ -56,13 +56,23 @@ func _update_conversion():
 	else:
 		suffix = "ft"
 
+func check_conversion():
+	is_metric = Globals.is_units_meters()
+	_update_conversion()
+
+	var value = record_height
+		
+	if is_metric:
+		value = ceil(record_height / 3.281)
+	$"../UI/Record".text = "Record: " + str(value) + " " + suffix
+
 func _ready():
+	
+	check_conversion()
 	
 	$"Pause Controller/Pause Menu/Volume/Master/Master_slider".value = db_to_linear(AudioServer.get_bus_volume_db(0))
 	$"Pause Controller/Pause Menu/Volume/Music/music_Slider".value = db_to_linear(AudioServer.get_bus_volume_db(MUSIC_BUS_ID))
 	$"Pause Controller/Pause Menu/Volume/SFX/Sound_Slider".value = db_to_linear(AudioServer.get_bus_volume_db(SFX_BUS_ID))
-	
-	_update_conversion()
 	
 	gravity = 2 * max_jump_height / pow(jump_duration, 2)
 	max_jump_velocity = -sqrt(2 * gravity * max_jump_height)

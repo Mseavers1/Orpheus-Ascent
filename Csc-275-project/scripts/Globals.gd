@@ -9,6 +9,9 @@ var is_using_meters = true
 const setting_config_path = "res://saves/settings.cfg"
 const default_audio = 0.6
 
+func set_is_using_meters(v):
+	is_using_meters = v
+
 func is_units_meters():
 	return is_using_meters
 
@@ -26,6 +29,13 @@ func get_score():
 	return current_score
 
 func get_height():
+	
+	if is_using_meters:
+		return ceil(current_height / 3.281)
+	
+	return current_height
+	
+func get_height_ft():
 	return current_height
 
 func save_audio():
