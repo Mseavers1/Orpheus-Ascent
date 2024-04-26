@@ -21,7 +21,7 @@ position = Vector2(960, 541)
 limit_bottom = 1080
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_xbidr")]
-position = Vector2(967, 934)
+position = Vector2(967, 944)
 
 [node name="Lava" parent="." instance=ExtResource("4_w5ylt")]
 z_index = 1
