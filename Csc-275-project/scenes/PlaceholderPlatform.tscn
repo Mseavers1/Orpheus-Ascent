@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://blqo1ogw2dqxf"]
 
 [ext_resource type="Script" path="res://scripts/PlatformLogic.gd" id="1_gtnhu"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qxtkb"]
-load_path = "res://.godot/imported/Platform64x64.png-7996d1527e7bbe8d76af22bc50e0a1ec.ctex"
+[ext_resource type="Texture2D" uid="uid://b1r2b0ncjokby" path="res://images/platforms/Platform64x64.png" id="2_ju5vi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urh8s"]
 size = Vector2(64, 64)
@@ -13,7 +11,7 @@ collision_layer = 4
 script = ExtResource("1_gtnhu")
 
 [node name="Platform" type="Sprite2D" parent="."]
-texture = SubResource("CompressedTexture2D_qxtkb")
+texture = ExtResource("2_ju5vi")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_urh8s")

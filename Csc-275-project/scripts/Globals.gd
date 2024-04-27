@@ -6,7 +6,7 @@ var setting_config = ConfigFile.new()
 
 var is_using_meters = true
 
-const setting_config_path = "res://saves/settings.cfg"
+const setting_config_path = "user://setting.cfg"
 const default_audio = 0.6
 
 func set_is_using_meters(v):
