@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://bsahf1xgtokhx"]
+[gd_scene load_steps=96 format=3 uid="uid://bsahf1xgtokhx"]
 
 [ext_resource type="Script" path="res://scripts/new_menu_logic.gd" id="1_avby3"]
 [ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="2_5x6j7"]
@@ -13,27 +13,46 @@
 [ext_resource type="Texture2D" uid="uid://5osjs3yegjyl" path="res://images/platforms/Platform320x192.png" id="8_vubau"]
 [ext_resource type="Texture2D" uid="uid://cbmr0rt6mh3s8" path="res://images/platforms/Platform128x256.png" id="9_st2rb"]
 [ext_resource type="Texture2D" uid="uid://dqendekllqda8" path="res://images/tutorials/movement/scene00001.png" id="9_unbli"]
+[ext_resource type="Texture2D" uid="uid://cxp3eqip2mrre" path="res://images/tutorials/jumping/scene00001.png" id="10_3cka1"]
 [ext_resource type="Texture2D" uid="uid://f784edg2eg0q" path="res://images/platforms/Platform192x384.png" id="10_e6wbb"]
 [ext_resource type="Texture2D" uid="uid://smrig8c1ncca" path="res://images/tutorials/movement/scene00002.png" id="10_h02iy"]
+[ext_resource type="Texture2D" uid="uid://dn7ggiaelq66y" path="res://images/tutorials/jumping/scene00002.png" id="11_o8d8f"]
 [ext_resource type="Texture2D" uid="uid://bkudtsold464a" path="res://images/tutorials/movement/scene00003.png" id="11_uw1i3"]
 [ext_resource type="AudioStream" uid="uid://bn4ukqgrt7woq" path="res://sounds/Select.mp3" id="12_7jico"]
+[ext_resource type="Texture2D" uid="uid://cj4vjyd23t0jk" path="res://images/tutorials/jumping/scene00003.png" id="12_7jjhy"]
 [ext_resource type="Texture2D" uid="uid://cey570xchfy6m" path="res://images/tutorials/movement/scene00004.png" id="12_24t12"]
+[ext_resource type="Texture2D" uid="uid://bvl8vmktvver6" path="res://images/tutorials/jumping/scene00004.png" id="13_5h4mw"]
 [ext_resource type="Texture2D" uid="uid://bpylf66rhnxdv" path="res://images/tutorials/movement/scene00005.png" id="13_dbku3"]
 [ext_resource type="Texture2D" uid="uid://bty3l4hce7p4f" path="res://images/tutorials/movement/scene00006.png" id="14_8wpv4"]
+[ext_resource type="Texture2D" uid="uid://2bvy0654e8y6" path="res://images/tutorials/jumping/scene00005.png" id="14_g80y4"]
+[ext_resource type="Texture2D" uid="uid://cas5u23k7ru72" path="res://images/tutorials/jumping/scene00006.png" id="15_216nc"]
 [ext_resource type="Texture2D" uid="uid://b4qikhvedswuh" path="res://images/tutorials/movement/scene00007.png" id="15_eycc5"]
 [ext_resource type="Texture2D" uid="uid://rblwcs3ljirc" path="res://images/tutorials/movement/scene00008.png" id="16_rtips"]
+[ext_resource type="Texture2D" uid="uid://bpwbh6ncsji3q" path="res://images/tutorials/jumping/scene00007.png" id="16_sljr5"]
 [ext_resource type="Texture2D" uid="uid://dq75hd6scvylj" path="res://images/tutorials/movement/scene00009.png" id="17_hgis1"]
+[ext_resource type="Texture2D" uid="uid://b8dkomr8nk2ud" path="res://images/tutorials/jumping/scene00008.png" id="17_qqcjj"]
+[ext_resource type="Texture2D" uid="uid://ctacg3qxs8la5" path="res://images/tutorials/jumping/scene00009.png" id="18_6yik4"]
 [ext_resource type="Texture2D" uid="uid://biicy43urfiew" path="res://images/tutorials/movement/scene00010.png" id="18_quesj"]
 [ext_resource type="Texture2D" uid="uid://c7d5ada83sowe" path="res://images/tutorials/movement/scene00011.png" id="19_0h0fv"]
+[ext_resource type="Texture2D" uid="uid://js8f2jwdednl" path="res://images/tutorials/jumping/scene00010.png" id="19_4p4cr"]
 [ext_resource type="Texture2D" uid="uid://diqo6a8iukfon" path="res://images/tutorials/movement/scene00012.png" id="20_6ipwq"]
+[ext_resource type="Texture2D" uid="uid://dpux6giaf0euu" path="res://images/tutorials/jumping/scene00011.png" id="20_pvq3r"]
+[ext_resource type="Texture2D" uid="uid://lsctpu515mpp" path="res://images/tutorials/jumping/scene00012.png" id="21_cpphk"]
 [ext_resource type="Texture2D" uid="uid://bkyaqfkqrysfc" path="res://images/tutorials/movement/scene00013.png" id="21_swebi"]
 [ext_resource type="Texture2D" uid="uid://diiemb78qjtw2" path="res://images/tutorials/movement/scene00014.png" id="22_w02tu"]
+[ext_resource type="Texture2D" uid="uid://wargxub505a6" path="res://images/tutorials/jumping/scene00013.png" id="22_wckp6"]
 [ext_resource type="Texture2D" uid="uid://cx2wysjv4wfjc" path="res://images/tutorials/movement/scene00015.png" id="23_ugi6q"]
+[ext_resource type="Texture2D" uid="uid://cfjhwsepnaa3f" path="res://images/tutorials/jumping/scene00014.png" id="23_ynlka"]
+[ext_resource type="Texture2D" uid="uid://b5p13y08k18qu" path="res://images/tutorials/jumping/scene00015.png" id="24_e6uec"]
 [ext_resource type="Texture2D" uid="uid://cyyi5v2krw4ju" path="res://images/tutorials/movement/scene00016.png" id="24_jjxmd"]
 [ext_resource type="Texture2D" uid="uid://dbqatnbba30mi" path="res://images/tutorials/movement/scene00017.png" id="25_kk1vj"]
+[ext_resource type="Texture2D" uid="uid://1ckoveiyfvus" path="res://images/tutorials/jumping/scene00016.png" id="25_vrs8b"]
 [ext_resource type="Texture2D" uid="uid://gnh47vcu7n8s" path="res://images/tutorials/movement/scene00018.png" id="26_2kbuy"]
+[ext_resource type="Texture2D" uid="uid://doa1pb2qsbxpy" path="res://images/tutorials/jumping/scene00017.png" id="26_ias0h"]
 [ext_resource type="Texture2D" uid="uid://by06gh6ftcbql" path="res://images/random_spritesheets/Keyboard Letters and Symbols.png" id="27_eotam"]
+[ext_resource type="Texture2D" uid="uid://cr2fw0vsxyofu" path="res://images/tutorials/jumping/scene00018.png" id="27_ua2oi"]
 [ext_resource type="Texture2D" uid="uid://bcycl750ybv3v" path="res://images/platforms/Platform128x128.png" id="32_2e12h"]
+[ext_resource type="Texture2D" uid="uid://cbgkkhiwwfkwc" path="res://images/random_spritesheets/Keyboard Extras.png" id="46_lacee"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ms7at"]
 atlas = ExtResource("4_mvdfx")
@@ -96,6 +115,65 @@ size = Vector2(831, 384)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("10_3cka1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_o8d8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7jjhy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5h4mw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_g80y4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_216nc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_sljr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_qqcjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_6yik4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_4p4cr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_pvq3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_cpphk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_wckp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ynlka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_e6uec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vrs8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ias0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ua2oi")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("9_unbli")
 }, {
 "duration": 1.0,
@@ -152,6 +230,57 @@ animations = [{
 "loop": true,
 "name": &"movement",
 "speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc5pp"]
+atlas = ExtResource("46_lacee")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwaef"]
+atlas = ExtResource("46_lacee")
+region = Rect2(32, 64, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqb18"]
+atlas = ExtResource("46_lacee")
+region = Rect2(64, 32, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a67fx"]
+atlas = ExtResource("46_lacee")
+region = Rect2(64, 96, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ydae"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc5pp")
+}],
+"loop": true,
+"name": &"Escape_None",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwaef")
+}],
+"loop": true,
+"name": &"Escpae_Select",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqb18")
+}],
+"loop": true,
+"name": &"Space_None",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a67fx")
+}],
+"loop": true,
+"name": &"Space_Select",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1y3s4"]
@@ -584,9 +713,23 @@ shape = SubResource("RectangleShape2D_l485a")
 position = Vector2(960, 571)
 scale = Vector2(0.257353, 0.257353)
 sprite_frames = SubResource("SpriteFrames_fyktt")
-animation = &"movement"
+animation = &"jumping"
 frame = 7
-frame_progress = 0.697355
+frame_progress = 0.590595
+
+[node name="Other_Keys" type="Node" parent="Canvas/HTP_Info"]
+
+[node name="Space_bar" type="AnimatedSprite2D" parent="Canvas/HTP_Info/Other_Keys"]
+position = Vector2(1491, 175)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_4ydae")
+animation = &"Space_None"
+
+[node name="Escape_key" type="AnimatedSprite2D" parent="Canvas/HTP_Info/Other_Keys"]
+position = Vector2(1729, 175)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_4ydae")
+animation = &"Escape_None"
 
 [node name="Arrow_Keys" type="Node2D" parent="Canvas/HTP_Info"]
 position = Vector2(69, 213)
@@ -735,7 +878,7 @@ theme_override_constants/shadow_outline_size = 18
 theme_override_constants/line_spacing = -15
 theme_override_fonts/font = ExtResource("6_s8nca")
 theme_override_font_sizes/font_size = 150
-text = "Orpheus’s
+text = "Orpheus’
 Ascent
 "
 horizontal_alignment = 1

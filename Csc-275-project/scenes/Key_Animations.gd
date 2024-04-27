@@ -3,12 +3,15 @@ extends Node2D
 var current_page = 0
 var max_pages
 
-var animations = ["movement", ""]
+var animations = ["movement", "jumping"]
 
 var w
 var s
 var a
 var d
+
+var space
+var escape
 
 var up
 var down
@@ -19,11 +22,15 @@ func all_stop():
 	$vidoe_player_gif.stop()
 
 func all_start(n):
+	
 	$vidoe_player_gif.play(n)
 
 func _ready():
 	
 	max_pages = len(animations) - 1
+	
+	space = $Other_Keys/Space_bar
+	escape = $Other_Keys/Escape_key
 	
 	w = $WASD/Up_1
 	s = $WASD/Down_1
@@ -35,8 +42,54 @@ func _ready():
 	left = $Arrow_Keys/Left_1
 	right = $Arrow_Keys/Right_1
 
+func jumping_animation(frame):
+	if frame > 0 and frame <= 4:
+			space.play("Space_Select")
+			escape.play("Escape_None")
+		
+			w.play("W_Select")
+			s.play("S_None")
+			a.play("A_None")
+			d.play("D_None")
+			
+			up.play("Up_Select")
+			down.play("Down_None")
+			left.play("Left_None")
+			right.play("Right_None")
+	elif frame > 5 and frame < 8:
+		
+		space.play("Space_Select")
+		escape.play("Escape_None")
+		
+		w.play("W_Select")
+		s.play("S_None")
+		a.play("A_None")
+		d.play("D_None")
+		
+		up.play("Up_Select")
+		down.play("Down_None")
+		left.play("Left_None")
+		right.play("Right_None")
+	else:
+		
+		space.play("Space_None")
+		escape.play("Escape_None")
+		
+		w.play("W_None")
+		s.play("S_None")
+		a.play("A_None")
+		d.play("D_None")
+		
+		up.play("Up_None")
+		down.play("Down_None")
+		left.play("Left_None")
+		right.play("Right_None")
+
 func movement_animations(frame):
 	if frame <= 7:
+			space.play("Space_None")
+			escape.play("Escape_None")
+			
 			w.play("W_None")
 			s.play("S_None")
 			a.play("A_None")
@@ -47,6 +100,10 @@ func movement_animations(frame):
 			left.play("Left_None")
 			right.play("Right_Select")
 	elif frame > 7 and frame < 11:
+		
+		space.play("Space_None")
+		escape.play("Escape_None")
+		
 		w.play("W_None")
 		s.play("S_None")
 		a.play("A_None")
@@ -57,6 +114,10 @@ func movement_animations(frame):
 		left.play("Left_None")
 		right.play("Right_None")
 	else:
+		
+		space.play("Space_None")
+		escape.play("Escape_None")
+		
 		w.play("W_None")
 		s.play("S_None")
 		a.play("A_Select")
@@ -73,6 +134,8 @@ func _on_vidoe_player_gif_frame_changed():
 	
 	if type == "movement":
 		movement_animations(frame)
+	elif type == "jumping":
+		jumping_animation(frame)
 
 func _on_new_menu_clicked_next():
 	
@@ -80,8 +143,7 @@ func _on_new_menu_clicked_next():
 		$Prev.show()
 	
 	current_page += 1
-	#all_start(animations[current_page])
-	print(animations[current_page])
+	all_start(animations[current_page])
 	
 	if current_page >= max_pages:
 		$Next.hide()
@@ -93,7 +155,7 @@ func _on_new_menu_clicked_prev():
 		$Next.show()
 	
 	current_page -= 1
-	print(animations[current_page])
+	all_start(animations[current_page])
 	
 	if current_page <= 0:
 		$Prev.hide()
