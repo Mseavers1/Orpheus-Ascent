@@ -1,8 +1,9 @@
-[gd_scene load_steps=67 format=3 uid="uid://bgn04w7ih44h"]
+[gd_scene load_steps=71 format=3 uid="uid://bgn04w7ih44h"]
 
 [ext_resource type="Script" path="res://scripts/PlayerCharacter.gd" id="1_vwyqc"]
 [ext_resource type="Texture2D" uid="uid://pmcu3yopiprv" path="res://images/UI/Pixel UI pack 3/star.png" id="2_07ve3"]
 [ext_resource type="Texture2D" uid="uid://35ox1hq5du76" path="res://images/UI/Pixel UI pack 3/up.png" id="3_mcu7y"]
+[ext_resource type="Texture2D" uid="uid://bfdvucq5k8b2s" path="res://animations/PlayerTemp/itch hurt 2 sheet-Sheet.png" id="4_l1j0n"]
 [ext_resource type="Texture2D" uid="uid://c4akd34e7x5uj" path="res://images/player_temp/fall/1.png" id="4_m20qy"]
 [ext_resource type="Texture2D" uid="uid://byyita217adqc" path="res://images/player_temp/fall/2.png" id="5_c2oi8"]
 [ext_resource type="Texture2D" uid="uid://mk5365ewwn7k" path="res://images/player_temp/fall/3.png" id="6_dbqk4"]
@@ -22,9 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://p745j618flya" path="res://images/player_temp/idle/10.png" id="17_8xpsj"]
 [ext_resource type="Texture2D" uid="uid://5hs1n2f7ekvh" path="res://images/player_temp/idle/11.png" id="18_tfny5"]
 [ext_resource type="Texture2D" uid="uid://bg16hshn6bh4" path="res://images/player_temp/idle/12.png" id="19_0oxiw"]
-[ext_resource type="AudioStream" uid="uid://bvm8oslsh3g2h" path="res://sounds/player/Dash1.mp3" id="19_nexs1"]
 [ext_resource type="Texture2D" uid="uid://blbcss6mype2s" path="res://images/player_temp/idle/13.png" id="20_japg5"]
-[ext_resource type="AudioStream" uid="uid://cr04dafjoqnk1" path="res://sounds/player/Jump.mp3" id="20_ln8w5"]
 [ext_resource type="Texture2D" uid="uid://do6wmgnkesoys" path="res://images/player_temp/idle/14.png" id="21_ttfpg"]
 [ext_resource type="Texture2D" uid="uid://c5l0xwojrhmfr" path="res://images/player_temp/idle/15.png" id="22_3now4"]
 [ext_resource type="Texture2D" uid="uid://by54u412b0rrj" path="res://images/player_temp/idle/16.png" id="23_3og4i"]
@@ -62,9 +61,25 @@
 [ext_resource type="Texture2D" uid="uid://bxl64tb7ghbkk" path="res://images/player_temp/run/22.png" id="54_vufap"]
 [ext_resource type="Texture2D" uid="uid://6v54wnqeo4ia" path="res://images/player_temp/run/23.png" id="55_006wd"]
 [ext_resource type="Texture2D" uid="uid://g4wg8hv1vubv" path="res://images/player_temp/run/24.png" id="56_grrbb"]
+[ext_resource type="AudioStream" uid="uid://0nuxq8mhbdix" path="res://sounds/player/dash.wav" id="61_41ry4"]
+[ext_resource type="AudioStream" uid="uid://bj1mkiw7ua8u" path="res://sounds/player/Walk.mp3" id="61_bvgve"]
+[ext_resource type="AudioStream" uid="uid://bf5sp151esfg1" path="res://sounds/player/jump.wav" id="62_xk3ab"]
+[ext_resource type="AudioStream" uid="uid://c43lvxolvjk3a" path="res://sounds/player/death1.mp3" id="64_baget"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irv48"]
+atlas = ExtResource("4_l1j0n")
+region = Rect2(160, 0, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_okhlp"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irv48")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_m20qy")
@@ -303,7 +318,7 @@ stretch_mode = 3
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_okhlp")
-animation = &"Idle"
+animation = &"Death"
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.333333)
@@ -640,15 +655,30 @@ theme_override_fonts/font = ExtResource("15_cpuxv")
 theme_override_font_sizes/font_size = 80
 text = "Quit"
 
+[node name="Walk_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("61_bvgve")
+volume_db = -10.0
+pitch_scale = 0.8
+panning_strength = 2.0
+bus = &"SFX"
+
 [node name="Dash_Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("19_nexs1")
-volume_db = -5.0
+stream = ExtResource("61_41ry4")
+volume_db = 2.0
+pitch_scale = 0.7
+panning_strength = 2.0
 bus = &"SFX"
 
 [node name="Jump_Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("20_ln8w5")
-volume_db = 8.0
+stream = ExtResource("62_xk3ab")
+volume_db = -5.0
+panning_strength = 2.0
 bus = &"SFX"
+
+[node name="Death_Sound" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("64_baget")
+panning_strength = 2.0
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

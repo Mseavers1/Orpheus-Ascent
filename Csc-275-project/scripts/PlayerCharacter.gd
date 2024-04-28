@@ -141,10 +141,6 @@ func jumping():
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or jump_count < max_jumps):
 		jump_count += 1;
 		velocity.y = max_jump_velocity
-		$Jump_Sound.pitch_scale = randf_range(1, 1.5)
-		
-		if jump_count > 1:
-			$Jump_Sound.pitch_scale += 0.2
 		
 		$Jump_Sound.play()
 		$Sprite.play("Jump")
@@ -163,7 +159,6 @@ func dash():
 	dash_over = false
 	$Dash_Timer.start()
 	
-	$Dash_Sound.pitch_scale = randf_range(1, 1.3)
 	$Dash_Sound.play()
 	
 	var mousePos = get_global_mouse_position()
@@ -199,7 +194,6 @@ func wall_jump():
 	wall_jump_over = false
 	$Wall_Jump_Timer.start()
 	
-	$Jump_Sound.pitch_scale = randf_range(1, 1.5)
 	$Jump_Sound.play()
 	$Sprite.play("Jump")
 	
@@ -318,6 +312,9 @@ func movement():
 			is_moving_on_floor = true
 			$Sprite.play("Move")
 			
+			if !$Walk_Sound.playing:
+				$Walk_Sound.play()
+			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
@@ -374,6 +371,8 @@ func _on_wall_jump_timeout():
 	wall_jump_over = true
 
 func death():
+	$Death_Sound.play()
+	$Sprite.play("Death")
 	$"..".is_player_dead = true
 	Globals.set_score(score)
 	Globals.set_height(record_height)

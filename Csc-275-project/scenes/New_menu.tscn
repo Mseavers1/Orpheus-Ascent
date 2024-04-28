@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dkea0cefo41b6" path="res://images/platforms/Platform192x320.png" id="7_82vis"]
 [ext_resource type="Script" path="res://scripts/Units.gd" id="7_wr3cy"]
 [ext_resource type="Texture2D" uid="uid://bd5bmti5vk6jm" path="res://images/platforms/Platform832X384.png" id="8_06oye"]
-[ext_resource type="Script" path="res://scenes/Key_Animations.gd" id="8_gkop4"]
+[ext_resource type="Script" path="res://scripts/Key_Animations.gd" id="8_gkop4"]
 [ext_resource type="Texture2D" uid="uid://5osjs3yegjyl" path="res://images/platforms/Platform320x192.png" id="8_vubau"]
 [ext_resource type="Texture2D" uid="uid://cbmr0rt6mh3s8" path="res://images/platforms/Platform128x256.png" id="9_st2rb"]
 [ext_resource type="Texture2D" uid="uid://dqendekllqda8" path="res://images/tutorials/movement/scene00001.png" id="9_unbli"]
@@ -525,7 +525,7 @@ frame_progress = 0.806007
 script = ExtResource("5_d75xt")
 
 [node name="Fireball_Timer" type="Timer" parent="Backgrounds/Lava"]
-wait_time = 0.1
+wait_time = 0.6
 autostart = true
 
 [node name="Lava_Loop_Sounds" type="AudioStreamPlayer2D" parent="Backgrounds/Lava"]
