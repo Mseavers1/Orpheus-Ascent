@@ -226,6 +226,9 @@ func wall_jump():
 	
 	$Sprite.play("Jump")
 	
+	dash_count = 0
+	$"Abilities Icons/Star".show()
+	
 func on_floor():
 	
 	# Restore moveability

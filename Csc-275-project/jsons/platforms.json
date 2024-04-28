@@ -7,22 +7,22 @@
 	"1": {
 		"Name": "Platform",
 		"Size": [128, 128],
-		"Chance": 3
+		"Chance": 1.5
 	},
 	"2": {
 		"Name": "Platform",
 		"Size": [128, 192],
-		"Chance": 3
+		"Chance": 1.5
 	},
 	"3": {
 		"Name": "Platform",
 		"Size": [128, 256],
-		"Chance": 3
+		"Chance": 2.5
 	},
 	"4": {
 		"Name": "Platform",
 		"Size": [128, 320],
-		"Chance": 3
+		"Chance": 2.5
 	},
 	"5": {
 		"Name": "Platform",
@@ -32,32 +32,32 @@
 	"6": {
 		"Name": "Platform",
 		"Size": [128, 704],
-		"Chance": 1
+		"Chance": 4
 	},
 	"7": {
 		"Name": "Platform",
 		"Size": [128, 768],
-		"Chance": 1
+		"Chance": 5
 	},
 	"8": {
 		"Name": "Platform",
 		"Size": [128, 832],
-		"Chance": 1
+		"Chance": 5
 	},
 	"9": {
 		"Name": "Platform",
 		"Size": [192, 128],
-		"Chance": 2
+		"Chance": 1.2
 	},
 	"10": {
 		"Name": "Platform",
 		"Size": [192, 192],
-		"Chance": 2
+		"Chance": 1.2
 	},
 	"11": {
 		"Name": "Platform",
 		"Size": [192, 256],
-		"Chance": 2
+		"Chance": 1.2
 	},
 	"12": {
 		"Name": "Platform",
@@ -67,77 +67,77 @@
 	"13": {
 		"Name": "Platform",
 		"Size": [192, 384],
-		"Chance": 2
+		"Chance": 3
 	},
 	"14": {
 		"Name": "Platform",
 		"Size": [192, 704],
-		"Chance": 1
+		"Chance": 4
 	},
 	"15": {
 		"Name": "Platform",
 		"Size": [192, 768],
-		"Chance": 1
+		"Chance": 3
 	},
 	"16": {
 		"Name": "Platform",
 		"Size": [192, 832],
-		"Chance": 5
+		"Chance": 3
 	},
 	"17": {
 		"Name": "Platform",
 		"Size": [256, 128],
-		"Chance": 2
+		"Chance": 1.2
 	},
 	"18": {
 		"Name": "Platform",
 		"Size": [256, 192],
-		"Chance": 1
+		"Chance": 1.2
 	},
 	"19": {
 		"Name": "Platform",
 		"Size": [256, 256],
-		"Chance": 1
+		"Chance": 0.8
 	},
 	"20": {
 		"Name": "Platform",
 		"Size": [256, 320],
-		"Chance": 1
+		"Chance": 1.5
 	},
 	"21": {
 		"Name": "Platform",
 		"Size": [256, 384],
-		"Chance": 1
+		"Chance": 2
 	},
 	"22": {
 		"Name": "Platform",
 		"Size": [256, 704],
-		"Chance": 2
+		"Chance": 3
 	},
 	"23": {
 		"Name": "Platform",
 		"Size": [256, 768],
-		"Chance": 1
+		"Chance": 3
 	},
 	"24": {
 		"Name": "Platform",
 		"Size": [256, 832],
-		"Chance": 1
+		"Chance": 2
 	},
 	"25": {
 		"Name": "Platform",
 		"Size": [320, 128],
-		"Chance": 1
+		"Chance": 3
 	},
 	"26": {
 		"Name": "Platform",
 		"Size": [320, 192],
-		"Chance": 1
+		"Chance": 3
 	},
 	"27": {
 		"Name": "Platform",
 		"Size": [320, 256],
-		"Chance": 1
+		"Chance": 2
 	},
 	"28": {
 		"Name": "Platform",
@@ -147,171 +147,171 @@
 	"29": {
 		"Name": "Platform",
 		"Size": [320, 384],
-		"Chance": 1
+		"Chance": 3
 	},
 	"30": {
 		"Name": "Platform",
 		"Size": [320, 832],
-		"Chance": 1
+		"Chance": 3
 	},
 	"31": {
 		"Name": "Platform",
 		"Size": [384, 128],
-		"Chance": 1
+		"Chance": 4
 	},
 	"32": {
 		"Name": "Platform",
 		"Size": [384, 192],
-		"Chance": 2
+		"Chance": 5
 	},
 	"33": {
 		"Name": "Platform",
 		"Size": [384, 256],
-		"Chance": 2
+		"Chance": 2.505
 	},
 	"34": {
 		"Name": "Platform",
 		"Size": [384, 320],
-		"Chance": 2
+		"Chance": 1
 	},
 	"35": {
 		"Name": "Platform",
 		"Size": [384, 384],
-		"Chance": 2
+		"Chance": 0.7
 	},
 	"36": {
 		"Name": "Platform",
 		"Size": [384, 832],
-		"Chance": 2
+		"Chance": 1
 	},
 	"37": {
 		"Name": "Platform",
 		"Size": [448, 448],
-		"Chance": 2
+		"Chance": 0.5
 	},
 	"38": {
 		"Name": "Platform",
 		"Size": [448, 832],
-		"Chance": 2
+		"Chance": 0.8
 	},
 	"39": {
 		"Name": "Platform",
 		"Size": [512, 512],
-		"Chance": 2
+		"Chance": 0.5
 	},
 	"40": {
 		"Name": "Platform",
 		"Size": [512, 832],
-		"Chance": 2
+		"Chance": 0.8
 	},
 	"41": {
 		"Name": "Platform",
 		"Size": [576, 576],
-		"Chance": 2
+		"Chance": 0.5
 	},
 	"42": {
 		"Name": "Platform",
 		"Size": [576, 832],
-		"Chance": 2
+		"Chance": 0.5
 	},
 	"43": {
 		"Name": "Platform",
 		"Size": [640, 832],
-		"Chance": 2
+		"Chance": 0.5
 	},
 	"44": {
 		"Name": "Platform",
 		"Size": [704, 128],
-		"Chance": 2
+		"Chance": 0.9
 	},
 	"45": {
 		"Name": "Platform",
 		"Size": [704, 192],
-		"Chance": 2
+		"Chance": 0.8
 	},
 	"46": {
 		"Name": "Platform",
 		"Size": [704, 256],
-		"Chance": 2
+		"Chance": 0.7
 	},
 	"47": {
 		"Name": "Platform",
 		"Size": [704, 832],
-		"Chance": 2
+		"Chance": 0.3
 	},
 	"48": {
 		"Name": "Platform",
 		"Size": [768, 128],
-		"Chance": 2
+		"Chance": 0.9
 	},
 	"49": {
 		"Name": "Platform",
 		"Size": [768, 192],
-		"Chance": 2
+		"Chance": 0.8
 	},
 	"50": {
 		"Name": "Platform",
 		"Size": [768, 256],
-		"Chance": 2
+		"Chance": 0.7
 	},
 	"51": {
 		"Name": "Platform",
 		"Size": [768, 832],
-		"Chance": 2
+		"Chance": 0.3
 	},
 	"52": {
 		"Name": "Platform",
 		"Size": [832, 128],
-		"Chance": 1
+		"Chance": 0.8
 	},
 	"53": {
 		"Name": "Platform",
 		"Size": [832, 192],
-		"Chance": 1
+		"Chance": 0.3
 	},
 	"54": {
 		"Name": "Platform",
 		"Size": [832, 256],
-		"Chance": 1
+		"Chance": 0.3
 	},
 	"55": {
 		"Name": "Platform",
 		"Size": [832, 320],
-		"Chance": 1
+		"Chance": 0.3
 	},
 	"56": {
 		"Name": "Platform",
 		"Size": [832, 384],
-		"Chance": 1
+		"Chance": 0.3
 	},
 	"57": {
 		"Name": "Platform",
 		"Size": [832, 448],
-		"Chance": 0.5
+		"Chance": 0.2
 	},
 	"58": {
 		"Name": "Platform",
 		"Size": [832, 512],
-		"Chance": 0.5
+		"Chance": 0.2
 	},
 	"59": {
 		"Name": "Platform",
 		"Size": [832, 640],
-		"Chance": 0.5
+		"Chance": 0.2
 	},
 	"60": {
 		"Name": "Platform",
 		"Size": [832, 704],
-		"Chance": 0.5
+		"Chance": 0.2
 	},
 	"61": {
 		"Name": "Platform",
 		"Size": [832, 768],
-		"Chance": 0.5
+		"Chance": 0.1
 	},
 	"62": {
 		"Name": "Platform",
 		"Size": [832, 832],
-		"Chance": 0.5
+		"Chance": 0.1
 	}
 }

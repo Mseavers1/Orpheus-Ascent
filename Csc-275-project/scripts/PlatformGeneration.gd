@@ -43,7 +43,7 @@ var is_player_dead = false
 var lavaQuad_current = 0
 
 # Divisions within Quads (grid)
-var divisorX = 6
+var divisorX = 5
 var divisorY = 4 # Can't be less than the minPlatformsPerY
 
 # Find top and center of the divisors
@@ -279,6 +279,7 @@ func _generate_platforms_in_quad(quad):
 				
 				# Search through the combined platforms in both quads
 				for p in compareablePlaforms:
+					
 					# Get that platfrom infomation
 					var curr_size = p.platform_size
 					var curr_topLeft = Vector2(p.platform_pos.x - (curr_size.x / 2), p.platform_pos.y - (curr_size.y / 2))
@@ -288,6 +289,7 @@ func _generate_platforms_in_quad(quad):
 					
 					# Calculate if they collide -- repeat generation until it doesnt collide
 					while (math.do_overlap(topLeft, bottomRight, curr_topLeft, curr_bottomRight) and spawn_platform):
+						
 						# print ("Collision Detected")
 						available_platforms.erase(str(id))
 						chances[id] = 0
@@ -324,7 +326,7 @@ func _generate_platforms_in_quad(quad):
 						# print("New Check: " + str(topLeft) + " " + str(bottomRight) + " with a previous: " + str(curr_topLeft) + " " + str(curr_bottomRight))
 					
 				# Skips this spawning (Spawns nothing)
-				if !spawn_platform:
+				if !spawn_platform or id == 0:
 					continue
 				
 				# Add platform to array (location only)
