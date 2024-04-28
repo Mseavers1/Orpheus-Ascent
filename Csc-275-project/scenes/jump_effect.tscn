@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://d3p0i7pcfanpr"]
+
+[ext_resource type="Texture2D" uid="uid://ds372uxoprer0" path="res://images/double_jump_effect/FX001_01.png" id="1_e7po3"]
+[ext_resource type="Script" path="res://scenes/jump_effect.gd" id="1_ydd55"]
+[ext_resource type="Texture2D" uid="uid://duhvexpr6bmgg" path="res://images/double_jump_effect/FX001_02.png" id="2_xpni6"]
+[ext_resource type="Texture2D" uid="uid://c8yr4wyy7bg5d" path="res://images/double_jump_effect/FX001_03.png" id="3_wyari"]
+[ext_resource type="Texture2D" uid="uid://dsycjovx10shu" path="res://images/double_jump_effect/FX001_04.png" id="4_kxebu"]
+[ext_resource type="Texture2D" uid="uid://cqqjuk4gbv3k7" path="res://images/double_jump_effect/FX001_05.png" id="5_446yk"]
+[ext_resource type="Texture2D" uid="uid://ci1lmmbx0kexl" path="res://images/jump_effect/FX052_01.png" id="6_2o2pa"]
+[ext_resource type="Texture2D" uid="uid://gtvb7sssmyg3" path="res://images/jump_effect/FX052_02.png" id="7_svm2r"]
+[ext_resource type="Texture2D" uid="uid://cc8h4smk0agqf" path="res://images/jump_effect/FX052_03.png" id="8_11mtw"]
+[ext_resource type="Texture2D" uid="uid://cy4jyud1s2cgu" path="res://images/jump_effect/FX052_04.png" id="9_8i7xl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hk0x6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e7po3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xpni6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wyari")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kxebu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_446yk")
+}],
+"loop": false,
+"name": &"Double_Jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_2o2pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_svm2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_11mtw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8i7xl")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 7.0
+}]
+
+[node name="Jump_Effect" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_ydd55")
+
+[node name="Animator" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hk0x6")
+animation = &"Double_Jump"
+
+[connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
