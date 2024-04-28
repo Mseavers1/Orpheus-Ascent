@@ -3,6 +3,13 @@ extends CharacterBody2D
 @onready var SFX_BUS_ID = AudioServer.get_bus_index("SFX")
 @onready var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
 
+var afterimage_pool = []
+const afterimage_num = 5
+var currently_placed_index = 0
+
+var jump_effect_obj = load("res://scenes/jump_effect.tscn")
+var player_animation = load("res://scenes/player_animations.tscn")
+
 var has_played_falling_once = false
 var has_played_landing_once = false
 
@@ -39,8 +46,11 @@ var score = 0
 
 var controllable = true
 var countdown_expired = false
+var force_freeze = false
 
 var is_animation_over = true
+var is_hit = false
+var is_dead = false
 
 @export var sliding_speed = 80
 
@@ -91,6 +101,14 @@ func check_conversion():
 	$"../UI/Record".text = "Record: " + str(value) + " " + suffix
 
 func _ready():
+	
+	# Create afterimages
+	for num in range(afterimage_num):
+		var obj = player_animation.instantiate()
+		obj.hide()
+		obj.scale = Vector2(3, 3)
+		$"..".add_child.call_deferred(obj)
+		afterimage_pool.append(obj)
 	
 	check_conversion()
 	
@@ -144,6 +162,16 @@ func jumping():
 		
 		$Jump_Sound.play()
 		$Sprite.play("Jump")
+		
+		var effect = jump_effect_obj.instantiate()
+		$"..".add_child(effect)
+		effect.position = position
+		
+		if jump_count == 1:
+			effect.play_jump()
+		elif jump_count > 1:
+			effect.play_double()
+		
 	
 	# Stops jump -- shortens the jump
 	if Input.is_action_just_released("jump") && velocity.y < min_jump_velocity:
@@ -158,6 +186,7 @@ func dash():
 	dash_count += 1
 	dash_over = false
 	$Dash_Timer.start()
+	$Afterimage_placing.start()
 	
 	$Dash_Sound.play()
 	
@@ -195,6 +224,7 @@ func wall_jump():
 	$Wall_Jump_Timer.start()
 	
 	$Jump_Sound.play()
+	
 	$Sprite.play("Jump")
 	
 func on_floor():
@@ -209,6 +239,7 @@ func on_floor():
 	dash_count = 0
 	jump_count = 0
 	saved_jump_direction = 0
+	is_hit = false
 	
 	# Reset other stuff
 	is_first_contact_with_slide = true
@@ -219,7 +250,7 @@ func wall_slide_condition():
 
 func _physics_process(delta):
 	
-	if !countdown_expired:
+	if !countdown_expired or force_freeze:
 		return
 	
 	# Apply Gravity OR wall slide
@@ -250,25 +281,26 @@ func _physics_process(delta):
 		on_floor()
 		
 	# Animation
-	if velocity.y < 0:
+	if !is_hit:
+		if velocity.y < 0:
+				
+			if has_played_falling_once:
+				has_played_falling_once = false
+				
+		elif velocity.y > 0:
 			
-		if has_played_falling_once:
+			has_played_landing_once = false
+			
+			if !has_played_falling_once:
+				$Sprite.play("Fall")
+				has_played_falling_once = true	
+			
+		elif velocity.y == 0:
 			has_played_falling_once = false
 			
-	elif velocity.y > 0:
-		
-		has_played_landing_once = false
-		
-		if !has_played_falling_once:
-			$Sprite.play("Fall")
-			has_played_falling_once = true	
-		
-	elif velocity.y == 0:
-		has_played_falling_once = false
-		
-		if !has_played_landing_once:
-			has_played_landing_once = true
-			$Sprite.play("Land")
+			if !has_played_landing_once:
+				has_played_landing_once = true
+				$Sprite.play("Land")
 	
 	# Prevents movement abilities if player is not controllable
 	if !controllable:
@@ -360,8 +392,10 @@ func _on_coin_collector_body_entered(body):
 # Fireball collides with player
 func hit():
 	controllable = false
+	is_hit = true
 	velocity.x = randf_range(70, 200) * randi_range(-1, 1)
 	velocity.y = -5
+	$Sprite.play("Death")
 
 func _on_coin_timer_timeout():
 	coin_pitch_restarted = true
@@ -371,14 +405,21 @@ func _on_wall_jump_timeout():
 	wall_jump_over = true
 
 func death():
+	
+	if is_dead:
+		return
+		
+	is_dead = true
+	force_freeze = true
+	$Death_Explosion.show()
+	$Death_Explosion.play("Explode")
 	$Death_Sound.play()
-	$Sprite.play("Death")
 	$"..".is_player_dead = true
 	Globals.set_score(score)
 	Globals.set_height(record_height)
-	hide()
-	$"Pause Controller".force_pause()
-	$"Pause Controller/Game Over".show()
+	$"Abilities Icons".hide()
+	$Sprite.hide()
+	#$"Pause Controller/Game Over".show()
 
 func to_game():
 	get_tree().change_scene_to_file("res://scenes/TempScene.tscn")
@@ -443,3 +484,27 @@ func _on_count_down_start_of_game():
 func _on_sprite_animation_finished():
 	if $Sprite.animation == "Land":
 		$Sprite.play("Idle")
+
+
+func _on_death_explosion_animation_finished():
+	$"Pause Controller".force_pause()
+	$"Pause Controller/Game Over".show()
+	#$Death_Explosion.hide()
+
+
+func _on_afterimage_placing_timeout():
+	if currently_placed_index >= afterimage_num - 1:
+		$Afterimage_placing.stop()
+		currently_placed_index = 0
+		return
+		
+	var i = afterimage_pool[currently_placed_index]
+	
+	i.animation = $Sprite.animation
+	i.frame = $Sprite.frame
+	
+	i.flip_h = $Sprite.flip_h
+	i.position = position
+	i.show()
+	i.start_fade()
+	currently_placed_index += 1
