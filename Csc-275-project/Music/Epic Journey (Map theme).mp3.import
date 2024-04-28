@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8oepb5oo5aqr"
+path="res://.godot/imported/Epic Journey (Map theme).mp3-38efd05fb77df268d7237d499cb98140.mp3str"
+
+[deps]
+
+source_file="res://Music/Epic Journey (Map theme).mp3"
+dest_files=["res://.godot/imported/Epic Journey (Map theme).mp3-38efd05fb77df268d7237d499cb98140.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

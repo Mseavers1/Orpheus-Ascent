@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://bsahf1xgtokhx"]
+[gd_scene load_steps=97 format=3 uid="uid://bsahf1xgtokhx"]
 
 [ext_resource type="Script" path="res://scripts/new_menu_logic.gd" id="1_avby3"]
 [ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="2_5x6j7"]
@@ -53,6 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://cr2fw0vsxyofu" path="res://images/tutorials/jumping/scene00018.png" id="27_ua2oi"]
 [ext_resource type="Texture2D" uid="uid://bcycl750ybv3v" path="res://images/platforms/Platform128x128.png" id="32_2e12h"]
 [ext_resource type="Texture2D" uid="uid://cbgkkhiwwfkwc" path="res://images/random_spritesheets/Keyboard Extras.png" id="46_lacee"]
+[ext_resource type="AudioStream" uid="uid://dm03fn5kluxuc" path="res://Music/Menu_music.mp3" id="54_3bkpq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ms7at"]
 atlas = ExtResource("4_mvdfx")
@@ -1116,7 +1117,14 @@ shape = SubResource("RectangleShape2D_ptxp5")
 
 [node name="Select_Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_7jico")
+volume_db = -5.0
 bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("54_3bkpq")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="clicked_next" from="." to="Canvas/HTP_Info" method="_on_new_menu_clicked_next"]
 [connection signal="clicked_prev" from="." to="Canvas/HTP_Info" method="_on_new_menu_clicked_prev"]

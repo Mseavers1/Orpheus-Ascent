@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0ahtai0imodb"]
+[gd_scene load_steps=12 format=3 uid="uid://c0ahtai0imodb"]
 
 [ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="1_7smnr"]
 [ext_resource type="Script" path="res://scripts/leaderboards_display.gd" id="1_iuxfm"]
-[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://Images/background/Background2.png" id="2_sb22e"]
-[ext_resource type="Texture2D" uid="uid://cu1su0brmctfi" path="res://Images/UI/Pixel UI pack 3/03.png" id="4_740fr"]
+[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="2_sb22e"]
+[ext_resource type="Texture2D" uid="uid://cu1su0brmctfi" path="res://images/UI/Pixel UI pack 3/03.png" id="4_740fr"]
+[ext_resource type="AudioStream" uid="uid://c8oepb5oo5aqr" path="res://Music/Epic Journey (Map theme).mp3" id="5_pd1hj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nk5an"]
 atlas = ExtResource("4_740fr")
@@ -1043,6 +1044,13 @@ theme_override_font_sizes/font_size = 50
 placeholder_text = "Enter display name here!"
 alignment = 1
 max_length = 10
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_pd1hj")
+volume_db = -10.0
+pitch_scale = 2.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="Leaving Buttons/Refresh" to="." method="_on_refresh_pressed"]
 [connection signal="pressed" from="Leaving Buttons/Replay" to="." method="_on_replay_pressed"]

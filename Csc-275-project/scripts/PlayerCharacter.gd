@@ -183,12 +183,11 @@ func dash_conditions():
 	return (Input.is_action_just_pressed("mouse-click") or Input.is_action_just_pressed("dash")) && dash_count < max_dashes
 
 func dash():
+	$Dash_Sound.play()
 	dash_count += 1
 	dash_over = false
 	$Dash_Timer.start()
 	$Afterimage_placing.start()
-	
-	$Dash_Sound.play()
 	
 	var mousePos = get_global_mouse_position()
 	var vect = global_position.direction_to(mousePos)
@@ -490,6 +489,7 @@ func _on_sprite_animation_finished():
 func _on_death_explosion_animation_finished():
 	$"Pause Controller".force_pause()
 	$"Pause Controller/Game Over".show()
+	$"../Music".pitch_scale = 0.6
 	#$Death_Explosion.hide()
 
 

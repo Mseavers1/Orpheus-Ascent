@@ -75,7 +75,7 @@ autostart = true
 [node name="Explosion_Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_5bmrn")
 volume_db = -5.0
-attenuation = 2.92817
+attenuation = 2.0
 panning_strength = 2.0
 bus = &"SFX"
 
