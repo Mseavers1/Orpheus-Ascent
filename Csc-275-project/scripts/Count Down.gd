@@ -8,6 +8,7 @@ signal start_of_game
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$counting_label.text = strings[index]
+	$Countdown_sound.play()
 	$Countdown.start()
 
 
@@ -27,7 +28,10 @@ func _on_countdown_timeout():
 		# Second to last index
 		if index == len(strings) - 2:
 			start_of_game.emit()
+			$Countdown_sound.pitch_scale = 3
+			$Countdown_sound.play()
 		
 		index += 1
 		$counting_label.text = strings[index]
 		$Countdown.start()
+		$Countdown_sound.play()
