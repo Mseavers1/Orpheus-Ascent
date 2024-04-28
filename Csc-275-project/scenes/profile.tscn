@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cywve8icpqmmr"]
 
-[ext_resource type="Script" path="res://leaderboard.gd" id="1_m0kb2"]
+[ext_resource type="Script" path="res://scripts/leaderboard.gd" id="1_m0kb2"]
 [ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="2_8x7v7"]
-[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://Images/background/Background2.png" id="2_h0tog"]
-[ext_resource type="Texture2D" uid="uid://dsbkiq3l2l14v" path="res://Images/platforms/Platform320x320.png" id="3_bfju8"]
-[ext_resource type="Texture2D" uid="uid://cl1pd03esiakl" path="res://Images/platforms/Platform384x192.png" id="5_hie8u"]
-[ext_resource type="Texture2D" uid="uid://dxhmp81usarrg" path="res://Images/platforms/Platform832x256.png" id="6_hx65m"]
+[ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="2_h0tog"]
+[ext_resource type="Texture2D" uid="uid://dsbkiq3l2l14v" path="res://images/platforms/Platform320x320.png" id="3_bfju8"]
+[ext_resource type="Texture2D" uid="uid://cl1pd03esiakl" path="res://images/platforms/Platform384x192.png" id="5_hie8u"]
+[ext_resource type="Texture2D" uid="uid://dxhmp81usarrg" path="res://images/platforms/Platform832x256.png" id="6_hx65m"]
 
 [node name="Profile" type="Control" node_paths=PackedStringArray("data_label", "login_info", "highest_score", "highest_height", "name_label", "current_score", "current_height")]
 layout_mode = 3

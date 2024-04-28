@@ -53,6 +53,9 @@ func _summon_fireball():
 	fireballObj.set_lava_pos_y(900)
 	
 	var randX = randf_range(25, 1894)
+	if $"../../Canvas/Back_Button".visible && randX >= 960 - 330 && randX <= 960 + 330:
+		randX = randf_range(25, 960 - 340)
+		
 	var randY = randf_range(1080, 1080 + 100)
 	
 	fireballObj.speed = randf_range(80, 200)

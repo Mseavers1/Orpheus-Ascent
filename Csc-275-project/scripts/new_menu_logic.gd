@@ -8,6 +8,11 @@ var is_over_hwp = false
 var is_over_credit = false
 var is_over_back = false
 var is_over_setting = false
+var is_over_prev = false
+var is_over_next = false
+
+signal clicked_next
+signal clicked_prev
 
 func _ready():
 	Globals.load_new_scened()
@@ -19,6 +24,14 @@ func _ready():
 func _process(delta):
 	
 	if Input.is_action_just_pressed("mouse-click"):
+		
+		# Next button is pressed
+		if is_over_next:
+			clicked_next.emit()
+			
+		# Prev button is pressed
+		if is_over_prev:
+			clicked_prev.emit()
 		
 		# Setting button is pressed
 		if is_over_setting:
@@ -62,9 +75,11 @@ func hide_setting():
 
 func show_htp():
 	$Canvas/HTP_Info.show()
+	$Canvas/HTP_Info.returned()
 	
 func hide_htp():
 	$Canvas/HTP_Info.hide()
+	$Canvas/HTP_Info.all_stop()
 
 func show_credits():
 	$Canvas/Credit_Info.show()
@@ -164,3 +179,22 @@ func _on_sound_slider_value_changed(value):
 
 func _on_tree_exiting():
 	Globals.save_audio()
+
+
+func _on_mouse_enter_Next():
+	is_over_next = true
+	$Canvas/HTP_Info/Next.scale = Vector2(hovering_scale, hovering_scale)
+
+
+func _on_mouse_exit_Next():
+	is_over_next = false
+	$Canvas/HTP_Info/Next.scale = Vector2(1, 1)
+
+func _on_mouse_entered_Prev():
+	is_over_prev = true
+	$Canvas/HTP_Info/Prev.scale = Vector2(hovering_scale, hovering_scale)
+
+
+func _on_mouse_exit_Prev():
+	is_over_prev = false
+	$Canvas/HTP_Info/Prev.scale = Vector2(1, 1)
