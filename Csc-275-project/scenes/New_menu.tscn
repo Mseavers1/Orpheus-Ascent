@@ -693,6 +693,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_vpalw")
 text = "Feet"
 
 [node name="HTP_Info" type="Node2D" parent="Canvas"]
+visible = false
 script = ExtResource("8_gkop4")
 
 [node name="background" type="Sprite2D" parent="Canvas/HTP_Info"]
@@ -956,7 +957,6 @@ Ascent
 horizontal_alignment = 1
 
 [node name="Credits" type="Sprite2D" parent="Canvas"]
-visible = false
 position = Vector2(1508, 756)
 rotation = 1.5708
 texture = ExtResource("7_82vis")
@@ -985,7 +985,6 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_5qncu")
 
 [node name="How_To_Play" type="Sprite2D" parent="Canvas"]
-visible = false
 position = Vector2(412, 756)
 texture = ExtResource("8_vubau")
 
@@ -1011,7 +1010,6 @@ collision_mask = 16
 shape = SubResource("RectangleShape2D_wxios")
 
 [node name="Exit_Button" type="Sprite2D" parent="Canvas"]
-visible = false
 position = Vector2(1250, 462)
 rotation = 1.5708
 texture = ExtResource("9_st2rb")
@@ -1038,6 +1036,7 @@ collision_mask = 16
 shape = SubResource("RectangleShape2D_rmi3s")
 
 [node name="Back_Button" type="Sprite2D" parent="Canvas"]
+visible = false
 position = Vector2(960, 882)
 rotation = 1.5708
 texture = ExtResource("9_st2rb")
@@ -1064,7 +1063,6 @@ collision_mask = 16
 shape = SubResource("RectangleShape2D_rmi3s")
 
 [node name="Start_Button" type="Sprite2D" parent="Canvas"]
-visible = false
 position = Vector2(674, 462)
 rotation = 1.5708
 texture = ExtResource("9_st2rb")
@@ -1091,7 +1089,6 @@ collision_mask = 16
 shape = SubResource("RectangleShape2D_rhifh")
 
 [node name="Settings_Button" type="Sprite2D" parent="Canvas"]
-visible = false
 position = Vector2(960, 756)
 rotation = 1.5708
 texture = ExtResource("10_e6wbb")

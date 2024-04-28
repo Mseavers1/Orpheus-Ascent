@@ -26,6 +26,7 @@ var is_catching_up = false
 var saved_speed
 var exponent
 var fireball_exponent
+var freeze_lava = false
 
 func _ready():
 	current_lava_speed = minLavaSpeed
@@ -43,7 +44,7 @@ func _process(delta):
 	if !$Lava_Loop_Sounds.playing:
 		$Lava_Loop_Sounds.play()
 	
-	if !countdown_expired:
+	if !countdown_expired or freeze_lava:
 		return
 		
 	# Stop closing the gap once reached max speed

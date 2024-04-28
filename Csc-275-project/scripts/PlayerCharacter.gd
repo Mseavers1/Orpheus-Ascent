@@ -409,6 +409,7 @@ func death():
 	if is_dead:
 		return
 		
+	$"../Lava".freeze_lava = true
 	is_dead = true
 	force_freeze = true
 	$Death_Explosion.show()
