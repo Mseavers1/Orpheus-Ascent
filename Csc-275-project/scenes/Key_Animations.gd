@@ -4,6 +4,7 @@ var current_page = 0
 var max_pages
 
 var animations = ["movement", "jumping"]
+var infos
 
 var w
 var s
@@ -24,10 +25,26 @@ func all_stop():
 func all_start(n):
 	
 	$vidoe_player_gif.play(n)
+	
+	infos[current_page].show()
+	
+	var counter = 0
+	for info in infos:
+		
+		if current_page != counter:
+			info.hide()
+		
+		counter += 1
+	
+	
+func returned():
+	all_start(animations[current_page])
 
 func _ready():
 	
 	max_pages = len(animations) - 1
+	
+	infos = [$Labels/Movement, $Labels/Jumping]
 	
 	space = $Other_Keys/Space_bar
 	escape = $Other_Keys/Escape_key

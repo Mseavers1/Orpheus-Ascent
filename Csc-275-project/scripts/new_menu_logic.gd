@@ -75,7 +75,7 @@ func hide_setting():
 
 func show_htp():
 	$Canvas/HTP_Info.show()
-	$Canvas/HTP_Info.all_start("movement")
+	$Canvas/HTP_Info.returned()
 	
 func hide_htp():
 	$Canvas/HTP_Info.hide()
