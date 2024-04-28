@@ -39,6 +39,7 @@ var score = 0
 
 var controllable = true
 var countdown_expired = false
+var force_freeze = false
 
 var is_animation_over = true
 
@@ -219,7 +220,7 @@ func wall_slide_condition():
 
 func _physics_process(delta):
 	
-	if !countdown_expired:
+	if !countdown_expired or force_freeze:
 		return
 	
 	# Apply Gravity OR wall slide
@@ -371,14 +372,16 @@ func _on_wall_jump_timeout():
 	wall_jump_over = true
 
 func death():
+	force_freeze = true
+	$Death_Explosion.show()
+	$Death_Explosion.play("Explode")
 	$Death_Sound.play()
-	$Sprite.play("Death")
 	$"..".is_player_dead = true
 	Globals.set_score(score)
 	Globals.set_height(record_height)
-	hide()
-	$"Pause Controller".force_pause()
-	$"Pause Controller/Game Over".show()
+	$"Abilities Icons".hide()
+	$Sprite.hide()
+	#$"Pause Controller/Game Over".show()
 
 func to_game():
 	get_tree().change_scene_to_file("res://scenes/TempScene.tscn")
@@ -443,3 +446,9 @@ func _on_count_down_start_of_game():
 func _on_sprite_animation_finished():
 	if $Sprite.animation == "Land":
 		$Sprite.play("Idle")
+
+
+func _on_death_explosion_animation_finished():
+	$"Pause Controller".force_pause()
+	$"Pause Controller/Game Over".show()
+	#$Death_Explosion.hide()

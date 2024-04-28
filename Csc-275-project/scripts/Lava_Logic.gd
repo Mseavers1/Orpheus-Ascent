@@ -119,6 +119,7 @@ func _fireball_timer_timeout():
 
 
 func _summon_fireball():
+	
 	var fireballObj = fireball.instantiate()
 	fireballObj.name = "Fireball"
 	$"..".add_child(fireballObj)
