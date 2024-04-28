@@ -14,7 +14,7 @@ func set_explosion_sound(volume):
 func _ready():
 	play("moving")
 	
-	$Explosion_Sound.pitch_scale = randf_range(0.5, 4)
+	$Explosion_Sound.pitch_scale = randf_range(0.8, 4)
 
 func _set_alive_timer(time):
 	$AliveTimer.wait_time = time

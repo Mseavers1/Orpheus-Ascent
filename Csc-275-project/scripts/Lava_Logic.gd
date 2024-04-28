@@ -129,7 +129,8 @@ func _summon_fireball():
 	var randX = randf_range(100, 1800)
 	var randY = randf_range(position.y + 100, position.y + 30)
 	
-	fireballObj.speed = randf_range(80, 200)
+	if !is_catching_up:
+		fireballObj.speed = randf_range(current_lava_speed * 2, current_lava_speed * 4)
 	
 	fireballObj.position = Vector2(randX, randY)
 

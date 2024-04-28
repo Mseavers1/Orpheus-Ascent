@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cykm5wcd57mry"]
+[gd_scene load_steps=10 format=3 uid="uid://cykm5wcd57mry"]
 
 [ext_resource type="Script" path="res://scripts/PlatformGeneration.gd" id="1_bx10i"]
 [ext_resource type="PackedScene" uid="uid://cohf1yqeswom8" path="res://scenes/Floor.tscn" id="2_5ofet"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="6_nvosy"]
 [ext_resource type="Script" path="res://scripts/Count Down.gd" id="7_jbui1"]
 [ext_resource type="AudioStream" uid="uid://dymdle2n7p5ef" path="res://sounds/ding.wav" id="8_ukdo6"]
+[ext_resource type="AudioStream" uid="uid://c8oepb5oo5aqr" path="res://Music/Epic Journey (Map theme).mp3" id="9_hmaws"]
 
 [node name="TempScene" type="Node2D" node_paths=PackedStringArray("camera", "player")]
 script = ExtResource("1_bx10i")
@@ -140,6 +141,14 @@ vertical_alignment = 1
 
 [node name="Countdown_sound" type="AudioStreamPlayer2D" parent="Count Down"]
 stream = ExtResource("8_ukdo6")
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("9_hmaws")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
 
 [connection signal="start_of_game" from="Count Down" to="PlayerCharacter" method="_on_count_down_start_of_game"]
 [connection signal="start_of_game" from="Count Down" to="Lava" method="_on_count_down_start_of_game"]
