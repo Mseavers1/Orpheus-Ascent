@@ -10,9 +10,12 @@ config_version=5
 
 [application]
 
-config/name="csc-275-project"
+config/name="Orpheus' Ascent"
+config/description="Jump and dash your way out of the fiery depths of the netherworld."
+config/version="1.0.0"
 run/main_scene="res://scenes/New_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/image="res://splash.png"
 config/icon="res://icon.svg"
 
 [autoload]

@@ -70,7 +70,7 @@ var saved_jump_direction = 0
 func reset_ability_icons():
 	$"Abilities Icons/Jump 1".show()
 	$"Abilities Icons/Jump 2".show()
-	$"Abilities Icons/Star".show()
+	# $"Abilities Icons/Star".show()
 
 func update_ability_icons():
 	if jump_count == 1:
@@ -180,10 +180,12 @@ func jumping():
 	update_ability_icons()
 
 func dash_conditions():
-	return (Input.is_action_just_pressed("mouse-click") or Input.is_action_just_pressed("dash")) && dash_count < max_dashes
+	return (Input.is_action_just_pressed("mouse-click") or Input.is_action_just_pressed("dash")) && can_dash()
 
 func dash():
 	$Dash_Sound.play()
+	$Star_Meter.stop()
+	$Star_Meter.play("Recharge")
 	dash_count += 1
 	dash_over = false
 	$Dash_Timer.start()
@@ -226,8 +228,8 @@ func wall_jump():
 	
 	$Sprite.play("Jump")
 	
-	dash_count = 0
-	$"Abilities Icons/Star".show()
+	# dash_count = 0
+	# $"Abilities Icons/Star".show()
 	
 func on_floor():
 	
@@ -242,6 +244,9 @@ func on_floor():
 	jump_count = 0
 	saved_jump_direction = 0
 	is_hit = false
+	$Star_Meter.stop()
+	$Star_Meter.frame = 4
+	# $Star_Meter.speed_scale = 5
 	
 	# Reset other stuff
 	is_first_contact_with_slide = true
@@ -257,6 +262,8 @@ func _physics_process(delta):
 	
 	# Apply Gravity OR wall slide
 	if not is_on_floor():
+		
+		# $Star_Meter.speed_scale = 1
 		
 		# Wall Slide
 		if wall_slide_condition():
@@ -411,6 +418,7 @@ func death():
 	if is_dead:
 		return
 		
+	$Star_Meter.hide()
 	$"../Lava".freeze_lava = true
 	is_dead = true
 	force_freeze = true
@@ -512,3 +520,6 @@ func _on_afterimage_placing_timeout():
 	i.show()
 	i.start_fade()
 	currently_placed_index += 1
+
+func can_dash():
+	return $Star_Meter.frame == 4

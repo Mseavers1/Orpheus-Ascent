@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://bsahf1xgtokhx"]
+[gd_scene load_steps=68 format=3 uid="uid://bsahf1xgtokhx"]
 
 [ext_resource type="Script" path="res://scripts/new_menu_logic.gd" id="1_avby3"]
 [ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="2_5x6j7"]
@@ -8,49 +8,20 @@
 [ext_resource type="FontFile" uid="uid://c4gr23ju40k7" path="res://fonts/TitanOne-Regular.ttf" id="6_s8nca"]
 [ext_resource type="Texture2D" uid="uid://dkea0cefo41b6" path="res://images/platforms/Platform192x320.png" id="7_82vis"]
 [ext_resource type="Script" path="res://scripts/Units.gd" id="7_wr3cy"]
-[ext_resource type="Texture2D" uid="uid://bd5bmti5vk6jm" path="res://images/platforms/Platform832X384.png" id="8_06oye"]
 [ext_resource type="Script" path="res://scripts/Key_Animations.gd" id="8_gkop4"]
 [ext_resource type="Texture2D" uid="uid://5osjs3yegjyl" path="res://images/platforms/Platform320x192.png" id="8_vubau"]
 [ext_resource type="Texture2D" uid="uid://cbmr0rt6mh3s8" path="res://images/platforms/Platform128x256.png" id="9_st2rb"]
-[ext_resource type="Texture2D" uid="uid://dqendekllqda8" path="res://images/tutorials/movement/scene00001.png" id="9_unbli"]
-[ext_resource type="Texture2D" uid="uid://cxp3eqip2mrre" path="res://images/tutorials/jumping/scene00001.png" id="10_3cka1"]
 [ext_resource type="Texture2D" uid="uid://f784edg2eg0q" path="res://images/platforms/Platform192x384.png" id="10_e6wbb"]
-[ext_resource type="Texture2D" uid="uid://smrig8c1ncca" path="res://images/tutorials/movement/scene00002.png" id="10_h02iy"]
-[ext_resource type="Texture2D" uid="uid://dn7ggiaelq66y" path="res://images/tutorials/jumping/scene00002.png" id="11_o8d8f"]
-[ext_resource type="Texture2D" uid="uid://bkudtsold464a" path="res://images/tutorials/movement/scene00003.png" id="11_uw1i3"]
+[ext_resource type="Texture2D" uid="uid://35ox1hq5du76" path="res://images/UI/Pixel UI pack 3/up.png" id="11_b7dj4"]
 [ext_resource type="AudioStream" uid="uid://bn4ukqgrt7woq" path="res://sounds/Select.mp3" id="12_7jico"]
-[ext_resource type="Texture2D" uid="uid://cj4vjyd23t0jk" path="res://images/tutorials/jumping/scene00003.png" id="12_7jjhy"]
-[ext_resource type="Texture2D" uid="uid://cey570xchfy6m" path="res://images/tutorials/movement/scene00004.png" id="12_24t12"]
-[ext_resource type="Texture2D" uid="uid://bvl8vmktvver6" path="res://images/tutorials/jumping/scene00004.png" id="13_5h4mw"]
-[ext_resource type="Texture2D" uid="uid://bpylf66rhnxdv" path="res://images/tutorials/movement/scene00005.png" id="13_dbku3"]
-[ext_resource type="Texture2D" uid="uid://bty3l4hce7p4f" path="res://images/tutorials/movement/scene00006.png" id="14_8wpv4"]
-[ext_resource type="Texture2D" uid="uid://2bvy0654e8y6" path="res://images/tutorials/jumping/scene00005.png" id="14_g80y4"]
-[ext_resource type="Texture2D" uid="uid://cas5u23k7ru72" path="res://images/tutorials/jumping/scene00006.png" id="15_216nc"]
-[ext_resource type="Texture2D" uid="uid://b4qikhvedswuh" path="res://images/tutorials/movement/scene00007.png" id="15_eycc5"]
-[ext_resource type="Texture2D" uid="uid://rblwcs3ljirc" path="res://images/tutorials/movement/scene00008.png" id="16_rtips"]
-[ext_resource type="Texture2D" uid="uid://bpwbh6ncsji3q" path="res://images/tutorials/jumping/scene00007.png" id="16_sljr5"]
-[ext_resource type="Texture2D" uid="uid://dq75hd6scvylj" path="res://images/tutorials/movement/scene00009.png" id="17_hgis1"]
-[ext_resource type="Texture2D" uid="uid://b8dkomr8nk2ud" path="res://images/tutorials/jumping/scene00008.png" id="17_qqcjj"]
-[ext_resource type="Texture2D" uid="uid://ctacg3qxs8la5" path="res://images/tutorials/jumping/scene00009.png" id="18_6yik4"]
-[ext_resource type="Texture2D" uid="uid://biicy43urfiew" path="res://images/tutorials/movement/scene00010.png" id="18_quesj"]
-[ext_resource type="Texture2D" uid="uid://c7d5ada83sowe" path="res://images/tutorials/movement/scene00011.png" id="19_0h0fv"]
-[ext_resource type="Texture2D" uid="uid://js8f2jwdednl" path="res://images/tutorials/jumping/scene00010.png" id="19_4p4cr"]
-[ext_resource type="Texture2D" uid="uid://diqo6a8iukfon" path="res://images/tutorials/movement/scene00012.png" id="20_6ipwq"]
-[ext_resource type="Texture2D" uid="uid://dpux6giaf0euu" path="res://images/tutorials/jumping/scene00011.png" id="20_pvq3r"]
-[ext_resource type="Texture2D" uid="uid://lsctpu515mpp" path="res://images/tutorials/jumping/scene00012.png" id="21_cpphk"]
-[ext_resource type="Texture2D" uid="uid://bkyaqfkqrysfc" path="res://images/tutorials/movement/scene00013.png" id="21_swebi"]
-[ext_resource type="Texture2D" uid="uid://diiemb78qjtw2" path="res://images/tutorials/movement/scene00014.png" id="22_w02tu"]
-[ext_resource type="Texture2D" uid="uid://wargxub505a6" path="res://images/tutorials/jumping/scene00013.png" id="22_wckp6"]
-[ext_resource type="Texture2D" uid="uid://cx2wysjv4wfjc" path="res://images/tutorials/movement/scene00015.png" id="23_ugi6q"]
-[ext_resource type="Texture2D" uid="uid://cfjhwsepnaa3f" path="res://images/tutorials/jumping/scene00014.png" id="23_ynlka"]
-[ext_resource type="Texture2D" uid="uid://b5p13y08k18qu" path="res://images/tutorials/jumping/scene00015.png" id="24_e6uec"]
-[ext_resource type="Texture2D" uid="uid://cyyi5v2krw4ju" path="res://images/tutorials/movement/scene00016.png" id="24_jjxmd"]
-[ext_resource type="Texture2D" uid="uid://dbqatnbba30mi" path="res://images/tutorials/movement/scene00017.png" id="25_kk1vj"]
-[ext_resource type="Texture2D" uid="uid://1ckoveiyfvus" path="res://images/tutorials/jumping/scene00016.png" id="25_vrs8b"]
-[ext_resource type="Texture2D" uid="uid://gnh47vcu7n8s" path="res://images/tutorials/movement/scene00018.png" id="26_2kbuy"]
-[ext_resource type="Texture2D" uid="uid://doa1pb2qsbxpy" path="res://images/tutorials/jumping/scene00017.png" id="26_ias0h"]
+[ext_resource type="Texture2D" uid="uid://pmcu3yopiprv" path="res://images/UI/Pixel UI pack 3/star.png" id="12_w3tuu"]
+[ext_resource type="Texture2D" uid="uid://bdiaq7gw1gko2" path="res://images/UI/Pixel UI pack 3/star1.png" id="13_hu61w"]
+[ext_resource type="Texture2D" uid="uid://u7ew5slefqb5" path="res://images/UI/Pixel UI pack 3/star2.png" id="14_hfh0i"]
+[ext_resource type="Texture2D" uid="uid://dpkyilekteu3c" path="res://images/UI/Pixel UI pack 3/star3.png" id="15_cmsna"]
+[ext_resource type="Texture2D" uid="uid://da5yeiv0mkfc6" path="res://images/UI/Pixel UI pack 3/star4.png" id="16_k66od"]
+[ext_resource type="Texture2D" uid="uid://d7i1nndrt8pm" path="res://images/UI/Pixel UI pack 3/star5.png" id="17_07n1r"]
+[ext_resource type="Script" path="res://scenes/Credit_Info.gd" id="19_hmq5p"]
 [ext_resource type="Texture2D" uid="uid://by06gh6ftcbql" path="res://images/random_spritesheets/Keyboard Letters and Symbols.png" id="27_eotam"]
-[ext_resource type="Texture2D" uid="uid://cr2fw0vsxyofu" path="res://images/tutorials/jumping/scene00018.png" id="27_ua2oi"]
 [ext_resource type="Texture2D" uid="uid://bcycl750ybv3v" path="res://images/platforms/Platform128x128.png" id="32_2e12h"]
 [ext_resource type="Texture2D" uid="uid://cbgkkhiwwfkwc" path="res://images/random_spritesheets/Keyboard Extras.png" id="46_lacee"]
 [ext_resource type="AudioStream" uid="uid://dm03fn5kluxuc" path="res://Music/Menu_music.mp3" id="54_3bkpq"]
@@ -109,129 +80,13 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpalw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l485a"]
-size = Vector2(831, 384)
+[sub_resource type="AtlasTexture" id="AtlasTexture_87anf"]
+atlas = ExtResource("27_eotam")
+region = Rect2(64, 32, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_fyktt"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_3cka1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_o8d8f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_7jjhy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_5h4mw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_g80y4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_216nc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_sljr5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_qqcjj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_6yik4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_4p4cr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_pvq3r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_cpphk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_wckp6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_ynlka")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_e6uec")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_vrs8b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_ias0h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_ua2oi")
-}],
-"loop": true,
-"name": &"jumping",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_unbli")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_h02iy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_uw1i3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_24t12")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_dbku3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_8wpv4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_eycc5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_rtips")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_hgis1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_quesj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_0h0fv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_6ipwq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_swebi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_w02tu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_ugi6q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_jjxmd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_kk1vj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_2kbuy")
-}],
-"loop": true,
-"name": &"movement",
-"speed": 10.0
-}]
+[sub_resource type="AtlasTexture" id="AtlasTexture_odv4g"]
+atlas = ExtResource("27_eotam")
+region = Rect2(64, 144, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mc5pp"]
 atlas = ExtResource("46_lacee")
@@ -253,34 +108,126 @@ region = Rect2(64, 96, 32, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mc5pp")
+"texture": SubResource("AtlasTexture_87anf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87anf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87anf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87anf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87anf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87anf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87anf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odv4g")
 }],
 "loop": true,
-"name": &"Escape_None",
+"name": &"E",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mc5pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc5pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc5pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc5pp")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hwaef")
 }],
 "loop": true,
-"name": &"Escpae_Select",
+"name": &"ESC",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sqb18")
-}],
-"loop": true,
-"name": &"Space_None",
-"speed": 5.0
 }, {
-"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqb18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqb18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqb18")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a67fx")
 }],
 "loop": true,
-"name": &"Space_Select",
+"name": &"Space",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqb18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqb18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqb18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqb18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a67fx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqb18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a67fx")
+}],
+"loop": true,
+"name": &"Space_Double",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqb18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqb18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqb18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqb18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a67fx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a67fx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a67fx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a67fx")
+}],
+"loop": true,
+"name": &"Space_Hold",
 "speed": 5.0
 }]
 
@@ -305,33 +252,151 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1y3s4")
-}],
-"loop": true,
-"name": &"Up_None",
-"speed": 5.0
 }, {
-"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3s4")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qrpuo")
 }],
 "loop": true,
-"name": &"Up_Select",
+"name": &"Up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpuo")
+}],
+"loop": true,
+"name": &"Up_Double",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpuo")
+}],
+"loop": true,
+"name": &"Up_Hold",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2ammy")
-}],
-"loop": true,
-"name": &"W_None",
-"speed": 5.0
 }, {
-"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ammy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ammy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ammy")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7kqpu")
 }],
 "loop": true,
-"name": &"W_Select",
+"name": &"W",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ammy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ammy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ammy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ammy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kqpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ammy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kqpu")
+}],
+"loop": true,
+"name": &"W_Double",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ammy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ammy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ammy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ammy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kqpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kqpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kqpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kqpu")
+}],
+"loop": true,
+"name": &"W_Hold",
 "speed": 5.0
 }]
 
@@ -356,33 +421,41 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ppoo6")
-}],
-"loop": true,
-"name": &"Down_None",
-"speed": 5.0
 }, {
-"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppoo6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppoo6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppoo6")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jrff8")
 }],
 "loop": true,
-"name": &"Down_Select",
+"name": &"Down",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f4i2p")
-}],
-"loop": true,
-"name": &"S_None",
-"speed": 5.0
 }, {
-"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4i2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4i2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4i2p")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_amig4")
 }],
 "loop": true,
-"name": &"S_Select",
+"name": &"S",
 "speed": 5.0
 }]
 
@@ -407,33 +480,71 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7hhnu")
-}],
-"loop": true,
-"name": &"A_None",
-"speed": 5.0
 }, {
-"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hhnu")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v1vw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1vw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1vw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1vw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hhnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hhnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hhnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hhnu")
 }],
 "loop": true,
-"name": &"A_Select",
+"name": &"A",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1tl0f")
-}],
-"loop": true,
-"name": &"Left_None",
-"speed": 5.0
 }, {
-"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tl0f")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ka26k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka26k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka26k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka26k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tl0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tl0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tl0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tl0f")
 }],
 "loop": true,
-"name": &"Left_Select",
+"name": &"Left",
 "speed": 5.0
 }]
 
@@ -458,37 +569,75 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_385qa")
-}],
-"loop": true,
-"name": &"D_None",
-"speed": 5.0
 }, {
-"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_385qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_385qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_385qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_385qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_385qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr4dm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr4dm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr4dm")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fr4dm")
 }],
 "loop": true,
-"name": &"D_Select",
+"name": &"D",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2qs0j")
-}],
-"loop": true,
-"name": &"Right_None",
-"speed": 5.0
 }, {
-"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qs0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qs0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qs0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qs0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qs0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na2on")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na2on")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na2on")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_na2on")
 }],
 "loop": true,
-"name": &"Right_Select",
+"name": &"Right",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dbv4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nn4o8"]
 size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qncu"]
@@ -697,137 +846,857 @@ text = "Feet"
 visible = false
 script = ExtResource("8_gkop4")
 
-[node name="background" type="Sprite2D" parent="Canvas/HTP_Info"]
-position = Vector2(961.5, 571.5)
-scale = Vector2(0.645433, 0.867187)
-texture = ExtResource("8_06oye")
-
-[node name="Area2D" type="Area2D" parent="Canvas/HTP_Info/background"]
-collision_layer = 4
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/HTP_Info/background/Area2D"]
-visible = false
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_l485a")
-
-[node name="vidoe_player_gif" type="AnimatedSprite2D" parent="Canvas/HTP_Info"]
-position = Vector2(960, 571)
-scale = Vector2(0.257353, 0.257353)
-sprite_frames = SubResource("SpriteFrames_fyktt")
-animation = &"jumping"
-frame = 7
-frame_progress = 0.590595
-
 [node name="Other_Keys" type="Node2D" parent="Canvas/HTP_Info"]
-position = Vector2(16, 77)
+position = Vector2(-1319, 365)
 
 [node name="Space_bar" type="AnimatedSprite2D" parent="Canvas/HTP_Info/Other_Keys"]
 position = Vector2(1491, 175)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_4ydae")
-animation = &"Space_None"
+animation = &"Space_Double"
+
+[node name="E_Key" type="AnimatedSprite2D" parent="Canvas/HTP_Info/Other_Keys"]
+position = Vector2(1626, 308)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_4ydae")
+animation = &"E"
 
 [node name="Escape_key" type="AnimatedSprite2D" parent="Canvas/HTP_Info/Other_Keys"]
 position = Vector2(1729, 175)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_4ydae")
-animation = &"Escape_None"
+animation = &"ESC"
 
 [node name="Arrow_Keys" type="Node2D" parent="Canvas/HTP_Info"]
-position = Vector2(85, 249)
+position = Vector2(140, 247)
 
 [node name="Up_1" type="AnimatedSprite2D" parent="Canvas/HTP_Info/Arrow_Keys"]
 position = Vector2(1539, 402)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_k5ftq")
-animation = &"Up_None"
+animation = &"W_Double"
 
 [node name="Down_1" type="AnimatedSprite2D" parent="Canvas/HTP_Info/Arrow_Keys"]
 position = Vector2(1539, 511)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_06p4q")
-animation = &"Down_None"
+animation = &"Down"
 
 [node name="Left_1" type="AnimatedSprite2D" parent="Canvas/HTP_Info/Arrow_Keys"]
 position = Vector2(1422, 511)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_6tkfp")
-animation = &"Left_None"
+animation = &"A"
 
 [node name="Right_1" type="AnimatedSprite2D" parent="Canvas/HTP_Info/Arrow_Keys"]
 position = Vector2(1656, 511)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_6su5f")
-animation = &"Right_None"
+animation = &"Right"
 
 [node name="WASD" type="Node2D" parent="Canvas/HTP_Info"]
-position = Vector2(85, -6)
+position = Vector2(140, -8)
 
 [node name="Up_1" type="AnimatedSprite2D" parent="Canvas/HTP_Info/WASD"]
 position = Vector2(1539, 402)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_k5ftq")
-animation = &"W_None"
+animation = &"W"
 
 [node name="Down_1" type="AnimatedSprite2D" parent="Canvas/HTP_Info/WASD"]
 position = Vector2(1539, 511)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_06p4q")
-animation = &"S_None"
+animation = &"S"
 
 [node name="Left_1" type="AnimatedSprite2D" parent="Canvas/HTP_Info/WASD"]
 position = Vector2(1422, 511)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_6tkfp")
-animation = &"A_None"
+animation = &"A"
 
 [node name="Right_1" type="AnimatedSprite2D" parent="Canvas/HTP_Info/WASD"]
 position = Vector2(1656, 511)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_6su5f")
-animation = &"D_None"
+animation = &"D"
 
-[node name="Prev" type="Sprite2D" parent="Canvas/HTP_Info"]
+[node name="Labels" type="Node2D" parent="Canvas/HTP_Info"]
+position = Vector2(628, 173)
+
+[node name="Movement" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
 visible = false
-position = Vector2(732, 882)
-rotation = 1.5708
-texture = ExtResource("32_2e12h")
+offset_left = -4.0
+offset_top = 234.0
+offset_right = 696.0
+offset_bottom = 468.0
 
-[node name="Prev_label" type="Label" parent="Canvas/HTP_Info/Prev"]
-offset_left = -40.0
-offset_top = 165.0
-offset_right = 293.0
-offset_bottom = 243.0
-rotation = -1.5708
-theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Movement"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
 theme_override_fonts/font = ExtResource("6_s8nca")
-theme_override_font_sizes/font_size = 59
-text = "<-"
+theme_override_font_sizes/font_size = 96
+text = "Moving"
 horizontal_alignment = 1
 vertical_alignment = 1
-uppercase = true
 
-[node name="Area2D" type="Area2D" parent="Canvas/HTP_Info/Prev"]
-collision_layer = 4
-collision_mask = 16
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Movement"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/HTP_Info/Prev/Area2D"]
-position = Vector2(-6.10352e-05, 0.00012207)
-shape = SubResource("RectangleShape2D_5dbv4")
+[node name="Movement_Info" type="Label" parent="Canvas/HTP_Info/Labels/Movement"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "Use either the directional or WASD keys to move!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Jump_1" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -4.0
+offset_top = 234.0
+offset_right = 696.0
+offset_bottom = 468.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Jump_1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Jumping 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Jump_1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Jump_1"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "Press or hold the SPACE bar or the W and UP keys to perform a jump!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Jump_2" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -4.0
+offset_top = 234.0
+offset_right = 696.0
+offset_bottom = 468.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Jump_2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Jumping 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Jump_2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Jump_2"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "Keep holding the JUMP button for a longer jump
+
+Releasing the button early shortens the jump"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Jump_3" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -216.0
+offset_top = 197.0
+offset_right = 877.0
+offset_bottom = 635.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Jump_3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Jumping 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Jump_3"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Jump_3"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "You can jump twice!
+
+The silver up arrow represents the remaining jumps you have left - which are above the player head"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="indicator" type="TextureRect" parent="Canvas/HTP_Info/Labels/Jump_3"]
+custom_minimum_size = Vector2(0, 53.245)
+layout_mode = 2
+texture = ExtResource("11_b7dj4")
+stretch_mode = 5
+
+[node name="Dashing_1" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -21.0
+offset_top = 197.0
+offset_right = 679.0
+offset_bottom = 635.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Dashing_1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Dashing 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Dashing_1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Dashing_1"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "Use the LEFT MOUSE button or the E key to perform a dash!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Dashing_2" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -21.0
+offset_top = 197.0
+offset_right = 679.0
+offset_bottom = 635.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Dashing_2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Dashing 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Dashing_2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Dashing_2"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "You dash in the direction of the mouse cursor."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Dashing_3" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -146.0
+offset_top = 179.0
+offset_right = 805.0
+offset_bottom = 617.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Dashing_3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Dashing 3
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Dashing_3"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Dashing_3"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "The star, which is above the player's head, represent your dash meter.
+
+You can only perform a dash once full."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="indicator2" type="TextureRect" parent="Canvas/HTP_Info/Labels/Dashing_3"]
+custom_minimum_size = Vector2(0, 53.245)
+layout_mode = 2
+texture = ExtResource("12_w3tuu")
+stretch_mode = 5
+
+[node name="Dashing_4" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -146.0
+offset_top = 179.0
+offset_right = 805.0
+offset_bottom = 617.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Dashing_4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Dashing 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Dashing_4"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Dashing_4"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "Once you dash, you have to wait until your dash meter is full again.
+
+Your dash meter fills up immediately when landing on a platform."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Canvas/HTP_Info/Labels/Dashing_4"]
+layout_mode = 2
+alignment = 1
+
+[node name="indicator2" type="TextureRect" parent="Canvas/HTP_Info/Labels/Dashing_4/HBoxContainer"]
+custom_minimum_size = Vector2(0, 53.245)
+layout_mode = 2
+texture = ExtResource("13_hu61w")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="indicator3" type="TextureRect" parent="Canvas/HTP_Info/Labels/Dashing_4/HBoxContainer"]
+custom_minimum_size = Vector2(0, 53.245)
+layout_mode = 2
+texture = ExtResource("14_hfh0i")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="indicator4" type="TextureRect" parent="Canvas/HTP_Info/Labels/Dashing_4/HBoxContainer"]
+custom_minimum_size = Vector2(0, 53.245)
+layout_mode = 2
+texture = ExtResource("15_cmsna")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="indicator5" type="TextureRect" parent="Canvas/HTP_Info/Labels/Dashing_4/HBoxContainer"]
+custom_minimum_size = Vector2(0, 53.245)
+layout_mode = 2
+texture = ExtResource("16_k66od")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="indicator6" type="TextureRect" parent="Canvas/HTP_Info/Labels/Dashing_4/HBoxContainer"]
+custom_minimum_size = Vector2(0, 53.245)
+layout_mode = 2
+texture = ExtResource("17_07n1r")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Pauses" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -146.0
+offset_top = 244.0
+offset_right = 805.0
+offset_bottom = 682.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Pauses"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Pausing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Pauses"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Pauses"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "Press the ESC key to pause the game.
+
+Press it again to unpause the game."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Coins_1" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -146.0
+offset_top = 192.0
+offset_right = 805.0
+offset_bottom = 630.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Coins_1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Coins 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Coins_1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Coins_1"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "Coins spawn on platforms from time to time.
+
+Collecting them increases your points by 100!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Coins_2" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -146.0
+offset_top = 192.0
+offset_right = 805.0
+offset_bottom = 630.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Coins_2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Coins 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Coins_2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Coins_2"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "Collecting coins in a row within a second gives you more points!
+
+For every coin you collect within a second, that coin is worth 10% more!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Points" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -36.0
+offset_top = 262.0
+offset_right = 697.0
+offset_bottom = 700.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Points"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Points"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Points"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Points"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "For every feet you reach, you get 1 score."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Fireballs" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -146.0
+offset_top = 244.0
+offset_right = 805.0
+offset_bottom = 682.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Fireballs"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Fireballs"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Fireballs"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Fireballs"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "Being hit by a fireball will knock you out!
+
+Once knocked out, you will not be able to move until you land on the ground."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Lava" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -146.0
+offset_top = 165.0
+offset_right = 805.0
+offset_bottom = 603.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Lava"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Lava"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Lava"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Lava"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "The lava will continue to climb as you do.
+
+The higher you can reach, the faster the lava moves.
+
+It's game over once you touch the lava!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Leaderboard" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -146.0
+offset_top = 199.0
+offset_right = 805.0
+offset_bottom = 637.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Leaderboard"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Leaderboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Leaderboard"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Leaderboard"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+text = "After reaching the GAME OVER screen, you can check out the leaderboards.
+
+If you get a good score, you can post it online for all to see!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Last" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+visible = false
+offset_left = -146.0
+offset_top = 325.0
+offset_right = 805.0
+offset_bottom = 763.0
+
+[node name="Label" type="Label" parent="Canvas/HTP_Info/Labels/Last"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Good luck!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Last"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/HTP_Info/Labels/Last"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Next" type="Sprite2D" parent="Canvas/HTP_Info"]
-position = Vector2(1188, 882)
+position = Vector2(1232, 883)
 rotation = 1.5708
 texture = ExtResource("32_2e12h")
 
-[node name="Next_Label" type="Label" parent="Canvas/HTP_Info/Next"]
+[node name="Exit_Label" type="Label" parent="Canvas/HTP_Info/Next"]
 offset_left = -40.0
 offset_top = 165.0
 offset_right = 293.0
 offset_bottom = 243.0
 rotation = -1.5708
-theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_color = Color(1, 0.301961, 0.235294, 1)
 theme_override_fonts/font = ExtResource("6_s8nca")
 theme_override_font_sizes/font_size = 59
 text = "->"
@@ -840,43 +1709,53 @@ collision_layer = 4
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/HTP_Info/Next/Area2D"]
-position = Vector2(-6.10352e-05, 0.00012207)
-shape = SubResource("RectangleShape2D_5dbv4")
+position = Vector2(6.10352e-05, -6.10352e-05)
+shape = SubResource("RectangleShape2D_nn4o8")
 
-[node name="Labels" type="Node2D" parent="Canvas/HTP_Info"]
-position = Vector2(16, 197)
-
-[node name="Movement" type="Label" parent="Canvas/HTP_Info/Labels"]
+[node name="Prev" type="Sprite2D" parent="Canvas/HTP_Info"]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_right = 656.0
-offset_bottom = 636.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/outline_size = 20
-theme_override_constants/shadow_outline_size = 13
+position = Vector2(688, 883)
+rotation = 1.5708
+texture = ExtResource("32_2e12h")
+
+[node name="Exit_Label" type="Label" parent="Canvas/HTP_Info/Prev"]
+offset_left = -40.0
+offset_top = 165.0
+offset_right = 293.0
+offset_bottom = 243.0
+rotation = -1.5708
+theme_override_colors/font_color = Color(1, 0.301961, 0.235294, 1)
 theme_override_fonts/font = ExtResource("6_s8nca")
-theme_override_font_sizes/font_size = 96
-text = "Movement"
+theme_override_font_sizes/font_size = 59
+text = "<-"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
-[node name="Jumping" type="VBoxContainer" parent="Canvas/HTP_Info/Labels"]
+[node name="Area2D" type="Area2D" parent="Canvas/HTP_Info/Prev"]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/HTP_Info/Prev/Area2D"]
+position = Vector2(6.10352e-05, -6.10352e-05)
+shape = SubResource("RectangleShape2D_nn4o8")
+
+[node name="Credit_Info" type="Node2D" parent="Canvas"]
 visible = false
-offset_top = 208.0
-offset_right = 700.0
-offset_bottom = 540.0
+position = Vector2(960, 540)
+script = ExtResource("19_hmq5p")
 
-[node name="Jump" type="Label" parent="Canvas/HTP_Info/Labels/Jumping"]
+[node name="Labels" type="Node2D" parent="Canvas/Credit_Info"]
+position = Vector2(-332, -367)
+
+[node name="Team" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -159.0
+offset_top = 209.0
+offset_right = 831.0
+offset_bottom = 549.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Team"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -887,15 +1766,15 @@ theme_override_constants/outline_size = 20
 theme_override_constants/shadow_outline_size = 13
 theme_override_fonts/font = ExtResource("6_s8nca")
 theme_override_font_sizes/font_size = 96
-text = "Jumping"
+text = "Development Team"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Canvas/HTP_Info/Labels/Jumping"]
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Team"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Info1" type="Label" parent="Canvas/HTP_Info/Labels/Jumping"]
+[node name="Movement_Info" type="Label" parent="Canvas/Credit_Info/Labels/Team"]
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
@@ -906,33 +1785,474 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 7
 theme_override_fonts/font = ExtResource("6_s8nca")
-theme_override_font_sizes/font_size = 40
-text = "Hold for a longer jump
-
-Immediately release for a shorter jump"
+theme_override_font_sizes/font_size = 56
+text = "Michael Seavers
+Noah Sternberg
+Ahyoung Jeong"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Credit_Info" type="Node2D" parent="Canvas"]
+[node name="Music_1" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
 visible = false
-position = Vector2(960, 540)
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
 
-[node name="Dev Team" type="RichTextLabel" parent="Canvas/Credit_Info"]
-offset_left = -921.0
-offset_top = -481.0
-offset_right = -393.0
-offset_bottom = -218.0
-theme_override_colors/default_color = Color(0.972549, 0.976471, 0.639216, 1)
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Music_1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 17
-theme_override_fonts/normal_font = ExtResource("6_s8nca")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "Development Team:
-- [color=A2E0FF]Michael Seavers[/color]
-- [color=A2FFAF]Noah Sternberg[/color]
-- [color=D5A2FF]Ahyoung Jeong[/color]"
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Music 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Music_1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Music_1"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 52
+text = "Song: Evan King - End This
+Youtube: https://www.youtube.com/evankingaudio  
+Free download at: https://www.evankingmusic.com"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Music_2" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Music_2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Music 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Music_2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Music_2"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 52
+text = "Epic Journey · Yung Logos
+https://www.youtube.com/watch?v=8iq54HbHjmQ"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sounds_1" type="Node2D" parent="Canvas/Credit_Info/Labels"]
+visible = false
+position = Vector2(-515, 186)
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Sounds_1"]
+offset_right = 1686.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Sound 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Sounds_1"]
+custom_minimum_size = Vector2(0, 20)
+offset_top = 115.0
+offset_right = 1686.0
+offset_bottom = 135.0
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Sounds_1"]
+custom_minimum_size = Vector2(700, 0)
+offset_top = 139.0
+offset_right = 1686.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 30
+text = "Lava loop Sounds - Sound Effect from <a href=\"https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=28887\">Pixabay</a>
+
+Explosion - Sound Effect from <a href=\"https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=40472\">Pixabay</a>"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sounds_2" type="Node2D" parent="Canvas/Credit_Info/Labels"]
+position = Vector2(-506, 170)
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Sounds_2"]
+offset_right = 1688.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Sound 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Sounds_2"]
+custom_minimum_size = Vector2(0, 20)
+offset_top = 115.0
+offset_right = 1688.0
+offset_bottom = 135.0
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Sounds_2"]
+custom_minimum_size = Vector2(700, 0)
+offset_top = 139.0
+offset_right = 1688.0
+offset_bottom = 402.0
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 29
+text = "Lava Loop 2 - Sound Effect from <a href=\"https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=67307\">Pixabay</a>
+
+Coin Sound - Sound Effect by <a href=\"https://pixabay.com/users/liecio-3298866/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=190037\">LIECIO</a> from <a href=\"https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=190037\">Pixabay</a>
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sounds_3" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Sounds_3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Sound 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Sounds_3"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Sounds_3"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 28
+text = "Jump & Dash - Sound Effect from <a href=\"https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=5855\">Pixabay</a>
+
+Walk - https://www.youtube.com/watch?v=y3MVUQnIsoM
+
+3-2-1 sound effect - Sound Effect from <a href=\"https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=38598\">Pixabay</a>
+
+Select -https://pixabay.com/"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Player" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Player"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Player"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Player"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 52
+text = "Red hood pixel character
+https://legnops.itch.io/red-hood-character"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Platforms" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Platforms"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Platforms & Coins"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Platforms"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Platforms"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 52
+text = "Cave Tileset
+https://the-pixel-nook.itch.io/cave-tileset-free"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Lava" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Lava"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Lava"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Lava"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Lava"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 52
+text = "Created by Michael Seavers"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Fireball" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Fireball"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Fireball"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Fireball"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Fireball"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 52
+text = "httpsnyknck.itch.iofireball-animationdownload"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Next" type="Sprite2D" parent="Canvas/Credit_Info"]
+position = Vector2(272, 343)
+rotation = 1.5708
+texture = ExtResource("32_2e12h")
+
+[node name="Exit_Label" type="Label" parent="Canvas/Credit_Info/Next"]
+offset_left = -40.0
+offset_top = 165.0
+offset_right = 293.0
+offset_bottom = 243.0
+rotation = -1.5708
+theme_override_colors/font_color = Color(1, 0.301961, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 59
+text = "->"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Area2D" type="Area2D" parent="Canvas/Credit_Info/Next"]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/Credit_Info/Next/Area2D"]
+position = Vector2(6.10352e-05, -6.10352e-05)
+shape = SubResource("RectangleShape2D_nn4o8")
+
+[node name="Prev" type="Sprite2D" parent="Canvas/Credit_Info"]
+visible = false
+position = Vector2(-272, 343)
+rotation = 1.5708
+texture = ExtResource("32_2e12h")
+
+[node name="Exit_Label" type="Label" parent="Canvas/Credit_Info/Prev"]
+offset_left = -40.0
+offset_top = 165.0
+offset_right = 293.0
+offset_bottom = 243.0
+rotation = -1.5708
+theme_override_colors/font_color = Color(1, 0.301961, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 59
+text = "<-"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Area2D" type="Area2D" parent="Canvas/Credit_Info/Prev"]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/Credit_Info/Prev/Area2D"]
+position = Vector2(6.10352e-05, -6.10352e-05)
+shape = SubResource("RectangleShape2D_nn4o8")
 
 [node name="Title" type="Label" parent="Canvas"]
 anchors_preset = 5
@@ -1127,7 +2447,9 @@ autoplay = true
 bus = &"Music"
 
 [connection signal="clicked_next" from="." to="Canvas/HTP_Info" method="_on_new_menu_clicked_next"]
+[connection signal="clicked_next_credit" from="." to="Canvas/Credit_Info" method="_on_new_menu_clicked_next_credit"]
 [connection signal="clicked_prev" from="." to="Canvas/HTP_Info" method="_on_new_menu_clicked_prev"]
+[connection signal="clicked_prev_credits" from="." to="Canvas/Credit_Info" method="_on_new_menu_clicked_prev_credits"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Backgrounds/Lava/Fireball_Timer" to="Backgrounds/Lava" method="_on_fireball_timer_timeout"]
 [connection signal="value_changed" from="Canvas/Setting_info/Volume/Master/Master_slider" to="." method="_on_master_slider_value_changed"]
@@ -1135,11 +2457,14 @@ bus = &"Music"
 [connection signal="value_changed" from="Canvas/Setting_info/Volume/SFX/Sound_Slider" to="." method="_on_sound_slider_value_changed"]
 [connection signal="pressed" from="Canvas/Setting_info/Units/Meter_Using" to="Canvas/Setting_info/Units" method="_on_meter_using_pressed"]
 [connection signal="pressed" from="Canvas/Setting_info/Units/Feet_Using" to="Canvas/Setting_info/Units" method="_on_feet_using_pressed"]
-[connection signal="frame_changed" from="Canvas/HTP_Info/vidoe_player_gif" to="Canvas/HTP_Info" method="_on_vidoe_player_gif_frame_changed"]
-[connection signal="mouse_entered" from="Canvas/HTP_Info/Prev/Area2D" to="." method="_on_mouse_entered_Prev"]
-[connection signal="mouse_exited" from="Canvas/HTP_Info/Prev/Area2D" to="." method="_on_mouse_exit_Prev"]
 [connection signal="mouse_entered" from="Canvas/HTP_Info/Next/Area2D" to="." method="_on_mouse_enter_Next"]
 [connection signal="mouse_exited" from="Canvas/HTP_Info/Next/Area2D" to="." method="_on_mouse_exit_Next"]
+[connection signal="mouse_entered" from="Canvas/HTP_Info/Prev/Area2D" to="." method="_on_mouse_entered_Prev"]
+[connection signal="mouse_exited" from="Canvas/HTP_Info/Prev/Area2D" to="." method="_on_mouse_exit_Prev"]
+[connection signal="mouse_entered" from="Canvas/Credit_Info/Next/Area2D" to="." method="_on_mouse_entered_Next_Credits"]
+[connection signal="mouse_exited" from="Canvas/Credit_Info/Next/Area2D" to="." method="_on_mouse_exit_Next_Credits"]
+[connection signal="mouse_entered" from="Canvas/Credit_Info/Prev/Area2D" to="." method="_on_mouse_entered_Prev_Credits"]
+[connection signal="mouse_exited" from="Canvas/Credit_Info/Prev/Area2D" to="." method="_on_mouse_exit_Prev_Credits"]
 [connection signal="mouse_entered" from="Canvas/Credits/Area2D" to="." method="_on_mouse_entered_Credits"]
 [connection signal="mouse_exited" from="Canvas/Credits/Area2D" to="." method="_on_mouse_exit_Credits"]
 [connection signal="mouse_entered" from="Canvas/How_To_Play/Area2D" to="." method="_on_mouse_entered_HTP"]

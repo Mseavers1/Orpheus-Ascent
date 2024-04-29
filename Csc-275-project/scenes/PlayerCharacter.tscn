@@ -1,12 +1,17 @@
-[gd_scene load_steps=117 format=3 uid="uid://bgn04w7ih44h"]
+[gd_scene load_steps=123 format=3 uid="uid://bgn04w7ih44h"]
 
 [ext_resource type="Script" path="res://scripts/PlayerCharacter.gd" id="1_vwyqc"]
 [ext_resource type="Texture2D" uid="uid://pmcu3yopiprv" path="res://images/UI/Pixel UI pack 3/star.png" id="2_07ve3"]
+[ext_resource type="Texture2D" uid="uid://bdiaq7gw1gko2" path="res://images/UI/Pixel UI pack 3/star1.png" id="2_imr5u"]
 [ext_resource type="Texture2D" uid="uid://35ox1hq5du76" path="res://images/UI/Pixel UI pack 3/up.png" id="3_mcu7y"]
+[ext_resource type="Texture2D" uid="uid://u7ew5slefqb5" path="res://images/UI/Pixel UI pack 3/star2.png" id="3_qcg8t"]
 [ext_resource type="Texture2D" uid="uid://bfdvucq5k8b2s" path="res://animations/PlayerTemp/itch hurt 2 sheet-Sheet.png" id="4_l1j0n"]
 [ext_resource type="Texture2D" uid="uid://c4akd34e7x5uj" path="res://images/player_temp/fall/1.png" id="4_m20qy"]
+[ext_resource type="Texture2D" uid="uid://dpkyilekteu3c" path="res://images/UI/Pixel UI pack 3/star3.png" id="4_un8jn"]
 [ext_resource type="Texture2D" uid="uid://dkaorsoypad3g" path="res://animations/Explosion_96x96.png" id="5_a6wxy"]
 [ext_resource type="Texture2D" uid="uid://byyita217adqc" path="res://images/player_temp/fall/2.png" id="5_c2oi8"]
+[ext_resource type="Texture2D" uid="uid://da5yeiv0mkfc6" path="res://images/UI/Pixel UI pack 3/star4.png" id="5_xsqdf"]
+[ext_resource type="Texture2D" uid="uid://d7i1nndrt8pm" path="res://images/UI/Pixel UI pack 3/star5.png" id="6_812kr"]
 [ext_resource type="Texture2D" uid="uid://mk5365ewwn7k" path="res://images/player_temp/fall/3.png" id="6_dbqk4"]
 [ext_resource type="Texture2D" uid="uid://dxclw25tnxsy8" path="res://images/player_temp/fall/4.png" id="7_ffhmt"]
 [ext_resource type="Texture2D" uid="uid://2sbmxax0ifg8" path="res://images/player_temp/idle/1.png" id="8_sy4rk"]
@@ -66,6 +71,29 @@
 [ext_resource type="AudioStream" uid="uid://bj1mkiw7ua8u" path="res://sounds/player/Walk.mp3" id="61_bvgve"]
 [ext_resource type="AudioStream" uid="uid://bf5sp151esfg1" path="res://sounds/player/jump.wav" id="62_xk3ab"]
 [ext_resource type="AudioStream" uid="uid://c43lvxolvjk3a" path="res://sounds/player/death1.mp3" id="64_baget"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ilcd4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_imr5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qcg8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_un8jn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xsqdf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_812kr")
+}],
+"loop": false,
+"name": &"Recharge",
+"speed": 3.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_irv48"]
 atlas = ExtResource("4_l1j0n")
@@ -608,16 +636,26 @@ scale = Vector2(3, 3)
 collision_mask = 12
 script = ExtResource("1_vwyqc")
 
+[node name="Star_Meter" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(-0.333333, -19)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_ilcd4")
+animation = &"Recharge"
+frame = 4
+frame_progress = 1.0
+
 [node name="Abilities Icons" type="VBoxContainer" parent="."]
 z_index = 1
-offset_left = -16.6667
-offset_top = -43.3333
-offset_right = 35.3333
-offset_bottom = 6.66664
+offset_left = -15.5
+offset_top = -54.667
+offset_right = 36.5
+offset_bottom = -4.66706
 scale = Vector2(0.6, 0.6)
 alignment = 2
 
 [node name="Star" type="TextureRect" parent="Abilities Icons"]
+visible = false
 layout_mode = 2
 texture = ExtResource("2_07ve3")
 stretch_mode = 3
