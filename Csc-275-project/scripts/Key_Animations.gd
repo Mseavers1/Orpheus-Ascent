@@ -232,6 +232,8 @@ func animate():
 
 func _on_new_menu_clicked_next():
 	
+	$"../../Select_Sound".play()
+	
 	if current_page <= 0:
 		$Prev.show()
 	
@@ -243,6 +245,8 @@ func _on_new_menu_clicked_next():
 
 
 func _on_new_menu_clicked_prev():
+	
+	$"../../Select_Sound".play()
 	
 	if current_page >= max_pages:
 		$Next.show()

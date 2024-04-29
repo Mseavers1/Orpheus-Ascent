@@ -10,9 +10,14 @@ var is_over_back = false
 var is_over_setting = false
 var is_over_prev = false
 var is_over_next = false
+var is_over_prev_creds = false
+var is_over_next_creds = false
 
 signal clicked_next
 signal clicked_prev
+
+signal clicked_next_credit
+signal clicked_prev_credits
 
 func _ready():
 	Globals.load_new_scened()
@@ -32,6 +37,14 @@ func _process(delta):
 		# Prev button is pressed
 		if is_over_prev:
 			clicked_prev.emit()
+			
+		# Next button is pressed
+		if is_over_next_creds:
+			clicked_next_credit.emit()
+			
+		# Prev button is pressed
+		if is_over_prev_creds:
+			clicked_prev_credits.emit()
 		
 		# Setting button is pressed
 		if is_over_setting:
@@ -198,3 +211,23 @@ func _on_mouse_entered_Prev():
 func _on_mouse_exit_Prev():
 	is_over_prev = false
 	$Canvas/HTP_Info/Prev.scale = Vector2(1, 1)
+
+
+func _on_mouse_entered_Next_Credits():
+	is_over_next_creds = true
+	$Canvas/Credit_Info/Next.scale = Vector2(hovering_scale, hovering_scale)
+
+
+func _on_mouse_exit_Next_Credits():
+	is_over_next_creds = false
+	$Canvas/Credit_Info/Next.scale = Vector2(1, 1)
+
+
+func _on_mouse_entered_Prev_Credits():
+	is_over_prev_creds = true
+	$Canvas/Credit_Info/Prev.scale = Vector2(hovering_scale, hovering_scale)
+
+
+func _on_mouse_exit_Prev_Credits():
+	is_over_prev_creds = false
+	$Canvas/Credit_Info/Prev.scale = Vector2(1, 1)

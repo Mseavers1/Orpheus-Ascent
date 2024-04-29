@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://bsahf1xgtokhx"]
+[gd_scene load_steps=68 format=3 uid="uid://bsahf1xgtokhx"]
 
 [ext_resource type="Script" path="res://scripts/new_menu_logic.gd" id="1_avby3"]
 [ext_resource type="Texture2D" uid="uid://bkgalev4qp432" path="res://images/background/Background2.png" id="2_5x6j7"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dpkyilekteu3c" path="res://images/UI/Pixel UI pack 3/star3.png" id="15_cmsna"]
 [ext_resource type="Texture2D" uid="uid://da5yeiv0mkfc6" path="res://images/UI/Pixel UI pack 3/star4.png" id="16_k66od"]
 [ext_resource type="Texture2D" uid="uid://d7i1nndrt8pm" path="res://images/UI/Pixel UI pack 3/star5.png" id="17_07n1r"]
+[ext_resource type="Script" path="res://scenes/Credit_Info.gd" id="19_hmq5p"]
 [ext_resource type="Texture2D" uid="uid://by06gh6ftcbql" path="res://images/random_spritesheets/Keyboard Letters and Symbols.png" id="27_eotam"]
 [ext_resource type="Texture2D" uid="uid://bcycl750ybv3v" path="res://images/platforms/Platform128x128.png" id="32_2e12h"]
 [ext_resource type="Texture2D" uid="uid://cbgkkhiwwfkwc" path="res://images/random_spritesheets/Keyboard Extras.png" id="46_lacee"]
@@ -842,6 +843,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_vpalw")
 text = "Feet"
 
 [node name="HTP_Info" type="Node2D" parent="Canvas"]
+visible = false
 script = ExtResource("8_gkop4")
 
 [node name="Other_Keys" type="Node2D" parent="Canvas/HTP_Info"]
@@ -1741,22 +1743,516 @@ shape = SubResource("RectangleShape2D_nn4o8")
 [node name="Credit_Info" type="Node2D" parent="Canvas"]
 visible = false
 position = Vector2(960, 540)
+script = ExtResource("19_hmq5p")
 
-[node name="Dev Team" type="RichTextLabel" parent="Canvas/Credit_Info"]
-offset_left = -921.0
-offset_top = -481.0
-offset_right = -393.0
-offset_bottom = -218.0
-theme_override_colors/default_color = Color(0.972549, 0.976471, 0.639216, 1)
+[node name="Labels" type="Node2D" parent="Canvas/Credit_Info"]
+position = Vector2(-332, -367)
+
+[node name="Team" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -159.0
+offset_top = 209.0
+offset_right = 831.0
+offset_bottom = 549.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Team"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 17
-theme_override_fonts/normal_font = ExtResource("6_s8nca")
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "Development Team:
-- [color=A2E0FF]Michael Seavers[/color]
-- [color=A2FFAF]Noah Sternberg[/color]
-- [color=D5A2FF]Ahyoung Jeong[/color]"
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Development Team"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Team"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Movement_Info" type="Label" parent="Canvas/Credit_Info/Labels/Team"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 56
+text = "Michael Seavers
+Noah Sternberg
+Ahyoung Jeong"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Music_1" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Music_1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Music 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Music_1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Music_1"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 52
+text = "Song: Evan King - End This
+Youtube: https://www.youtube.com/evankingaudio  
+Free download at: https://www.evankingmusic.com"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Music_2" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Music_2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Music 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Music_2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Music_2"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 52
+text = "Epic Journey · Yung Logos
+https://www.youtube.com/watch?v=8iq54HbHjmQ"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sounds_1" type="Node2D" parent="Canvas/Credit_Info/Labels"]
+visible = false
+position = Vector2(-515, 186)
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Sounds_1"]
+offset_right = 1686.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Sound 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Sounds_1"]
+custom_minimum_size = Vector2(0, 20)
+offset_top = 115.0
+offset_right = 1686.0
+offset_bottom = 135.0
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Sounds_1"]
+custom_minimum_size = Vector2(700, 0)
+offset_top = 139.0
+offset_right = 1686.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 30
+text = "Lava loop Sounds - Sound Effect from <a href=\"https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=28887\">Pixabay</a>
+
+Explosion - Sound Effect from <a href=\"https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=40472\">Pixabay</a>"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sounds_2" type="Node2D" parent="Canvas/Credit_Info/Labels"]
+position = Vector2(-506, 170)
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Sounds_2"]
+offset_right = 1688.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Sound 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Sounds_2"]
+custom_minimum_size = Vector2(0, 20)
+offset_top = 115.0
+offset_right = 1688.0
+offset_bottom = 135.0
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Sounds_2"]
+custom_minimum_size = Vector2(700, 0)
+offset_top = 139.0
+offset_right = 1688.0
+offset_bottom = 402.0
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 29
+text = "Lava Loop 2 - Sound Effect from <a href=\"https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=67307\">Pixabay</a>
+
+Coin Sound - Sound Effect by <a href=\"https://pixabay.com/users/liecio-3298866/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=190037\">LIECIO</a> from <a href=\"https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=190037\">Pixabay</a>
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sounds_3" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Sounds_3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Sound 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Sounds_3"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Sounds_3"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 28
+text = "Jump & Dash - Sound Effect from <a href=\"https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=5855\">Pixabay</a>
+
+Walk - https://www.youtube.com/watch?v=y3MVUQnIsoM
+
+3-2-1 sound effect - Sound Effect from <a href=\"https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=38598\">Pixabay</a>
+
+Select -https://pixabay.com/"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Player" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Player"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Player"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Player"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 52
+text = "Red hood pixel character
+https://legnops.itch.io/red-hood-character"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Platforms" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Platforms"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Platforms & Coins"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Platforms"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Platforms"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 52
+text = "Cave Tileset
+https://the-pixel-nook.itch.io/cave-tileset-free"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Lava" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Lava"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Lava"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Lava"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Lava"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 52
+text = "Created by Michael Seavers"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Fireball" type="VBoxContainer" parent="Canvas/Credit_Info/Labels"]
+visible = false
+offset_left = -628.0
+offset_top = 160.0
+offset_right = 1292.0
+offset_bottom = 680.0
+
+[node name="Label" type="Label" parent="Canvas/Credit_Info/Labels/Fireball"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.52549, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 96
+text = "Fireball"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Canvas/Credit_Info/Labels/Fireball"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="info" type="Label" parent="Canvas/Credit_Info/Labels/Fireball"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.886275, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 52
+text = "httpsnyknck.itch.iofireball-animationdownload"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Next" type="Sprite2D" parent="Canvas/Credit_Info"]
+position = Vector2(272, 343)
+rotation = 1.5708
+texture = ExtResource("32_2e12h")
+
+[node name="Exit_Label" type="Label" parent="Canvas/Credit_Info/Next"]
+offset_left = -40.0
+offset_top = 165.0
+offset_right = 293.0
+offset_bottom = 243.0
+rotation = -1.5708
+theme_override_colors/font_color = Color(1, 0.301961, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 59
+text = "->"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Area2D" type="Area2D" parent="Canvas/Credit_Info/Next"]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/Credit_Info/Next/Area2D"]
+position = Vector2(6.10352e-05, -6.10352e-05)
+shape = SubResource("RectangleShape2D_nn4o8")
+
+[node name="Prev" type="Sprite2D" parent="Canvas/Credit_Info"]
+visible = false
+position = Vector2(-272, 343)
+rotation = 1.5708
+texture = ExtResource("32_2e12h")
+
+[node name="Exit_Label" type="Label" parent="Canvas/Credit_Info/Prev"]
+offset_left = -40.0
+offset_top = 165.0
+offset_right = 293.0
+offset_bottom = 243.0
+rotation = -1.5708
+theme_override_colors/font_color = Color(1, 0.301961, 0.235294, 1)
+theme_override_fonts/font = ExtResource("6_s8nca")
+theme_override_font_sizes/font_size = 59
+text = "<-"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Area2D" type="Area2D" parent="Canvas/Credit_Info/Prev"]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/Credit_Info/Prev/Area2D"]
+position = Vector2(6.10352e-05, -6.10352e-05)
+shape = SubResource("RectangleShape2D_nn4o8")
 
 [node name="Title" type="Label" parent="Canvas"]
 anchors_preset = 5
@@ -1782,7 +2278,6 @@ Ascent
 horizontal_alignment = 1
 
 [node name="Credits" type="Sprite2D" parent="Canvas"]
-visible = false
 position = Vector2(1508, 756)
 rotation = 1.5708
 texture = ExtResource("7_82vis")
@@ -1811,7 +2306,6 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_5qncu")
 
 [node name="How_To_Play" type="Sprite2D" parent="Canvas"]
-visible = false
 position = Vector2(412, 756)
 texture = ExtResource("8_vubau")
 
@@ -1837,7 +2331,6 @@ collision_mask = 16
 shape = SubResource("RectangleShape2D_wxios")
 
 [node name="Exit_Button" type="Sprite2D" parent="Canvas"]
-visible = false
 position = Vector2(1250, 462)
 rotation = 1.5708
 texture = ExtResource("9_st2rb")
@@ -1864,6 +2357,7 @@ collision_mask = 16
 shape = SubResource("RectangleShape2D_rmi3s")
 
 [node name="Back_Button" type="Sprite2D" parent="Canvas"]
+visible = false
 position = Vector2(960, 882)
 rotation = 1.5708
 texture = ExtResource("9_st2rb")
@@ -1890,7 +2384,6 @@ collision_mask = 16
 shape = SubResource("RectangleShape2D_rmi3s")
 
 [node name="Start_Button" type="Sprite2D" parent="Canvas"]
-visible = false
 position = Vector2(674, 462)
 rotation = 1.5708
 texture = ExtResource("9_st2rb")
@@ -1917,7 +2410,6 @@ collision_mask = 16
 shape = SubResource("RectangleShape2D_rhifh")
 
 [node name="Settings_Button" type="Sprite2D" parent="Canvas"]
-visible = false
 position = Vector2(960, 756)
 rotation = 1.5708
 texture = ExtResource("10_e6wbb")
@@ -1955,7 +2447,9 @@ autoplay = true
 bus = &"Music"
 
 [connection signal="clicked_next" from="." to="Canvas/HTP_Info" method="_on_new_menu_clicked_next"]
+[connection signal="clicked_next_credit" from="." to="Canvas/Credit_Info" method="_on_new_menu_clicked_next_credit"]
 [connection signal="clicked_prev" from="." to="Canvas/HTP_Info" method="_on_new_menu_clicked_prev"]
+[connection signal="clicked_prev_credits" from="." to="Canvas/Credit_Info" method="_on_new_menu_clicked_prev_credits"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Backgrounds/Lava/Fireball_Timer" to="Backgrounds/Lava" method="_on_fireball_timer_timeout"]
 [connection signal="value_changed" from="Canvas/Setting_info/Volume/Master/Master_slider" to="." method="_on_master_slider_value_changed"]
@@ -1967,6 +2461,10 @@ bus = &"Music"
 [connection signal="mouse_exited" from="Canvas/HTP_Info/Next/Area2D" to="." method="_on_mouse_exit_Next"]
 [connection signal="mouse_entered" from="Canvas/HTP_Info/Prev/Area2D" to="." method="_on_mouse_entered_Prev"]
 [connection signal="mouse_exited" from="Canvas/HTP_Info/Prev/Area2D" to="." method="_on_mouse_exit_Prev"]
+[connection signal="mouse_entered" from="Canvas/Credit_Info/Next/Area2D" to="." method="_on_mouse_entered_Next_Credits"]
+[connection signal="mouse_exited" from="Canvas/Credit_Info/Next/Area2D" to="." method="_on_mouse_exit_Next_Credits"]
+[connection signal="mouse_entered" from="Canvas/Credit_Info/Prev/Area2D" to="." method="_on_mouse_entered_Prev_Credits"]
+[connection signal="mouse_exited" from="Canvas/Credit_Info/Prev/Area2D" to="." method="_on_mouse_exit_Prev_Credits"]
 [connection signal="mouse_entered" from="Canvas/Credits/Area2D" to="." method="_on_mouse_entered_Credits"]
 [connection signal="mouse_exited" from="Canvas/Credits/Area2D" to="." method="_on_mouse_exit_Credits"]
 [connection signal="mouse_entered" from="Canvas/How_To_Play/Area2D" to="." method="_on_mouse_entered_HTP"]
